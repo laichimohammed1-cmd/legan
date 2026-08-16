@@ -1095,6 +1095,10 @@
                 font-size: 19px;
             }
         }
+    
+/* ===== إضافات النسخة المطورة مع الحفاظ على المشروع الأصلي ===== */
+.extra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}.extra-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 4px 12px #00000008}.extra-stat{text-align:center;background:var(--primary-soft);border-radius:12px;padding:12px}.extra-stat b{display:block;font-size:25px;color:var(--primary)}.extra-progress{height:13px;background:#e9ecef;border-radius:20px;overflow:hidden}.extra-progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:.3s}.extra-result{padding:11px;border-bottom:1px solid var(--border);cursor:pointer}.extra-badge{display:inline-block;padding:7px 10px;border-radius:20px;background:var(--primary-soft);color:var(--primary);font-weight:700;margin:3px;font-size:12px}.extra-counter{text-align:center}.extra-counter-display{width:115px;height:115px;border-radius:50%;margin:12px auto;display:grid;place-items:center;border:4px solid var(--accent);font-size:30px;font-weight:800;color:var(--primary);background:#fffdf5}.extra-counter-btn{width:115px;height:115px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;font-weight:800;font-size:15px}.extra-qibla{width:220px;height:220px;border-radius:50%;border:8px solid var(--primary-soft);margin:15px auto;position:relative;display:grid;place-items:center;background:radial-gradient(circle,#fff,#eef7f1)}.extra-needle{position:absolute;width:5px;height:88px;background:var(--danger);bottom:50%;left:calc(50% - 2.5px);transform-origin:bottom;border-radius:5px}.extra-qibla-n{position:absolute;top:5px;font-weight:800;color:var(--primary)}.extra-input{width:100%;padding:11px;border:1.5px solid var(--border);border-radius:10px;background:var(--card-bg);color:var(--text-main);font-family:inherit}.extra-btn{width:100%;padding:11px;border:0;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-weight:800;margin-top:7px}.extra-row{display:flex;gap:8px}.extra-row>*{flex:1}.extra-notice{background:#fff8e1;border:1px solid #ffe082;color:#6d5715;padding:11px;border-radius:10px;font-size:12px;line-height:1.8;margin-bottom:12px}.dark .extra-card{background:#1d2924}.dark .extra-input{background:#141d19;color:#edf5ef}.dark .extra-qibla{background:#202b26}.dark .extra-progress{background:#33423b}@media(max-width:600px){.extra-grid{grid-template-columns:repeat(2,1fr)}.extra-row{flex-direction:column}}
+
     </style>
 </head>
 
@@ -1223,6 +1227,12 @@
             <span>الاختبار</span>
 
         </button>
+
+
+        <button class="tab-btn" onclick="showTab('homePlus', this)"><i class="fa-solid fa-house"></i><span>الرئيسية</span></button>
+        <button class="tab-btn" onclick="showTab('qiblaPlus', this)"><i class="fa-solid fa-compass"></i><span>القبلة</span></button>
+        <button class="tab-btn" onclick="showTab('progressPlus', this)"><i class="fa-solid fa-chart-line"></i><span>متابعتي</span></button>
+        <button class="tab-btn" onclick="showTab('searchPlus', this)"><i class="fa-solid fa-magnifying-glass"></i><span>بحث</span></button>
 
     </div>
 
@@ -2187,6 +2197,42 @@
 
 </div>
 
+
+
+    <!-- =========================
+         إضافات بدون حذف المعلومات الأصلية
+    ========================== -->
+    <section id="homePlus" class="section">
+        <h2><i class="fa-solid fa-house"></i> الرئيسية المطورة</h2>
+        <div class="extra-card"><b>آخر قراءة</b><p id="plusLastRead">لم يتم حفظ موضع قراءة بعد.</p><button class="extra-btn" onclick="plusContinueReading()">متابعة القراءة</button></div>
+        <div class="extra-grid">
+          <div class="extra-stat"><b id="plusDays">0</b>أيام نشاط</div><div class="extra-stat"><b id="plusDhikr">0</b>أذكار</div>
+          <div class="extra-stat"><b id="plusPages">0%</b>الختمة</div><div class="extra-stat"><b id="plusScore">0</b>نقاط</div>
+        </div>
+        <div class="extra-card"><h3>اختصارات</h3><div class="extra-row"><button class="extra-btn" onclick="showTab('adhkar')">الأذكار</button><button class="extra-btn" onclick="showTab('qiblaPlus')">القبلة</button></div><div class="extra-row"><button class="extra-btn" onclick="showTab('prayer')">المواقيت</button><button class="extra-btn" onclick="showTab('progressPlus')">إنجازاتي</button></div></div>
+    </section>
+
+    <section id="qiblaPlus" class="section">
+      <h2><i class="fa-solid fa-compass"></i> اتجاه القبلة</h2>
+      <div class="extra-notice">اسمح للموقع الجغرافي للمتصفح للحصول على الاتجاه الأدق. الحساب يعتمد على الإحداثيات الحالية والكعبة المشرفة.</div>
+      <div class="extra-qibla"><span class="extra-qibla-n">N</span><div class="extra-needle" id="plusNeedle"></div><i class="fa-solid fa-kaaba" style="font-size:35px;color:var(--accent)"></i></div>
+      <div class="extra-card" style="text-align:center"><b>اتجاه القبلة:</b> <span id="plusQiblaDegree">--°</span><br><small id="plusQiblaInfo">في انتظار الموقع...</small></div>
+      <button class="extra-btn" onclick="plusGetQibla()">تحديد القبلة</button>
+    </section>
+
+    <section id="progressPlus" class="section">
+      <h2><i class="fa-solid fa-chart-line"></i> المتابعة والإنجازات</h2>
+      <div class="extra-card"><h3>ختم القرآن</h3><div class="extra-row"><input class="extra-input" id="plusPagesInput" type="number" min="0" max="604" placeholder="عدد الصفحات المقروءة من 604"><button class="extra-btn" onclick="plusSavePages()">حفظ</button></div><div class="extra-progress" style="margin-top:12px"><div id="plusProgressBar"></div></div><p id="plusProgressText">0 من 604 صفحة</p></div>
+      <div class="extra-grid"><div class="extra-stat"><b id="plusStatDays">0</b>أيام نشاط</div><div class="extra-stat"><b id="plusStatDhikr">0</b>أذكار</div><div class="extra-stat"><b id="plusStatFav">0</b>مفضلة</div><div class="extra-stat"><b id="plusStatScore">0</b>نقاط</div></div>
+      <div class="extra-card"><h3>الإنجازات</h3><div id="plusBadges"></div></div>
+      <div class="extra-card"><h3>المفضلة</h3><div id="plusFavorites"></div></div>
+    </section>
+
+    <section id="searchPlus" class="section">
+      <h2><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</h2>
+      <div class="extra-card"><input class="extra-input" id="plusSearchInput" placeholder="ابحث عن سورة أو ذكر أو قسم..." oninput="plusSearch()"><div id="plusSearchResults" style="margin-top:10px"></div></div>
+      <div class="extra-card"><h3>أقسام المشروع الأصلية</h3><p>القرآن • الأذكار • الوضوء • سجود السهو • المساعد • التسميع • الاختبار • مواقيت الصلاة.</p><button class="extra-btn" onclick="showTab('account')">العودة إلى الحساب</button></div>
+    </section>
 
 <script>
 
@@ -3500,6 +3546,36 @@
 
             }
         );
+
+
+    /* ===== وظائف الإضافات: لا تستبدل وظائف المشروع الأصلية ===== */
+    const PLUS_SURAHS = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+    function plusFavs(){return JSON.parse(localStorage.getItem('plusFavorites')||'[]')}
+    function plusTouch(){localStorage.setItem('plusActivityDate',new Date().toDateString());plusUpdate()}
+    function plusDays(){return localStorage.getItem('plusActivityDate')?1:0}
+    function plusUpdate(){
+      const dh=+(localStorage.getItem('dhikrCounter')||0), sc=+(localStorage.getItem('quizScore')||0), pg=+(localStorage.getItem('plusPages')||0), fav=plusFavs().length, pct=Math.round(pg/604*100);
+      ['plusDhikr','plusStatDhikr'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=dh});
+      ['plusScore','plusStatScore'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=sc});
+      ['plusDays','plusStatDays'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=plusDays()});
+      if(document.getElementById('plusPages'))document.getElementById('plusPages').textContent=pct+'%';
+      if(document.getElementById('plusStatFav'))document.getElementById('plusStatFav').textContent=fav;
+      if(document.getElementById('plusProgressBar'))document.getElementById('plusProgressBar').style.width=pct+'%';
+      if(document.getElementById('plusProgressText'))document.getElementById('plusProgressText').textContent=pg+' من 604 صفحة';
+      let lr=+(localStorage.getItem('plusLastRead')||0);if(document.getElementById('plusLastRead'))document.getElementById('plusLastRead').textContent=lr?'سورة '+PLUS_SURAHS[lr-1]+' — محفوظة للمتابعة.':'لم يتم حفظ موضع قراءة بعد.';
+      let b=[];if(dh>=100)b.push('📿 100 ذكر');if(fav>=3)b.push('⭐ 3 مفضلات');if(sc>=30)b.push('🏆 30 نقطة');if(pg>=604)b.push('📖 ختمة كاملة');if(plusDays())b.push('🔥 يوم نشاط');document.getElementById('plusBadges').innerHTML=b.length?b.map(x=>`<span class="extra-badge">${x}</span>`).join(''):'<span class="extra-badge">ابدأ أول إنجاز لك 🌟</span>';
+      document.getElementById('plusFavorites').innerHTML=fav?plusFavs().map(n=>`<div class="extra-result" onclick="plusOpenFav(${n})">⭐ سورة ${PLUS_SURAHS[n-1]}</div>`).join(''):'<div style="padding:15px;text-align:center;color:var(--text-muted)">لا توجد مفضلات بعد.</div>';
+    }
+    function plusSavePages(){let n=Math.max(0,Math.min(604,+(document.getElementById('plusPagesInput').value||0)));localStorage.setItem('plusPages',n);plusTouch()}
+    function plusContinueReading(){let n=+(localStorage.getItem('plusLastRead')||1);let sel=document.getElementById('surahSelect');if(sel){sel.value=n;if(typeof loadSurahData==='function')loadSurahData()}showTab('read')}
+    function plusOpenFav(n){let sel=document.getElementById('surahSelect');if(sel){sel.value=n;if(typeof loadSurahData==='function')loadSurahData()}showTab('read')}
+    function plusSearch(){let q=document.getElementById('plusSearchInput').value.trim().toLowerCase(),out=document.getElementById('plusSearchResults');if(!q){out.innerHTML='';return}let r=[];PLUS_SURAHS.forEach((x,i)=>{if(x.includes(q))r.push(`<div class="extra-result" onclick="plusOpenFav(${i+1})">📖 سورة ${x}</div>`)});[['الوضوء','wudu'],['سجود السهو','repair'],['المساعد','ai'],['التسميع','recite'],['الاختبار','quiz'],['الأذكار','adhkar'],['المواقيت','prayer']].forEach(x=>{if(x[0].includes(q))r.push(`<div class="extra-result" onclick="showTab('${x[1]}')">📌 ${x[0]}</div>`)});out.innerHTML=r.length?r.join(''):'لا توجد نتائج.'}
+    function plusGetQibla(){if(!navigator.geolocation){document.getElementById('plusQiblaInfo').textContent='المتصفح لا يدعم الموقع.';return}navigator.geolocation.getCurrentPosition(pos=>{let lat=pos.coords.latitude,lon=pos.coords.longitude,rad=Math.PI/180,kaLat=21.422487,kaLon=39.826206,d=(kaLon-lon)*rad,p1=lat*rad,p2=kaLat*rad,y=Math.sin(d)*Math.cos(p2),x=Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(d),deg=(Math.atan2(y,x)/rad+360)%360;document.getElementById('plusQiblaDegree').textContent=Math.round(deg)+'°';document.getElementById('plusQiblaInfo').textContent='إحداثياتك: '+lat.toFixed(3)+', '+lon.toFixed(3);document.getElementById('plusNeedle').style.transform='rotate('+deg+'deg)'},()=>document.getElementById('plusQiblaInfo').textContent='تعذر الوصول إلى الموقع. اسمح به من إعدادات المتصفح.',{enableHighAccuracy:true,timeout:10000,maximumAge:600000})}
+    setInterval(plusUpdate,1000);window.addEventListener('load',()=>{plusUpdate();});
+
+    document.addEventListener('click', function(e){
+      if(e.target.closest('#adhkar .btn') || e.target.closest('#quiz .btn') || e.target.closest('#read .btn')) plusTouch();
+    });
 
 </script>
 
