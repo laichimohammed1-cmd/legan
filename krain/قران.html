@@ -1111,6 +1111,257 @@
 </style>
 
 </style>
+<style>
+.adhkar-card{background:var(--card,#fff);border:1px solid var(--border,#ddd);border-radius:16px;padding:18px;margin:12px 0}
+.adhkar-text{font-size:18px;line-height:2.1;margin:8px 0 14px}
+.adhkar-count{display:inline-flex;min-width:42px;height:42px;align-items:center;justify-content:center;border-radius:50%;background:var(--primary,#198754);color:#fff;font-weight:800;margin-left:8px}
+.adhkar-action{width:100%;padding:12px;border:0;border-radius:10px;cursor:pointer;font-weight:700}
+.adhkar-card.done{opacity:.72}
+</style>
+
+<style>
+.adhkar-category-card{
+    background:var(--card,#fff);
+    border:1px solid var(--border,#ddd);
+    border-radius:18px;
+    padding:18px;
+    cursor:pointer;
+    transition:.2s;
+}
+.adhkar-category-card:hover{transform:translateY(-2px)}
+.adhkar-category-icon{font-size:34px;margin-bottom:8px}
+.adhkar-category-count{font-size:13px;opacity:.75}
+.adhkar-progress-bar{
+    height:8px;background:#e8e8e8;border-radius:20px;overflow:hidden;margin-top:10px
+}
+.adhkar-progress-fill{
+    height:100%;width:0;background:#12a150;border-radius:20px;transition:.25s
+}
+.adhkar-item{
+    background:var(--card,#fff);border:1px solid var(--border,#ddd);
+    border-radius:16px;padding:18px;margin:12px 0
+}
+.adhkar-item.done{border-right:5px solid #12a150;opacity:.78}
+.adhkar-item-text{font-size:20px;line-height:2.2;margin:12px 0}
+.adhkar-source{font-size:13px;opacity:.7}
+.adhkar-read-btn{
+    width:100%;padding:13px;border:0;border-radius:12px;
+    cursor:pointer;font-weight:700
+}
+.adhkar-read-btn.done{background:#e6f7ed}
+</style>
+
+
+<style>
+.story-card{
+    background:var(--card,#fff);
+    border:1px solid var(--border,#ddd);
+    border-radius:18px;
+    padding:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+.story-card:hover{transform:translateY(-2px)}
+.story-card-icon{font-size:38px;margin-bottom:8px}
+.story-card p{line-height:1.8;opacity:.8}
+.story-reader-head{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    margin:16px 0;
+}
+.story-reader-head h2{margin:0}
+.story-text{
+    background:var(--card,#fff);
+    border:1px solid var(--border,#ddd);
+    border-radius:16px;
+    padding:22px;
+    font-size:19px;
+    line-height:2.2;
+    white-space:pre-line;
+    text-align:right;
+}
+.story-actions{
+    display:flex;justify-content:space-between;gap:12px;margin-top:16px;
+}
+.story-actions .btn{min-width:120px}
+</style>
+
+
+<style>
+.tajweed-detail{
+    font-size:18px;
+    line-height:2.15;
+    margin-top:15px;
+}
+.tajweed-detail h4{
+    margin:18px 0 8px;
+    font-size:20px;
+}
+.tajweed-detail .tajweed-example{
+    background:rgba(18,161,80,.08);
+    border-right:4px solid #12a150;
+    padding:12px 15px;
+    border-radius:10px;
+    margin:12px 0;
+}
+.tajweed-lesson-card{
+    background:var(--card,#fff);
+    border:1px solid var(--border,#ddd);
+    border-radius:18px;
+    padding:18px;
+    cursor:pointer;
+    transition:.2s;
+}
+.tajweed-lesson-card:hover{transform:translateY(-2px)}
+.tajweed-number{
+    display:inline-flex;
+    width:38px;height:38px;
+    align-items:center;justify-content:center;
+    border-radius:50%;
+    background:#12a150;color:#fff;font-weight:800;
+}
+.tajweed-mini{opacity:.75;line-height:1.8}
+</style>
+
+<style>
+.story-opened{margin-top:18px;animation:storyIn .2s ease}
+@keyframes storyIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+
+<style id="modern-upgrade-css">
+:root{
+  --mu-primary:#0b6b4f;
+  --mu-primary-2:#12805d;
+  --mu-bg:#f5faf7;
+  --mu-card:rgba(255,255,255,.88);
+  --mu-text:#12352b;
+  --mu-muted:#6b7f77;
+  --mu-border:rgba(11,107,79,.12);
+  --mu-shadow:0 16px 45px rgba(10,67,48,.10);
+}
+body{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(26,160,111,.09),transparent 30%),
+    radial-gradient(circle at 90% 10%,rgba(13,111,82,.08),transparent 28%),
+    var(--mu-bg);
+  transition:background .3s ease,font-size .2s ease;
+}
+.app-container{position:relative;z-index:1}
+.header{
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 28px 28px;
+  box-shadow:0 12px 35px rgba(0,70,48,.12);
+}
+.header:after{
+  content:"";
+  position:absolute;inset:auto -20% -80% auto;width:320px;height:320px;
+  border-radius:50%;background:rgba(255,255,255,.08);pointer-events:none;
+}
+.modern-dashboard{
+  margin:18px 0 8px;
+  padding:18px;
+  border:1px solid var(--mu-border);
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(240,249,245,.92));
+  box-shadow:var(--mu-shadow);
+}
+.md-welcome{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.md-kicker{font-size:12px;font-weight:800;color:var(--mu-primary-2)}
+.md-welcome h2{margin:5px 0 3px;font-size:23px;color:var(--mu-text)}
+.md-welcome p{margin:0;color:var(--mu-muted);font-size:13px}
+.md-progress-ring{
+  width:70px;height:70px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--mu-primary) 0deg,var(--mu-primary) var(--progress,0deg),#dcebe5 var(--progress,0deg),#dcebe5 360deg);
+  position:relative;flex:0 0 auto;
+}
+.md-progress-ring:before{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+.md-progress-ring span{position:relative;font-weight:900;color:var(--mu-primary);font-size:13px}
+.md-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:15px}
+.md-stat{
+  border:1px solid var(--mu-border);background:rgba(255,255,255,.72);
+  border-radius:17px;padding:12px 8px;cursor:pointer;transition:.2s;
+}
+.md-stat:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,80,55,.08)}
+.md-stat b{display:block;font-size:20px;color:var(--mu-primary)}
+.md-stat span{display:block;font-size:11px;color:var(--mu-muted);margin-top:3px}
+.md-quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.md-quick button{
+  border:0;border-radius:999px;padding:9px 13px;background:#e7f4ee;color:var(--mu-primary);
+  font-weight:800;cursor:pointer;
+}
+.modern-fab{
+  position:fixed;left:20px;bottom:22px;width:54px;height:54px;border:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--mu-primary),var(--mu-primary-2));color:white;font-size:23px;
+  box-shadow:0 14px 35px rgba(0,90,62,.3);z-index:9998;cursor:pointer;
+}
+.modern-overlay{
+  display:none;position:fixed;inset:0;background:rgba(3,25,19,.48);backdrop-filter:blur(8px);
+  z-index:9999;align-items:flex-end;justify-content:center;padding:18px;
+}
+.modern-overlay.open{display:flex}
+.modern-sheet{
+  width:min(760px,100%);max-height:min(86vh,800px);overflow:auto;background:#fff;border-radius:28px;
+  padding:24px;position:relative;box-shadow:0 25px 80px rgba(0,0,0,.22);
+  animation:muUp .25s ease;
+}
+@keyframes muUp{from{transform:translateY(25px);opacity:0}to{transform:none;opacity:1}}
+.modern-close{
+  position:absolute;top:12px;left:12px;width:38px;height:38px;border-radius:50%;border:0;
+  background:#edf5f1;color:var(--mu-primary);font-size:25px;cursor:pointer;
+}
+.modern-tool{display:none}
+.modern-tool.active{display:block}
+.tool-head{display:flex;gap:12px;align-items:center;padding-left:42px}
+.tool-head>span{font-size:30px}
+.tool-head h3{margin:0;color:var(--mu-text);font-size:22px}
+.tool-head p{margin:4px 0 0;color:var(--mu-muted);font-size:13px}
+.tasbih-count{text-align:center;font-size:76px;font-weight:900;color:var(--mu-primary);margin:20px 0 2px}
+.tasbih-label{text-align:center;color:var(--mu-muted);font-weight:800}
+.tasbih-actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.tasbih-actions button,.tasbih-presets button{
+  border:0;border-radius:14px;padding:11px 17px;background:#edf6f2;color:var(--mu-primary);font-weight:900;cursor:pointer;
+}
+.tasbih-actions .tasbih-main{background:linear-gradient(135deg,var(--mu-primary),var(--mu-primary-2));color:#fff;min-width:150px}
+.tasbih-presets{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.challenge-list,.wird-list{display:grid;gap:9px;margin-top:18px}
+.challenge-item,.wird-item{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;
+  border:1px solid var(--mu-border);border-radius:16px;background:#f8fcfa;
+}
+.challenge-item.done,.wird-item.done{background:#e6f5ed}
+.challenge-item button,.wird-item button{border:0;border-radius:10px;padding:8px 11px;background:#dff0e8;color:var(--mu-primary);font-weight:800;cursor:pointer}
+.challenge-footer{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid #edf1ef;color:var(--mu-muted)}
+.challenge-footer strong{color:var(--mu-primary)}
+.modern-search{display:flex;gap:8px;margin-top:18px}
+.modern-search input{flex:1;border:1px solid #dce9e3;border-radius:14px;padding:13px;outline:none;font-family:inherit}
+.modern-search button{border:0;border-radius:14px;padding:0 18px;background:var(--mu-primary);color:#fff;font-weight:800;cursor:pointer}
+.modern-results{margin-top:12px;display:grid;gap:8px}
+.modern-result{padding:12px;border-radius:14px;background:#f5faf7;border:1px solid #e4eee9;cursor:pointer}
+.modern-result b{color:var(--mu-primary)}
+.modern-tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
+.modern-tools-grid button{border:1px solid var(--mu-border);background:#f7fbf9;border-radius:16px;padding:14px;cursor:pointer;color:var(--mu-primary);font-size:20px;font-weight:900}
+.modern-tools-grid span{display:block;font-size:11px;color:var(--mu-muted);margin-top:5px}
+.modern-note{margin-top:15px;padding:11px;border-radius:14px;background:#fff8df;color:#786322;font-size:12px}
+.modern-toast{
+  position:fixed;right:20px;bottom:22px;background:#12352b;color:#fff;padding:11px 15px;border-radius:12px;
+  opacity:0;transform:translateY(10px);transition:.25s;z-index:10001;pointer-events:none;font-size:13px;
+}
+.modern-toast.show{opacity:1;transform:none}
+body.mu-focus .app-container>*:not(.header):not(.modern-dashboard):not(.modern-fab){opacity:.18;transition:.3s}
+body.mu-focus .modern-dashboard{box-shadow:0 0 0 3px rgba(11,107,79,.15),var(--mu-shadow)}
+@media(max-width:650px){
+  .md-stats{grid-template-columns:repeat(2,1fr)}
+  .md-quick{display:grid;grid-template-columns:repeat(2,1fr)}
+  .md-quick button{width:100%}
+  .modern-sheet{padding:20px;border-radius:24px}
+  .modern-tools-grid{grid-template-columns:repeat(2,1fr)}
+  .modern-fab{left:12px;bottom:14px}
+}
+body.dark-mode .modern-dashboard, body.dark .modern-dashboard{
+  background:linear-gradient(135deg,rgba(18,38,32,.96),rgba(12,53,40,.92));
+}
+</style>
+
 </head>
 
 <body>
@@ -1142,6 +1393,32 @@
         </p>
 
     </header>
+
+<section class="modern-dashboard" id="modernDashboard">
+  <div class="md-welcome">
+    <div>
+      <span class="md-kicker">رفيقك اليومي للعبادة 🌙</span>
+      <h2>ماذا ستنجز اليوم؟</h2>
+      <p id="mdDate">...</p>
+    </div>
+    <div class="md-progress-wrap">
+      <div class="md-progress-ring"><span id="mdProgress">0%</span></div>
+    </div>
+  </div>
+  <div class="md-stats">
+    <button class="md-stat" onclick="openModernTool('dhikr')"><b id="mdDhikr">0</b><span>أذكار اليوم</span></button>
+    <button class="md-stat" onclick="openModernTool('tasbih')"><b id="mdTasbih">0</b><span>التسبيح</span></button>
+    <button class="md-stat" onclick="openModernTool('challenge')"><b id="mdChallenge">0/3</b><span>تحدي اليوم</span></button>
+    <button class="md-stat" onclick="openModernTool('tools')"><b>＋</b><span>المزيد</span></button>
+  </div>
+  <div class="md-quick">
+    <button onclick="openModernTool('tasbih')">📿 السبحة</button>
+    <button onclick="openModernTool('challenge')">🎯 تحدي اليوم</button>
+    <button onclick="openModernTool('search')">🔎 بحث شامل</button>
+    <button onclick="shareModernApp()">↗️ مشاركة</button>
+  </div>
+</section>
+
 
 
     <!-- =========================
@@ -1230,6 +1507,9 @@
         </button>
 
 
+        <button class="tab-btn" onclick="showTab('prophetStories', this)">
+            <i class="fa-solid fa-book-open"></i><span>قصص الأنبياء والصحابة</span>
+        </button>
         <button class="tab-btn" onclick="showTab('lessons', this)"><i class="fa-solid fa-graduation-cap"></i><span>فقه العبادات</span></button><button class="tab-btn" onclick="showTab('qibla', this)"><i class="fa-solid fa-compass"></i><span>القبلة</span></button><button class="tab-btn" onclick="showTab('prayertrack', this)">
             <i class="fa-solid fa-square-check"></i><span>تتبع الصلوات</span>
         </button>
@@ -1252,9 +1532,6 @@
         </button>
         <button class="tab-btn" onclick="showTab('tajweed', this)">
             <i class="fa-solid fa-book-quran"></i><span>تعلم التجويد</span>
-        </button>
-        <button class="tab-btn" onclick="showTab('noon', this)">
-            <i class="fa-solid fa-font"></i><span>أحكام النون الساكنة والتنوين</span>
         </button>
         <button class="tab-btn" onclick="showTab('duas', this)">
             <i class="fa-solid fa-hands-praying"></i><span>الأدعية</span>
@@ -1601,224 +1878,55 @@
          الأذكار
     ========================== -->
 
-    <section id="adhkar" class="section">
+    
+<section id="prophetStories" class="section">
+    <h2><i class="fa-solid fa-book-open"></i> قصص الأنبياء والصحابة</h2>
 
-        <h2>
-            <i class="fa-solid fa-hands-praying"></i>
-            الأذكار والسنة
-        </h2>
+    <div class="mode-selector">
+        <button class="mode-btn active" id="prophetsModeBtn" onclick="showStoryGroup('prophets')">📖 قصص الأنبياء</button>
+        <button class="mode-btn" id="femaleCompanionsModeBtn" onclick="showStoryGroup('femaleCompanions')">🌸 قصص الصحابيات</button>
+    </div>
 
+    <div id="storyCards" class="cards-grid"></div>
 
-        <div class="fiqh-card counter-wrapper">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-circle-dot"></i>
-                السبحة الإلكترونية
-            </span>
-
-            <h3>
-                تسبيح واستغفار
-            </h3>
-
-
-            <div class="counter-display">
-
-                <span id="counterDisplay">
-                    0
-                </span>
-
+    <div id="storyReader" class="story-reader" style="display:none">
+        <div class="fiqh-card">
+            <button class="btn" onclick="closeStoryReader()">← العودة إلى القصص</button>
+            <div class="story-reader-head">
+                <h2 id="storyTitle"></h2>
+                <span id="storyCounter"></span>
             </div>
-
-
-            <button class="counter-btn"
-                    onclick="incrementCounter()">
-
-                <i class="fa-solid fa-hands-praying"></i>
-
-                <span>سبّح</span>
-
-            </button>
-
-
-            <button class="btn btn-secondary"
-                    style="font-size:12px;padding:8px;"
-                    onclick="resetCounter()">
-
-                <i class="fa-solid fa-rotate-right"></i>
-
-                إعادة ضبط
-
-            </button>
-
+            <div id="storyText" class="story-text"></div>
+            <div class="story-actions">
+                <button class="btn" onclick="previousStory()">السابق</button>
+                <button class="btn" onclick="nextStory()">التالي</button>
+            </div>
         </div>
+    </div>
+</section>
 
+<section id="adhkar" class="section">
+    <h2><i class="fa-solid fa-book-quran"></i> مركز الأذكار</h2>
 
+    <div class="notice">
+        اختر نوع الأذكار، ثم افتح القائمة واقرأ كل ذكر واضغط على زر الإنجاز.
+        سيتم حفظ تقدمك لكل قائمة على حدة.
+    </div>
+
+    <div id="adhkarCategories" class="cards-grid"></div>
+
+    <div id="adhkarCategoryView" style="display:none">
         <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-star"></i>
-                سيد الاستغفار
-            </span>
-
-            <h3>
-                دعاء سيد الاستغفار
-            </h3>
-
-            <p>
-                «اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ،
-                خَلَقْتَنِي وَأَنَا عَبْدُكَ،
-                وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ،
-                أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ،
-                أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ،
-                وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي،
-                فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ».
-            </p>
-
+            <button class="btn" onclick="closeAdhkarCategory()">← قائمة الأذكار</button>
+            <h3 id="adhkarCategoryTitle"></h3>
+            <p id="adhkarCategoryProgress"></p>
         </div>
-
-
-        <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-heart"></i>
-                أفضل الذكر
-            </span>
-
-            <h3>
-                كلمات عظيمة
-            </h3>
-
-            <p>
-
-                • «لا إله إلا الله وحده لا شريك له،
-                له الملك وله الحمد وهو على كل شيء قدير».
-
-                <br><br>
-
-                • «سبحان الله وبحمده» 100 مرة.
-
-            </p>
-
+        <div id="adhkarItems"></div>
+        <div class="fiqh-card" style="text-align:center">
+            <button class="btn" onclick="resetCurrentAdhkar()">إعادة القائمة</button>
         </div>
-
-
-        <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-person-praying"></i>
-                بعد الصلاة
-            </span>
-
-            <h3>
-                أذكار دبر الصلاة
-            </h3>
-
-            <p>
-
-                1. أستغفر الله ثلاث مرات.
-
-                <br>
-
-                2. «اللهم أنت السلام ومنك السلام،
-                تباركت يا ذا الجلال والإكرام».
-
-                <br>
-
-                3. التسبيح والتحميد والتكبير.
-
-            </p>
-
-        </div>
-
-
-        <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-moon"></i>
-                أذكار النوم
-            </span>
-
-            <h3>
-                ما يقال قبل النوم
-            </h3>
-
-            <p>
-
-                • قراءة آية الكرسي.
-
-                <br>
-
-                • قراءة الإخلاص والفلق والناس.
-
-                <br>
-
-                • «اللهم باسمك أموت وأحيا».
-
-            </p>
-
-        </div>
-
-
-        <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-sun"></i>
-                السنن النبوية
-            </span>
-
-            <h3>
-                من الهدي النبوي
-            </h3>
-
-            <p>
-
-                • السواك.
-
-                <br>
-
-                • صلاة الضحى.
-
-                <br>
-
-                • النوم على الشق الأيمن.
-
-                <br>
-
-                • إفشاء السلام.
-
-            </p>
-
-        </div>
-
-
-        <div class="fiqh-card">
-
-            <span class="sub-tag">
-                <i class="fa-solid fa-book"></i>
-                أحاديث
-            </span>
-
-            <h3>
-                جوامع الكلم
-            </h3>
-
-            <p>
-
-                «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ
-                عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ
-                طَرِيقًا إِلَى الْجَنَّةِ».
-
-                <br><br>
-
-                «كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ،
-                ثَقِيلَتَانِ فِي المِيزَانِ،
-                حَبِيبَتَانِ إِلَى الرَّحْمَنِ».
-
-            </p>
-
-        </div>
-
-    </section>
+    </div>
+</section>
 
 
     <!-- =========================
@@ -2279,31 +2387,32 @@
     </section>
 
     <section id="tajweed" class="section">
-        <h2><i class="fa-solid fa-book-quran"></i> تعلم التجويد</h2>
-        <div class="mode-selector">
-            <button class="mode-btn active" onclick="openTajweed('intro',this)">مقدمة</button>
-            <button class="mode-btn" onclick="openTajweed('noon',this)">النون الساكنة والتنوين</button>
-            <button class="mode-btn" onclick="openTajweed('mim',this)">الميم الساكنة</button>
-            <button class="mode-btn" onclick="openTajweed('madd',this)">المدود</button>
-            <button class="mode-btn" onclick="openTajweed('qalqalah',this)">القلقلة</button>
-            <button class="mode-btn" onclick="openTajweed('lam',this)">اللامات</button>
-        </div>
-        <div id="tajweedContent"></div>
-        <div class="fiqh-card">
-            <h3>📝 اختبار التجويد</h3>
-            <div id="tajweedQuiz"></div>
-        </div>
-    </section>
+    <h2><i class="fa-solid fa-book-quran"></i> تعلم التجويد بالتفصيل</h2>
+    <div class="notice">
+        منهج تدريجي من الأساسيات إلى التطبيق: مخارج الحروف، صفاتها، التفخيم والترقيق،
+        الميم الساكنة، المدود، القلقلة، اللامات، الراء، همزتا الوصل والقطع،
+        الوقف والابتداء، ثم التدريب العملي والاختبارات.
+    </div>
 
-    <section id="noon" class="section">
-        <h2><i class="fa-solid fa-font"></i> أحكام النون الساكنة والتنوين</h2>
-        <div class="notice">هذا القسم يشرح الأحكام الأربعة المشهورة: الإظهار، الإدغام، الإقلاب، الإخفاء.</div>
-        <div id="noonRules"></div>
-        <div class="fiqh-card">
-            <h3>🎯 اختبر نفسك</h3>
-            <div id="noonQuiz"></div>
+    <div id="tajweedLessons" class="cards-grid"></div>
+
+    <div id="tajweedLessonReader" class="fiqh-card" style="display:none">
+        <button class="btn" onclick="closeTajweedLesson()">← قائمة الدروس</button>
+        <h3 id="tajweedLessonTitle"></h3>
+        <div id="tajweedLessonContent" class="tajweed-detail"></div>
+        <div class="story-actions">
+            <button class="btn" onclick="prevTajweedLesson()">السابق</button>
+            <button class="btn" onclick="nextTajweedLesson()">التالي</button>
         </div>
-    </section>
+    </div>
+
+    <div class="fiqh-card">
+        <h3>📝 اختبر نفسك في التجويد</h3>
+        <div id="detailedTajweedQuiz"></div>
+    </div>
+</section>
+
+    
 
     <section id="duas" class="section">
         <h2><i class="fa-solid fa-hands-praying"></i> الأدعية</h2>
@@ -3743,23 +3852,59 @@ document.addEventListener("DOMContentLoaded",function(){
    ========================================================= */
 (function(){
 const stories=[
- {id:"adam",title:"آدم عليه السلام",text:"قصة خلق آدم عليه السلام، وتعليمه، وسجود الملائكة له، ثم ابتلائه في الجنة وتوبته إلى الله. تُعرض هنا بصورة تعليمية مختصرة دون إضافة تفاصيل غير ثابتة.",q:"من أول البشر؟",a:["آدم عليه السلام","نوح عليه السلام","إبراهيم عليه السلام"],c:0},
- {id:"nuh",title:"نوح عليه السلام",text:"دعا نوح عليه السلام قومه إلى توحيد الله زمناً طويلاً، وصبر على أذاهم، ثم جاء الطوفان ونجّى الله نوحاً ومن آمن معه.",q:"ما أبرز ما عُرف به نوح عليه السلام في قصته؟",a:["الصبر على الدعوة","التجارة","الهجرة إلى الحبشة"],c:0},
- {id:"ibrahim",title:"إبراهيم عليه السلام",text:"كان إبراهيم عليه السلام من أعظم دعاة التوحيد، وحاجّ قومه في عبادة غير الله، وابتلاه الله فصبر، وجعل في ذريته النبوة.",q:"ما محور دعوة إبراهيم عليه السلام؟",a:["التوحيد","جمع المال","الملك"],c:0},
- {id:"yusuf",title:"يوسف عليه السلام",text:"من أشهر معاني قصة يوسف عليه السلام: الصبر، والعفة، والعفو، وحسن الظن بالله، والفرج بعد الشدة.",q:"من أبرز أخلاق يوسف عليه السلام؟",a:["العفو","الظلم","الخيانة"],c:0},
- {id:"musa",title:"موسى عليه السلام",text:"أرسل الله موسى عليه السلام إلى فرعون، وأيده بالآيات، ودعا إلى عبادة الله، ثم نجا موسى ومن معه من المؤمنين.",q:"من أرسل إليه موسى عليه السلام؟",a:["فرعون","قيصر","النجاشي"],c:0},
- {id:"isa",title:"عيسى عليه السلام",text:"عيسى عليه السلام رسول من رسل الله، أيده الله بالبينات والمعجزات بإذنه، ودعا بني إسرائيل إلى عبادة الله.",q:"عيسى عليه السلام هو؟",a:["رسول من الله","ملك","صحابي"],c:0},
- {id:"muhammad",title:"محمد ﷺ",text:"خاتم الأنبياء والمرسلين، بعثه الله بالهدى ودين الحق، ودعا إلى التوحيد والرحمة والأخلاق، وبلغ الرسالة وأدى الأمانة.",q:"محمد ﷺ هو؟",a:["خاتم الأنبياء والمرسلين","أول نبي","ملك من الملائكة"],c:0}
+ {id:"adam",title:"آدم عليه السلام",text:"خلق الله آدم عليه السلام، وعلّمه الأسماء، وأمر الملائكة بالسجود له سجود تكريم، فسجدوا إلا إبليس أبى واستكبر. أسكن الله آدم وزوجه الجنة، ونهاهما عن الشجرة، فوسوس لهما الشيطان فأكلا منها، ثم تابا واعترفا بخطئهما فتاب الله عليهما. وفي قصته أصل عداوة الشيطان للإنسان، وفضل التوبة والرجوع إلى الله.",q:"من أول البشر؟",a:["آدم عليه السلام","نوح عليه السلام","إبراهيم عليه السلام"],c:0},
+ {id:"idris",title:"إدريس عليه السلام",text:"ذكر الله إدريس عليه السلام في القرآن ووصفه بالصدق، وذكر أنه كان نبيًا ومن الصالحين وأنه رُفع مكانًا عليًا. وتأتي قصته في سياق الثناء على أهل الصدق والصبر والصلاح، والعبرة فيها بالثبات على الطاعة ورفعة منزلة الصادقين.",q:"بماذا وصف الله إدريس عليه السلام؟",a:["بالصدق","بالظلم","بالكذب"],c:0},
+ {id:"nuh",title:"نوح عليه السلام",text:"أرسل الله نوحًا عليه السلام إلى قومه يدعوهم إلى عبادة الله وحده وترك الشرك. دعاهم ليلًا ونهارًا، سرًا وجهارًا، وصبر على تكذيبهم وأذاهم. أوحى الله إليه أن يصنع السفينة، فلما جاء أمر الله وفار التنور حمل فيها من آمن ومن كل زوجين اثنين، وجاء الطوفان فنجّى الله نوحًا والمؤمنين وأغرق المكذبين. وتبقى قصته مثالًا عظيمًا في الصبر والثبات وحسن التوكل.",q:"ما أبرز ما عُرف به نوح عليه السلام؟",a:["الصبر على الدعوة","التجارة","الملك"],c:0},
+ {id:"hud",title:"هود عليه السلام",text:"أرسل الله هودًا عليه السلام إلى قوم عاد، وكانوا أصحاب قوة وبناء واغتروا بما عندهم. دعاهم هود إلى توحيد الله وترك الكبر والفساد، فجادلوه وكذبوه. فلما أصروا على التكذيب جاءهم العذاب بالريح الشديدة، ونجّى الله هودًا والذين آمنوا معه. وفي القصة أن القوة لا تغني عن صاحبها إذا عصى الله.",q:"إلى أي قوم أرسل هود؟",a:["عاد","ثمود","مدين"],c:0},
+ {id:"salih",title:"صالح عليه السلام",text:"أرسل الله صالحًا عليه السلام إلى ثمود، فدعاهم إلى عبادة الله وحده، وذكّرهم بنعم الله عليهم. جاءت الناقة آية لهم، وأُمروا أن يتركوها تأكل في أرض الله ولا يمسوها بسوء، لكنهم عقروها وتحدوا نبيهم. فجاءهم العذاب ونجّى الله صالحًا والمؤمنين. وفي القصة التحذير من التكذيب والاعتداء على آيات الله.",q:"إلى أي قوم أرسل صالح؟",a:["ثمود","عاد","بني إسرائيل"],c:0},
+ {id:"ibrahim",title:"إبراهيم عليه السلام",text:"كان إبراهيم عليه السلام إمامًا في التوحيد، وجادل قومه في عبادة الأصنام والكواكب، وبيّن لهم أن العبادة لا تكون إلا لله. حطم الأصنام ليقيم عليهم الحجة، فأراد قومه إحراقه فجعل الله النار بردًا وسلامًا عليه. هاجر في سبيل الله، ورزقه الله إسماعيل وإسحاق، وابتلاه بأوامر عظيمة فاستسلم لها، ومن ذلك رفع قواعد البيت مع إسماعيل. وفي قصته التوحيد واليقين والصبر والاستسلام لله.",q:"ما محور دعوة إبراهيم عليه السلام؟",a:["التوحيد","جمع المال","الملك"],c:0},
+ {id:"lut",title:"لوط عليه السلام",text:"أرسل الله لوطًا عليه السلام إلى قومه فدعاهم إلى التقوى وترك الفواحش والفساد. أصر قومه على المعصية والتكذيب، فجاءت الملائكة بأمر الله، ونجّى الله لوطًا ومن آمن معه إلا من استثنى، وأهلك القوم الظالمين. وفي القصة بيان عاقبة الإصرار على الفساد وفضل الاستجابة للحق.",q:"إلى ماذا دعا لوط قومه؟",a:["التقوى وترك الفواحش","عبادة الأصنام","ترك الصلاة"],c:0},
+ {id:"ismail",title:"إسماعيل عليه السلام",text:"إسماعيل عليه السلام ابن إبراهيم، ووصفه الله بأنه صادق الوعد وكان يأمر أهله بالصلاة والزكاة. ومن أشهر مواقفه امتثاله لأمر الله عندما ابتلاه الله مع أبيه، فاستسلما لأمر الله، ثم فداه الله. وشارك أباه في رفع قواعد البيت. وتعلمنا سيرته الصبر والوفاء والطاعة.",q:"بماذا وصف الله إسماعيل؟",a:["بصدق الوعد","بالغدر","بالظلم"],c:0},
+ {id:"ishaq",title:"إسحاق عليه السلام",text:"بشر الله إبراهيم وزوجه بإسحاق عليه السلام، وكان نبيًا من الصالحين. جاءت البشارة به في وقت ظن فيه الوالدان أن الولد بعيد بسبب الكبر، فأظهر الله قدرته ورحمته. وتأتي سيرته ضمن سلسلة النبوة في ذرية إبراهيم.",q:"من والد إسحاق عليه السلام؟",a:["إبراهيم عليه السلام","نوح عليه السلام","موسى عليه السلام"],c:0},
+ {id:"yaqub",title:"يعقوب عليه السلام",text:"يعقوب عليه السلام نبي الله إسرائيل وأبو يوسف وإخوته. ابتلي بفقد يوسف سنوات طويلة، ومع شدة حزنه لم ييأس من رحمة الله، بل قال لأبنائه أن يبحثوا عن يوسف وأخيه وألا ييأسوا من روح الله. وعندما عاد يوسف اجتمعت الأسرة بعد فراق طويل. وفي قصته الصبر الجميل وحسن الظن بالله.",q:"ما الخلق البارز في قصة يعقوب؟",a:["الصبر وعدم اليأس","الخيانة","الظلم"],c:0},
+ {id:"yusuf",title:"يوسف عليه السلام",text:"رأى يوسف عليه السلام رؤيا في صغره، فحسده إخوته وألقوه في الجب، ثم بيع في مصر. نشأ في بيت العزيز وتعرض للفتنة فاختار العفة، ثم دخل السجن ظلمًا. فسّر رؤى صاحبيه، ثم فسّر رؤيا الملك، فخرج من السجن ومكّنه الله في الأرض. وبعد سنوات جاء إخوته يطلبون الطعام، فعرفهم ولم يعرفوه، ثم كشف عن نفسه وعفا عنهم. واجتمع بأبيه وأسرته وتحققت رؤياه. وتعلمنا قصته الصبر والعفة والعفو والثقة بتدبير الله.",q:"من أبرز أخلاق يوسف؟",a:["العفو","الظلم","الخيانة"],c:0},
+ {id:"shuaib",title:"شعيب عليه السلام",text:"أرسل الله شعيبًا إلى مدين، فدعاهم إلى توحيد الله وإيفاء الكيل والميزان وترك بخس الناس أشياءهم والفساد في الأرض. كذبه قومه وأصروا على المخالفة، فجاءهم العذاب ونجّى الله شعيبًا والمؤمنين. وفي قصته ارتباط التوحيد بالعدل والأمانة في معاملات الناس.",q:"ما الذي نهى عنه شعيب قومه؟",a:["الغش وبخس الناس حقوقهم","الصدق","الأمانة"],c:0},
+ {id:"ayyub",title:"أيوب عليه السلام",text:"ابتلى الله أيوب عليه السلام في بدنه وماله وأهله، فصبر ولم يترك الثناء على الله. دعا ربه بكلمات تدل على صدق الافتقار إليه، فكشف الله ضره ورد عليه الخير. وتبقى سيرته مثالًا في الصبر وحسن الظن بالله وعدم اليأس من رحمته.",q:"بماذا اشتهر أيوب عليه السلام؟",a:["الصبر","الطغيان","الغدر"],c:0},
+ {id:"dhulkifl",title:"ذو الكفل عليه السلام",text:"ذكر الله ذا الكفل مع إسماعيل وإدريس في سياق الثناء على الصابرين والصالحين، وذكره مع الأخيار. وتدل الآيات على مكانة الصبر والصلاح والوفاء بالطاعة، مع الحذر من إضافة تفاصيل لا يثبتها النص.",q:"مع من ذكر الله ذا الكفل؟",a:["مع الصابرين والأخيار","مع الظالمين","مع الكافرين"],c:0},
+ {id:"musa",title:"موسى عليه السلام",text:"وُلد موسى عليه السلام في زمن فرعون الذي كان يقتل أبناء بني إسرائيل. أوحى الله إلى أمه أن ترضعه، فإذا خافت عليه ألقته في اليم ولا تخاف، فرده الله إليها. نشأ في بيت فرعون، ثم خرج من مصر، وبعد ذلك ناداه الله واصطفاه وأرسله إلى فرعون ومعه هارون. أيده الله بالعصا واليد البيضاء، وواجه فرعون بالحجة. خرج ببني إسرائيل، فلحق بهم فرعون، فضرب موسى البحر بعصاه فانفلق، فنجا المؤمنون وغرق فرعون. وفي سيرته الشجاعة والصبر والثقة بوعد الله.",q:"إلى من أرسل موسى عليه السلام؟",a:["فرعون","قيصر","النجاشي"],c:0},
+ {id:"harun",title:"هارون عليه السلام",text:"هارون عليه السلام أخو موسى ونبي من أنبياء الله. دعا موسى ربه أن يجعل هارون وزيرًا له ليقوي به أمر الدعوة، فاستجاب الله له. شارك هارون موسى في دعوة فرعون، وكان حليمًا في قومه. وتعلمنا سيرته التعاون على الخير ومساندة الداعي إلى الله.",q:"من أخو موسى عليه السلام؟",a:["هارون","يوسف","داود"],c:0},
+ {id:"dawud",title:"داود عليه السلام",text:"آتَى الله داود عليه السلام النبوة والملك والحكمة، وألان له الحديد، وكان كثير العبادة والرجوع إلى الله. قتل جالوت بإذن الله، ثم آتاه الله الملك. وكان يحكم بالعدل ويعبد الله ويذكره كثيرًا. وتعلمنا سيرته الجمع بين القوة والعدل والعبادة.",q:"ما الذي آتاه الله لداود؟",a:["الملك والحكمة","المال فقط","التجارة"],c:0},
+ {id:"sulayman",title:"سليمان عليه السلام",text:"ورث سليمان داود عليه السلام، وآتاه الله ملكًا عظيمًا وسخر له الريح والجن وعلمه منطق الطير. ومن أشهر قصصه قصة الهدهد وملكة سبأ، حيث دعاها إلى توحيد الله، فلما تبين لها الحق أسلمت لله. وكان سليمان يرى ما عنده من الملك فضلًا من الله ويشكره عليه. وفي قصته شكر النعمة وحسن استعمال القوة.",q:"من الذي جاء بخبر ملكة سبأ؟",a:["الهدهد","الغراب","الحصان"],c:0},
+ {id:"ilyas",title:"إلياس عليه السلام",text:"دعا إلياس عليه السلام قومه إلى عبادة الله وحده وترك عبادة بعل، وذكّرهم بأن الله ربهم ورب آبائهم. كذبه أكثرهم، وذكر الله من ثبت على التوحيد. وفي قصته الثبات على الحق وعدم الاغترار بكثرة المخالفين.",q:"إلى ماذا دعا إلياس قومه؟",a:["توحيد الله","عبادة بعل","ترك العبادة"],c:0},
+ {id:"alyasa",title:"اليسع عليه السلام",text:"ذكر الله اليسع عليه السلام من الأخيار والفضلاء، وجاء ذكره في سياق الأنبياء الذين اصطفاهم الله. والعبرة من سيرته الثبات على الصلاح واتباع طريق الأنبياء في الدعوة إلى الله.",q:"كيف وصف الله اليسع؟",a:["من الأخيار","من الظالمين","من المكذبين"],c:0},
+ {id:"yunus",title:"يونس عليه السلام",text:"دعا يونس عليه السلام قومه إلى الله، ثم خرج مغاضبًا قبل أن يؤذن له، فركب السفينة واقترع أهلها فكان من المدحضين، فالتقمه الحوت. في الظلمات دعا ربه واعترف بتقصيره، فاستجاب الله له ونجاه. ثم عاد إلى قومه فآمنوا. وفي قصته فضل التوبة والدعاء وعدم اليأس.",q:"بماذا دعا يونس ربه في الشدة؟",a:["دعاء التوحيد والاعتراف بالذنب","دعاء بالمال","دعاء بالملك"],c:0},
+ {id:"zakariya",title:"زكريا عليه السلام",text:"كان زكريا عليه السلام نبيًا صالحًا، وكفل مريم عليها السلام ورأى من كرامة الله لها ما زاد يقينه. دعا ربه أن يرزقه ذرية طيبة مع كبر سنه، فبشره الله بيحيى. وفي قصته حسن الظن بالله والإلحاح في الدعاء.",q:"بماذا دعا زكريا؟",a:["بذرية طيبة","بالملك","بالمال"],c:0},
+ {id:"yahya",title:"يحيى عليه السلام",text:"بشر الله زكريا بيحيى، وآتاه الحكم صبيًا، ووصفه بالحنان والزكاة والتقوى وبر الوالدين، ولم يكن جبارًا عصيًا. وفي سيرته مثال للشباب الصالح الذي يثبت على الطاعة ويجتنب الكبر.",q:"بماذا وصف الله يحيى؟",a:["بالحنان والتقوى","بالجبر والعصيان","بالغدر"],c:0},
+ {id:"isa",title:"عيسى عليه السلام",text:"عيسى عليه السلام رسول الله إلى بني إسرائيل، وُلد من مريم عليها السلام بغير أب بقدرة الله، وأيده الله بالبينات والمعجزات بإذنه. دعا قومه إلى عبادة الله وحده، وبيّن لهم الحق، وكذبه بعضهم. رفعه الله إليه، وتبقى قصته دليلًا على قدرة الله والإيمان برسله.",q:"عيسى عليه السلام هو؟",a:["رسول من الله","ملك","صحابي"],c:0},
+ {id:"muhammad",title:"محمد ﷺ",text:"ولد النبي محمد ﷺ في مكة ونشأ يتيمًا، وعُرف بالصدق والأمانة. نزل عليه الوحي في غار حراء، فبدأ دعوة الناس إلى توحيد الله وترك الشرك. تحمل هو وأصحابه الأذى في مكة، ثم هاجر إلى المدينة، وبنى المسجد وأقام المجتمع المسلم، وعلّم الناس القرآن والسنة. وقعت الغزوات والأحداث الكبرى في حياته، وفتح الله له مكة، وانتشر الإسلام. حج حجة الوداع وبيّن للناس أصول الدين وحقوقهم، ثم توفي ﷺ بعد أن بلغ الرسالة وأدى الأمانة. سيرته هي أعظم نموذج في العبادة والرحمة والصبر والأخلاق.",q:"ما مكانة محمد ﷺ؟",a:["خاتم الأنبياء والمرسلين","أول نبي","ملك من الملائكة"],c:0}
 ];
 
 const companions=[
- ["أبو بكر الصديق","من السابقين إلى الإسلام، وصاحب النبي ﷺ، وأول الخلفاء الراشدين."],
- ["عمر بن الخطاب","الخليفة الراشد الثاني، عُرف بالعدل والقوة في الحق."],
- ["عثمان بن عفان","الخليفة الراشد الثالث، ومن كبار الصحابة، عُرف بالحياء والكرم."],
- ["علي بن أبي طالب","ابن عم النبي ﷺ وزوج فاطمة رضي الله عنها، ومن الخلفاء الراشدين."],
- ["بلال بن رباح","من السابقين إلى الإسلام، واشتهر بثباته وأذانه."],
- ["مصعب بن عمير","من أوائل الدعاة إلى الإسلام، وبعثه النبي ﷺ إلى المدينة قبل الهجرة."],
- ["خالد بن الوليد","صحابي وقائد عسكري بارز، عُرف بالشجاعة وحسن القيادة."]
+ ["أبو بكر الصديق رضي الله عنه","كان من السابقين إلى الإسلام وأقرب أصحاب النبي ﷺ، وصاحبه في الهجرة. تولى الخلافة بعد وفاة النبي ﷺ، فثبت المسلمين وحارب المرتدين وحفظ جماعة المسلمين، وكان مثالًا في الصدق والتواضع والرحمة والثبات."],
+ ["عمر بن الخطاب رضي الله عنه","أسلم عمر رضي الله عنه فكان إسلامه قوة للمسلمين، ثم صار ثاني الخلفاء الراشدين. عُرف بالعدل والشدة في الحق ومحاسبة النفس والحرص على أحوال الرعية. اتسعت الدولة الإسلامية في عهده، وبقي مثالًا في العدل والزهد."],
+ ["عثمان بن عفان رضي الله عنه","كان عثمان رضي الله عنه من السابقين إلى الإسلام، واشتهر بالحياء والكرم. تزوج ابنتي النبي ﷺ، ولذلك لقب بذي النورين. تولى الخلافة، ومن أعظم أعماله جمع الناس على مصحف واحد دفعًا للاختلاف في القراءة."],
+ ["علي بن أبي طالب رضي الله عنه","علي رضي الله عنه ابن عم النبي ﷺ وزوج فاطمة، ومن السابقين إلى الإسلام. عُرف بالشجاعة والعلم والقضاء، وشهد المشاهد مع النبي ﷺ. تولى الخلافة وكان حريصًا على إقامة الحق وحفظ جماعة المسلمين."],
+ ["بلال بن رباح رضي الله عنه","كان بلال رضي الله عنه من السابقين إلى الإسلام، وعُذب بسبب إيمانه فثبت على التوحيد. صار من أشهر مؤذني النبي ﷺ، وعُرف بالصبر والثبات والوفاء."],
+ ["مصعب بن عمير رضي الله عنه","كان مصعب من أنعم شباب مكة عيشًا، فلما أسلم ترك النعيم واختار الإسلام. أرسله النبي ﷺ إلى المدينة قبل الهجرة ليعلّم الناس القرآن ويدعوهم، فكان سببًا في إسلام عدد من أهلها. استشهد يوم أُحد."],
+["سعد بن أبي وقاص رضي الله عنه","من السابقين إلى الإسلام ومن العشرة المبشرين بالجنة، وكان من أمهر الرماة. شهد مع النبي ﷺ، ثم كان قائدًا في الفتوحات، وعُرف بقوة الإيمان والدعاء وحسن القيادة."],
+["طلحة بن عبيد الله رضي الله عنه","من السابقين ومن العشرة المبشرين بالجنة. كان شجاعًا وسخيًا، ومن مواقفه المشهودة يوم أُحد دفاعه عن النبي ﷺ وتحمله الأذى في سبيل حمايته."],
+["الزبير بن العوام رضي الله عنه","من السابقين ومن العشرة المبشرين بالجنة، وكان حواري رسول الله ﷺ. اشتهر بالشجاعة والثبات ونصرة الإسلام، وشارك في المشاهد مع النبي ﷺ."],
+["حمزة بن عبد المطلب رضي الله عنه","عم النبي ﷺ وأخوه من الرضاعة، ومن السابقين إلى الإسلام. عُرف بالشجاعة وقوة نصرة النبي ﷺ، واستشهد في غزوة أُحد، وكان من أعظم شهداء الإسلام."],
+["خالد بن الوليد رضي الله عنه","أسلم خالد رضي الله عنه ثم صار من أبرز قادة المسلمين. عُرف بالشجاعة وحسن التخطيط والقيادة في المعارك، ولقبه النبي ﷺ بسيف الله المسلول."],
+["سلمان الفارسي رضي الله عنه","بحث سلمان رضي الله عنه عن الحق وتنقل في طلبه حتى هداه الله إلى الإسلام. كان من أصحاب النبي ﷺ، وأشار بحفر الخندق يوم الأحزاب، فكان رأيه سببًا في إعداد دفاع مهم للمدينة."],
+["أبو ذر الغفاري رضي الله عنه","كان أبو ذر من السابقين إلى الإسلام، وعُرف بصدقه وزهده وقوة تمسكه بالحق. دعا إلى التوحيد وتحمل الأذى في سبيل الله، وكان شديد الحرص على الصدق."],
+["عبد الله بن مسعود رضي الله عنه","كان ابن مسعود من السابقين إلى الإسلام ومن أعلم الصحابة بالقرآن. لازم النبي ﷺ وتعلم منه، وكان حسن القراءة والعلم، وانتفع به المسلمون في تعليم القرآن والفقه."],
+["معاذ بن جبل رضي الله عنه","كان معاذ من علماء الصحابة، وعُرف بالفقه والحلال والحرام. بعثه النبي ﷺ إلى اليمن معلّمًا وقاضيًا، فكان مثالًا في العلم والتعليم وحسن الدعوة."],
+["أبو هريرة رضي الله عنه","لازم أبو هريرة النبي ﷺ وحفظ عنه أحاديث كثيرة، فكان من أكثر الصحابة رواية للحديث. كان شديد الحرص على العلم والحفظ ونقل سنة النبي ﷺ إلى من بعده."],
+["زيد بن ثابت رضي الله عنه","كان زيد من كتّاب الوحي، وتعلم القرآن واللغة، وكان من أهل العلم. شارك في جمع القرآن في عهد أبي بكر، ثم شارك في كتابة المصاحف في عهد عثمان."],
+["عائشة رضي الله عنها","أم المؤمنين عائشة رضي الله عنها من أعلم الصحابة بالحديث والفقه. نقلت علمًا كثيرًا عن النبي ﷺ، وكان الصحابة يسألونها في مسائل العلم، وعُرفت بقوة الحفظ والفهم."],
+["خديجة رضي الله عنها","خديجة رضي الله عنها أول من آمن بالنبي ﷺ من النساء، وكانت سندًا له في بداية الوحي والدعوة. ثبتته عندما عاد من غار حراء، ووقفت معه بمالها ونفسها، وكانت مثالًا في الوفاء والبذل."],
+["فاطمة رضي الله عنها","فاطمة رضي الله عنها بنت النبي ﷺ، وكانت قريبة منه ومحبوبة لديه. عُرفت بالحياء والصبر والبساطة، وكانت زوجة لعلي وأمًا للحسن والحسين رضي الله عنهم."],
+["أسماء بنت أبي بكر رضي الله عنها","كانت أسماء من الصحابيات الجليلات، وكان لها دور في الهجرة، إذ كانت تحمل الطعام للنبي ﷺ وأبيها. عُرفت بالشجاعة والصبر والثبات وقوة الشخصية."],
+["سمية بنت خياط رضي الله عنها","كانت سمية من أوائل من آمن، وتحملت الأذى الشديد بسبب إيمانها، وثبتت على التوحيد حتى استشهدت. وهي مثال عظيم للصبر والثبات عند الابتلاء."],
+["نسيبة بنت كعب رضي الله عنها","كانت نسيبة من الصحابيات الشجاعات، وشهدت أُحدًا وثبتت في الدفاع عن النبي ﷺ. عُرفت بالبذل والشجاعة والثبات في المواقف الصعبة."],
+["أم سلمة رضي الله عنها","أم سلمة من أمهات المؤمنين، هاجرت في سبيل الله وتحملت المشاق. عُرفت بالحكمة والصبر وحسن الرأي، وكان لها موقف حكيم في صلح الحديبية."],
+["حفصة رضي الله عنها","حفصة من أمهات المؤمنين، وكانت حريصة على العبادة وحفظ القرآن. كانت الصحف التي جمع فيها القرآن محفوظة عندها في فترة من الزمن، فكانت من النساء المعروفات بالعلم والعبادة."]
 ];
 
 const seerah=[
@@ -3790,7 +3935,7 @@ const hadith40=[
 ];
 
 const tajweed={
- intro:{title:"مقدمة في التجويد",body:"التجويد هو إعطاء الحروف حقها ومستحقها عند تلاوة القرآن. من أهم أبوابه: مخارج الحروف وصفاتها، أحكام النون الساكنة والتنوين، الميم الساكنة، المدود، القلقلة، واللامات."},
+ intro:{title:"مقدمة في التجويد",body:"التجويد هو إعطاء الحروف حقها ومستحقها عند تلاوة القرآن. من أهم أبوابه: مخارج الحروف وصفاتها، أحكام التلاوة، الميم الساكنة، المدود، القلقلة، واللامات."},
  noon:{title:"النون الساكنة والتنوين",body:"للنون الساكنة والتنوين أربعة أحكام مشهورة: الإظهار، الإدغام، الإقلاب، والإخفاء."},
  mim:{title:"الميم الساكنة",body:"للميم الساكنة ثلاثة أحكام مشهورة: الإخفاء الشفوي، الإدغام الشفوي، والإظهار الشفوي."},
  madd:{title:"المدود",body:"المد إطالة الصوت بحرف من حروف المد. ومن أبوابه المد الطبيعي والمدود الفرعية، ولكل نوع مقدار وشروط."},
@@ -3861,9 +4006,23 @@ window.renderSeerah=function(){
  document.getElementById("seerahQuiz").innerHTML="<h3>اختبار السيرة</h3><p>أين بدأت دعوة النبي ﷺ؟</p><button class='quiz-choice' onclick=\"this.innerHTML='إجابة صحيحة: في مكة ✅'\">مكة</button><button class='quiz-choice' onclick=\"this.innerHTML='ليست الإجابة الصحيحة'\">المدينة</button>";
 };
 
+window.openCompanion=function(i){
+ const x=companions[i]; if(!x)return;
+ const v=document.getElementById("companionView"); if(!v)return;
+ v.innerHTML=`<div class="fiqh-card story-opened">
+   <button class="btn" onclick="document.getElementById('companionView').innerHTML=''">✕ إغلاق</button>
+   <h2>${esc(x[0])}</h2>
+   <p style="font-size:18px;line-height:2.1">${esc(x[1])}</p>
+ </div>`;
+ v.scrollIntoView({behavior:"smooth",block:"start"});
+};
 window.renderCompanions=function(){
  const b=document.getElementById("companionsGrid"); if(!b)return;
- b.innerHTML='<div class="cards-grid">'+companions.map((x,i)=>`<div class="companion-card"><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p><button class="btn" onclick="document.getElementById('companionView').innerHTML='<div class=&quot;fiqh-card&quot;><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div>'">عرض</button></div>`).join("")+'</div>';
+ b.innerHTML='<div class="cards-grid">'+companions.map((x,i)=>`<div class="companion-card">
+   <h3>${esc(x[0])}</h3>
+   <p>${esc(x[1])}</p>
+   <button class="btn" onclick="openCompanion(${i})">عرض القصة</button>
+ </div>`).join("")+'</div>';
 };
 
 window.renderHadith40=function(){
@@ -3881,7 +4040,7 @@ window.openTajweed=function(key,btn){
 window.renderNoon=function(){
  const b=document.getElementById("noonRules"); if(!b)return;
  b.innerHTML=noonRules.map((x,i)=>`<div class="tajweed-card"><h3>${i+1}. ${esc(x[0])}</h3><p>${esc(x[1])}</p></div>`).join("");
- document.getElementById("noonQuiz").innerHTML=`<p><strong>كم عدد أحكام النون الساكنة والتنوين المشهورة؟</strong></p><button class="quiz-choice" onclick="this.innerHTML='إجابة صحيحة ✅'">أربعة</button><button class="quiz-choice" onclick="this.innerHTML='إجابة غير صحيحة'">ثلاثة</button>`;
+ document.getElementById("noonQuiz").innerHTML=`<p><strong>كم عدد أحكام التلاوة المشهورة؟</strong></p><button class="quiz-choice" onclick="this.innerHTML='إجابة صحيحة ✅'">أربعة</button><button class="quiz-choice" onclick="this.innerHTML='إجابة غير صحيحة'">ثلاثة</button>`;
 };
 
 window.renderDuas=function(){
@@ -3927,6 +4086,918 @@ document.addEventListener("DOMContentLoaded",function(){
  openTajweed("intro",document.querySelector("#tajweed .mode-btn"));
  renderNoon();renderDuas();searchIslamic();renderDailyPlan();renderAchievements();
 });
+})();
+</script>
+
+<script>
+(function(){
+const A={
+morning:[
+["آية الكرسي","اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...","مرة واحدة"],
+["سورة الإخلاص","قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ","3 مرات"],
+["سورة الفلق","قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ...","3 مرات"],
+["سورة الناس","قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ...","3 مرات"],
+["ذكر التوحيد","لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","10 مرات"],
+["الاستغفار","أستغفر الله وأتوب إليه.","3 مرات"]
+],
+evening:[
+["آية الكرسي","اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...","مرة واحدة"],
+["سورة الإخلاص","قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ","3 مرات"],
+["سورة الفلق","قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ...","3 مرات"],
+["سورة الناس","قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ...","3 مرات"],
+["ذكر التوحيد","لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","10 مرات"],
+["الاستغفار","أستغفر الله وأتوب إليه.","3 مرات"]
+]};
+let mode="morning";
+function key(){return "adhkar_"+mode+"_"+new Date().toLocaleDateString("en-CA")}
+function state(){try{return JSON.parse(localStorage.getItem(key())||"{}")}catch(e){return {}}}
+window.selectAdhkar=function(m){mode=m;morningAdhkarBtn.classList.toggle("active",m==="morning");eveningAdhkarBtn.classList.toggle("active",m==="evening");renderAdhkar()};
+window.renderAdhkar=function(){
+ const s=state(), items=A[mode], box=document.getElementById("adhkarList"); if(!box)return;
+ box.innerHTML=items.map((x,i)=>`<div class="adhkar-card ${s[i]?"done":""}"><h3>${x[0]}</h3><div class="adhkar-text">${x[1]}</div><p><strong>عدد القراءة:</strong> ${x[2]}</p><button class="adhkar-action" onclick="completeAdhkar(${i})"><span class="adhkar-count">${s[i]?"✓":"○"}</span>${s[i]?"تمت القراءة":"اضغط بعد القراءة"}</button></div>`).join("");
+ document.getElementById("adhkarProgress").textContent=Object.keys(s).filter(k=>s[k]).length+" / "+items.length;
+};
+window.completeAdhkar=function(i){let s=state();s[i]=!s[i];localStorage.setItem(key(),JSON.stringify(s));renderAdhkar()};
+window.resetAdhkar=function(){localStorage.removeItem(key());renderAdhkar()};
+document.addEventListener("DOMContentLoaded",renderAdhkar);
+})();
+</script>
+
+<script>
+(function(){
+const adhkarCategories = {
+    morning:{
+        title:"أذكار الصباح", icon:"🌅", color:"",
+        items:[
+            ["آية الكرسي","اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...","مرة واحدة"],
+            ["الإخلاص","قُلْ هُوَ اللَّهُ أَحَدٌ...","3 مرات"],
+            ["الفلق","قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ...","3 مرات"],
+            ["الناس","قُلْ أَعُوذُ بِرَبِّ النَّاسِ...","3 مرات"],
+            ["ذكر التوحيد","لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","10 مرات"],
+            ["الاستغفار","أستغفر الله وأتوب إليه.","3 مرات"],
+            ["دعاء العلم والعمل","اللهم إني أسألك علماً نافعاً، ورزقاً طيباً، وعملاً متقبلاً.","مرة واحدة"]
+        ]
+    },
+    evening:{
+        title:"أذكار المساء", icon:"🌙",
+        items:[
+            ["آية الكرسي","اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...","مرة واحدة"],
+            ["الإخلاص","قُلْ هُوَ اللَّهُ أَحَدٌ...","3 مرات"],
+            ["الفلق","قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ...","3 مرات"],
+            ["الناس","قُلْ أَعُوذُ بِرَبِّ النَّاسِ...","3 مرات"],
+            ["ذكر التوحيد","لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","10 مرات"],
+            ["الاستغفار","أستغفر الله وأتوب إليه.","3 مرات"]
+        ]
+    },
+    beforeSleep:{
+        title:"أذكار قبل النوم", icon:"🛏️",
+        items:[
+            ["آية الكرسي","آية الكرسي.","مرة واحدة"],
+            ["الإخلاص","قراءة سورة الإخلاص.","3 مرات"],
+            ["الفلق","قراءة سورة الفلق.","3 مرات"],
+            ["الناس","قراءة سورة الناس.","3 مرات"],
+            ["ذكر النوم","باسمك اللهم أموت وأحيا.","مرة واحدة"],
+            ["التسبيح","سبحان الله.","33 مرة"],
+            ["التحميد","الحمد لله.","33 مرة"],
+            ["التكبير","الله أكبر.","34 مرة"]
+        ]
+    },
+    wake:{
+        title:"أذكار الاستيقاظ من النوم", icon:"☀️",
+        items:[
+            ["دعاء الاستيقاظ","الحمد لله الذي أحيانا بعدما أماتنا وإليه النشور.","مرة واحدة"],
+            ["ذكر التوحيد","لا إله إلا الله وحده لا شريك له...","مرة واحدة"],
+            ["الحمد لله","الحمد لله الذي عافاني في جسدي ورد علي روحي وأذن لي بذكره.","مرة واحدة"],
+            ["الاستغفار","أستغفر الله.","مرة واحدة"],
+            ["الذكر","ذكر الله تعالى بعد الاستيقاظ.","مرة واحدة"]
+        ]
+    },
+    afterPrayer:{
+        title:"أذكار بعد الصلاة", icon:"🤲",
+        items:[
+            ["الاستغفار","أستغفر الله.","3 مرات"],
+            ["دعاء السلام","اللهم أنت السلام ومنك السلام تباركت يا ذا الجلال والإكرام.","مرة واحدة"],
+            ["التسبيح","سبحان الله.","33 مرة"],
+            ["التحميد","الحمد لله.","33 مرة"],
+            ["التكبير","الله أكبر.","33 مرة"],
+            ["آية الكرسي","قراءة آية الكرسي.","مرة واحدة"],
+            ["الإخلاص والفلق والناس","قراءة المعوذات.","مرة واحدة"]
+        ]
+    },
+    wudu:{
+        title:"أذكار الوضوء", icon:"💧",
+        items:[
+            ["قبل الوضوء","بسم الله.","مرة واحدة"],
+            ["بعد الوضوء","أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمداً عبده ورسوله.","مرة واحدة"],
+            ["بعد الوضوء","اللهم اجعلني من التوابين واجعلني من المتطهرين.","مرة واحدة"]
+        ]
+    },
+    mosque:{
+        title:"أذكار المسجد", icon:"🕌",
+        items:[
+            ["دخول المسجد","اللهم افتح لي أبواب رحمتك.","مرة واحدة"],
+            ["الصلاة على النبي ﷺ","اللهم صل وسلم على محمد.","مرة واحدة"],
+            ["الخروج من المسجد","اللهم إني أسألك من فضلك.","مرة واحدة"]
+        ]
+    },
+    home:{
+        title:"أذكار دخول وخروج المنزل", icon:"🏠",
+        items:[
+            ["دخول المنزل","بسم الله ولجنا، وبسم الله خرجنا، وعلى ربنا توكلنا.","مرة واحدة"],
+            ["الخروج من المنزل","بسم الله، توكلت على الله، ولا حول ولا قوة إلا بالله.","مرة واحدة"]
+        ]
+    },
+    food:{
+        title:"أذكار الطعام والشراب", icon:"🍲",
+        items:[
+            ["قبل الطعام","بسم الله.","مرة واحدة"],
+            ["عند نسيان التسمية","بسم الله أوله وآخره.","مرة واحدة"],
+            ["بعد الطعام","الحمد لله الذي أطعمني هذا ورزقنيه من غير حول مني ولا قوة.","مرة واحدة"]
+        ]
+    },
+    travel:{
+        title:"دعاء السفر", icon:"🚗",
+        items:[
+            ["دعاء السفر","سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلى ربنا لمنقلبون.","مرة واحدة"],
+            ["دعاء السفر","اللهم إنا نسألك في سفرنا هذا البر والتقوى...","مرة واحدة"],
+            ["عند الرجوع","آيبون تائبون عابدون لربنا حامدون.","مرة واحدة"]
+        ]
+    },
+    prayerStart:{
+        title:"دعاء استفتاح الصلاة", icon:"🕋",
+        items:[
+            ["دعاء الاستفتاح","سبحانك اللهم وبحمدك، وتبارك اسمك، وتعالى جدك، ولا إله غيرك.","مرة واحدة"],
+            ["دعاء الاستفتاح","وجهت وجهي للذي فطر السماوات والأرض حنيفاً وما أنا من المشركين.","مرة واحدة"]
+        ]
+    },
+    ruku:{
+        title:"أذكار الركوع", icon:"🙇",
+        items:[
+            ["ذكر الركوع","سبحان ربي العظيم.","مرة واحدة فأكثر"],
+            ["ذكر الركوع","سبوح قدوس رب الملائكة والروح.","مرة واحدة"]
+        ]
+    },
+    sujood:{
+        title:"أذكار السجود", icon:"🧎",
+        items:[
+            ["ذكر السجود","سبحان ربي الأعلى.","مرة واحدة فأكثر"],
+            ["الدعاء في السجود","اللهم اغفر لي.","مرة واحدة"],
+            ["الدعاء في السجود","اللهم إنك عفو تحب العفو فاعف عني.","مرة واحدة"]
+        ]
+    },
+    tashahhud:{
+        title:"أذكار التشهد", icon:"📿",
+        items:[
+            ["التشهد","التحيات لله والصلوات والطيبات، السلام عليك أيها النبي ورحمة الله وبركاته...","مرة واحدة"],
+            ["الصلاة الإبراهيمية","اللهم صل على محمد وعلى آل محمد...","مرة واحدة"],
+            ["الدعاء قبل السلام","ثم يتخير من الدعاء ما شاء.","مرة واحدة"]
+        ]
+    }
+};
+
+let currentCategory = null;
+
+function storageKey(){
+    return "adhkar_center_" + currentCategory + "_" + new Date().toLocaleDateString("en-CA");
+}
+function getState(){
+    try{return JSON.parse(localStorage.getItem(storageKey()) || "{}")}
+    catch(e){return {}}
+}
+function saveState(s){localStorage.setItem(storageKey(),JSON.stringify(s))}
+
+window.renderAdhkarCategories=function(){
+    const box=document.getElementById("adhkarCategories");
+    if(!box)return;
+    box.innerHTML=Object.entries(adhkarCategories).map(([key,c])=>{
+        let s={};
+        try{s=JSON.parse(localStorage.getItem("adhkar_center_"+key+"_"+new Date().toLocaleDateString("en-CA"))||"{}")}catch(e){}
+        const done=Object.keys(s).filter(k=>s[k]).length;
+        const total=c.items.length;
+        const pct=Math.round(done/total*100);
+        return `<div class="adhkar-category-card" onclick="openAdhkarCategory('${key}')">
+            <div class="adhkar-category-icon">${c.icon}</div>
+            <h3>${c.title}</h3>
+            <div class="adhkar-category-count">${done}/${total} مكتمل اليوم</div>
+            <div class="adhkar-progress-bar"><div class="adhkar-progress-fill" style="width:${pct}%"></div></div>
+        </div>`;
+    }).join("");
+};
+
+window.openAdhkarCategory=function(key){
+    currentCategory=key;
+    const c=adhkarCategories[key];
+    document.getElementById("adhkarCategories").style.display="none";
+    document.getElementById("adhkarCategoryView").style.display="block";
+    document.getElementById("adhkarCategoryTitle").textContent=c.icon+" "+c.title;
+    renderAdhkarItems();
+};
+
+window.closeAdhkarCategory=function(){
+    document.getElementById("adhkarCategoryView").style.display="none";
+    document.getElementById("adhkarCategories").style.display="grid";
+    renderAdhkarCategories();
+};
+
+function renderAdhkarItems(){
+    const c=adhkarCategories[currentCategory], s=getState();
+    const box=document.getElementById("adhkarItems");
+    const done=Object.keys(s).filter(k=>s[k]).length;
+    document.getElementById("adhkarCategoryProgress").textContent=`التقدم: ${done} / ${c.items.length}`;
+    box.innerHTML=c.items.map((x,i)=>`
+        <div class="adhkar-item ${s[i]?"done":""}">
+            <h3>${i+1}. ${x[0]}</h3>
+            <div class="adhkar-item-text">${x[1]}</div>
+            <div class="adhkar-source">عدد القراءة: ${x[2]}</div>
+            <br>
+            <button class="adhkar-read-btn ${s[i]?"done":""}" onclick="toggleAdhkarItem(${i})">
+                ${s[i]?"✅ تمت القراءة":"📖 اضغط بعد قراءة الذكر"}
+            </button>
+        </div>`).join("");
+}
+
+window.toggleAdhkarItem=function(i){
+    const s=getState();
+    s[i]=!s[i];
+    saveState(s);
+    renderAdhkarItems();
+};
+
+window.resetCurrentAdhkar=function(){
+    if(currentCategory){
+        localStorage.removeItem(storageKey());
+        renderAdhkarItems();
+    }
+};
+
+document.addEventListener("DOMContentLoaded",function(){
+    renderAdhkarCategories();
+});
+})();
+</script>
+
+
+<script>
+(function(){
+const storyGroups = {
+    prophets: [
+        {title:"آدم عليه السلام", icon:"🌿", text:
+`خلق الله آدم عليه السلام، وهو أول البشر وأبوهم. علّمه الله الأسماء، وأسكنه الجنة، وأمر الملائكة بالسجود له سجود تكريم، فسجدوا إلا إبليس أبى واستكبر.
+
+أسكن الله آدم وزوجه الجنة، ونهاهما عن الاقتراب من شجرة معينة، فوسوس لهما الشيطان فأكلا منها، ثم تابا إلى الله واعترفا بخطئهما، فتاب الله عليهما.
+
+ومن قصة آدم عليه السلام نتعلم أن الإنسان قد يخطئ، ولكن باب التوبة مفتوح، وأن عداوة الشيطان للإنسان قديمة، وأن النجاة تكون بطاعة الله والرجوع إليه.`},
+        {title:"نوح عليه السلام", icon:"🚢", text:
+`أرسل الله نوحًا عليه السلام إلى قومه يدعوهم إلى عبادة الله وحده وترك الشرك. مكث يدعوهم زمنًا طويلًا، وكان يدعوهم ليلًا ونهارًا وسرًا وجهارًا، لكن كثيرًا منهم أصروا على الكفر.
+
+أوحى الله إلى نوح أن يصنع السفينة، فصنعها بأمر الله. ولما جاء أمر الله وفار التنور، حمل نوح في السفينة من آمن معه، وحمل فيها من كل زوجين اثنين بحسب ما أمره الله.
+
+ثم جاء الطوفان، فنجّى الله نوحًا ومن معه، وأغرق المكذبين. وتعلمنا قصته الصبر في الدعوة، والثبات على الحق، وأن النجاة تكون بطاعة الله.`},
+        {title:"إبراهيم عليه السلام", icon:"🔥", text:
+`كان إبراهيم عليه السلام يدعو قومه إلى توحيد الله وترك عبادة الأصنام. وجادلهم بالحجة، وبيّن لهم أن ما لا يسمع ولا يبصر ولا يملك نفعًا ولا ضرًا لا يستحق العبادة.
+
+حطّم الأصنام ليقيم عليهم الحجة، فأراد قومه إحراقه، فجعل الله النار بردًا وسلامًا عليه. ثم هاجر في سبيل الله، وابتلاه الله بابتلاءات عظيمة فكان من الصابرين.
+
+ومن أعظم ما نتعلمه من إبراهيم عليه السلام قوة التوحيد، واليقين بالله، والاستسلام لأمره.`},
+        {title:"يوسف عليه السلام", icon:"🌾", text:
+`كان يوسف عليه السلام محبوبًا عند أبيه يعقوب عليه السلام. حسده بعض إخوته، فألقوه في الجب، ثم أخذته قافلة وباعته.
+
+نشأ يوسف في مصر، وتعرض للفتنة والظلم ودخل السجن ظلمًا، لكنه بقي عفيفًا صابرًا. ثم أكرمه الله وخرج من السجن، ومكّنه في الأرض، وأصبح مسؤولًا عن خزائن مصر.
+
+وبعد سنوات اجتمع بإخوته، فلم ينتقم منهم، بل عفا عنهم. وتعلّمنا قصته الصبر والعفة والعفو والثقة بتدبير الله.`},
+        {title:"موسى عليه السلام", icon:"🌊", text:
+`أرسل الله موسى عليه السلام إلى فرعون يدعوه إلى توحيد الله وترك الطغيان. أيده الله بالآيات، ومنحه العصا واليد البيضاء.
+
+خرج موسى ببني إسرائيل، ولحق بهم فرعون وجنوده. فأوحى الله إلى موسى أن يضرب البحر بعصاه، فانفلق البحر فمر موسى ومن معه، ثم غرق فرعون وجنوده.
+
+وتعلمنا قصة موسى عليه السلام الشجاعة أمام الظلم، والاعتماد على الله، وأن الفرج يأتي بعد الشدة.`},
+        {title:"داود عليه السلام", icon:"🛡️", text:
+`آتَى الله داود عليه السلام النبوة والملك والحكمة، وكان من عباد الله الصالحين. وألان الله له الحديد، وعلّمه صنعة الدروع.
+
+وكان داود عليه السلام كثير العبادة والرجوع إلى الله، وقد آتاه الله صوتًا حسنًا في تسبيحه. وتعلمنا قصته أن القوة والملك لا يمنعان العبد من العبادة والتواضع.`},
+        {title:"سليمان عليه السلام", icon:"🕊️", text:
+`ورث سليمان عليه السلام داود في الملك والنبوة، وآتاه الله ملكًا عظيمًا، وسخّر له الجن والريح، وعلّمه منطق الطير.
+
+ومن قصته قصة الهدهد وملكة سبأ، حيث دعا سليمان إلى توحيد الله، فكان في ملكه شكر لله لا غفلة عنه.
+
+وتعلمنا قصته شكر النعم، وأن الملك والقوة والقدرة كلها فضل من الله.`},
+        {title:"يونس عليه السلام", icon:"🐋", text:
+`دعا يونس عليه السلام قومه إلى الله، ثم خرج مغاضبًا قبل أن يؤذن له، فركب السفينة، ثم اقترعوا فكان من المدحضين، فالتقمه الحوت.
+
+في ظلمات البحر وبطن الحوت دعا ربه، واعترف بخطئه، فاستجاب الله له ونجاه.
+
+ومن قصته نتعلم أهمية التوبة والدعاء وعدم اليأس من رحمة الله.`},
+        {title:"زكريا ويحيى عليهما السلام", icon:"🌱", text:
+`كان زكريا عليه السلام نبيًا صالحًا، ودعا ربه أن يرزقه ولدًا صالحًا مع كبر سنه، فاستجاب الله دعاءه وبشره بيحيى.
+
+وكان يحيى عليه السلام نبيًا صالحًا، آتاه الله الحكم صبيًا، وكان بارًا تقيًا.
+
+وتعلمنا قصتهما حسن الظن بالله، والدعاء، والبر والتقوى.`},
+        {title:"عيسى عليه السلام", icon:"✨", text:
+`عيسى عليه السلام نبي من أنبياء الله، أرسله إلى بني إسرائيل، وأيده الله بآيات ومعجزات بإذنه.
+
+دعا قومه إلى عبادة الله وحده، وبشر برسول يأتي من بعده. وتعرض للأذى والتكذيب، ورفعه الله إليه.
+
+وتعلمنا قصته الإيمان بالرسل، وأن المعجزات كلها بإذن الله، وأن العبادة لله وحده.`}
+    ],
+    femaleCompanions: [
+        {title:"خديجة بنت خويلد رضي الله عنها", icon:"🌸", text:
+`خديجة رضي الله عنها أول من آمن بالنبي محمد ﷺ من النساء، وكانت زوجته وأمًا لأبنائه.
+
+لما جاء النبي ﷺ الوحي أول مرة ورجع خائفًا، ثبتته خديجة ووقفت إلى جانبه، وذكّرته بصفاته الكريمة، وكانت سندًا له في بداية الدعوة.
+
+ومن سيرتها نتعلم الوفاء، والثبات، ونصرة الحق، ومساندة الأسرة في أوقات الشدة.`},
+        {title:"عائشة رضي الله عنها", icon:"📚", text:
+`عائشة رضي الله عنها من أمهات المؤمنين، وكانت من أعلم الصحابة، وروت عددًا كبيرًا من أحاديث النبي ﷺ.
+
+عرفت بالعلم والفهم والحرص على التعلم، وكان الصحابة يسألونها في مسائل كثيرة.
+
+ومن سيرتها نتعلم طلب العلم، وحفظ السنة، والحرص على فهم الدين.`},
+        {title:"فاطمة الزهراء رضي الله عنها", icon:"🌷", text:
+`فاطمة رضي الله عنها بنت النبي محمد ﷺ، وكانت قريبة منه ومحبوبة لديه.
+
+عاشت حياة فيها صبر وبساطة، وكانت زوجة لعلي بن أبي طالب رضي الله عنه وأمًا للحسن والحسين رضي الله عنهما.
+
+ومن سيرتها نتعلم بر الوالدين، والصبر، والحياء، والعبادة.`},
+        {title:"أسماء بنت أبي بكر رضي الله عنها", icon:"🌿", text:
+`أسماء رضي الله عنها صحابية جليلة، وكانت لها مواقف مشهودة في نصرة النبي ﷺ وأبي بكر رضي الله عنه في الهجرة.
+
+كانت شجاعة صابرة، وقامت بما استطاعت لخدمة الحق، وتحملت المشاق.
+
+ومن سيرتها نتعلم الشجاعة والصبر وبذل الجهد في الخير.`},
+        {title:"سمية بنت خياط رضي الله عنها", icon:"🕊️", text:
+`سمية رضي الله عنها من أوائل من آمن بالنبي ﷺ، وتعرضت مع المسلمين الأوائل للأذى الشديد بسبب إيمانها.
+
+ثبتت على دينها ولم تتراجع، وكانت من السابقات إلى الإسلام.
+
+وتعلمنا سيرتها الثبات على الإيمان والصبر عند الابتلاء.`},
+        {title:"نسيبة بنت كعب رضي الله عنها", icon:"🛡️", text:
+`نسيبة بنت كعب رضي الله عنها من الصحابيات المعروفات بالشجاعة والثبات. شهدت بعض المشاهد، ومن أشهر مواقفها الثبات يوم أُحد.
+
+كانت مثالًا في الإيمان والبذل والدفاع عن الحق.
+
+وتعلمنا سيرتها الشجاعة والثبات ونصرة الخير.`},
+        {title:"أم سلمة رضي الله عنها", icon:"🌺", text:
+`أم سلمة رضي الله عنها من أمهات المؤمنين، عُرفت بالحكمة والرأي والصبر.
+
+هاجرت في سبيل الله، وتحملت المشاق، وكان لها موقف حكيم في صلح الحديبية حين أشارت على النبي ﷺ برأي نافع.
+
+وتعلمنا سيرتها الحكمة، والصبر، وحسن المشورة.`},
+        {title:"حفصة بنت عمر رضي الله عنها", icon:"📜", text:
+`حفصة رضي الله عنها من أمهات المؤمنين، وكانت معروفة بالعبادة والحرص على القرآن.
+
+كانت الصحف التي جُمع فيها القرآن محفوظة عندها مدة من الزمن.
+
+وتعلمنا سيرتها المحافظة على كتاب الله والعبادة والحرص على العلم.`}
+    ]
+};
+
+let currentGroup="prophets", currentIndex=0;
+
+window.showStoryGroup=function(group){
+    currentGroup=group;
+    document.getElementById("prophetsModeBtn").classList.toggle("active",group==="prophets");
+    document.getElementById("femaleCompanionsModeBtn").classList.toggle("active",group==="femaleCompanions");
+    document.getElementById("storyReader").style.display="none";
+    document.getElementById("storyCards").style.display="grid";
+    renderStoryCards();
+};
+
+function renderStoryCards(){
+    const box=document.getElementById("storyCards");
+    box.innerHTML=storyGroups[currentGroup].map((s,i)=>`
+        <div class="story-card" onclick="openStory(${i})">
+            <div class="story-card-icon">${s.icon}</div>
+            <h3>${s.title}</h3>
+            <p>اضغط هنا لقراءة القصة كاملة</p>
+        </div>
+    `).join("");
+}
+
+window.openStory=function(value){
+    // Old قصص الأنبياء cards use an ID such as "adam".
+    if(typeof value === "string"){
+        const oldStory = stories.find(x=>x.id===value);
+        if(oldStory){
+            const view=document.getElementById("prophetStoryView");
+            if(view){
+                view.innerHTML=`<div class="fiqh-card story-opened">
+                    <button class="btn" onclick="document.getElementById('prophetStoryView').innerHTML=''">✕ إغلاق القصة</button>
+                    <h2>${esc(oldStory.title)}</h2>
+                    <p style="font-size:18px;line-height:2.1">${esc(oldStory.text)}</p>
+                    <button class="btn" onclick="storyAnswer('${oldStory.id}',0)">📝 ابدأ كويز القصة</button>
+                </div>`;
+                view.scrollIntoView({behavior:"smooth",block:"start"});
+            }
+            return;
+        }
+    }
+
+    // New قصص الأنبياء والصحابيات cards use a numeric index.
+    const index = Number(value);
+    if(Number.isInteger(index) && storyGroups[currentGroup][index]){
+        currentIndex=index;
+        const cards=document.getElementById("storyCards");
+        const reader=document.getElementById("storyReader");
+        if(cards) cards.style.display="none";
+        if(reader) reader.style.display="block";
+        renderStory();
+    }
+};
+
+function renderStory(){
+    const s=storyGroups[currentGroup][currentIndex];
+    document.getElementById("storyTitle").textContent=s.icon+" "+s.title;
+    document.getElementById("storyCounter").textContent=(currentIndex+1)+" / "+storyGroups[currentGroup].length;
+    document.getElementById("storyText").textContent=s.text;
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+window.previousStory=function(){
+    currentIndex=(currentIndex-1+storyGroups[currentGroup].length)%storyGroups[currentGroup].length;
+    renderStory();
+};
+window.nextStory=function(){
+    currentIndex=(currentIndex+1)%storyGroups[currentGroup].length;
+    renderStory();
+};
+window.closeStoryReader=function(){
+    document.getElementById("storyReader").style.display="none";
+    document.getElementById("storyCards").style.display="grid";
+};
+
+document.addEventListener("DOMContentLoaded",function(){
+    if(document.getElementById("prophetStories")) renderStoryCards();
+});
+})();
+</script>
+
+
+<script>
+(function(){
+const detailedTajweed = [
+{
+ title:"1. مقدمة في علم التجويد",
+ short:"ما هو التجويد؟ ولماذا نتعلمه؟",
+ body:`<h4>التعريف</h4>
+<p>التجويد هو تلاوة القرآن الكريم على الوجه الصحيح، مع إعطاء كل حرف حقه ومستحقه، ومراعاة مخارج الحروف وصفاتها وأحكام التلاوة.</p>
+<h4>أهداف الدرس</h4>
+<ul>
+<li>تحسين نطق الحروف والكلمات.</li>
+<li>تجنب اللحن والخطأ في التلاوة.</li>
+<li>معرفة الأحكام التي تساعد على القراءة الصحيحة.</li>
+<li>التدرج من معرفة الحرف إلى التطبيق في الآيات.</li>
+</ul>
+<div class="tajweed-example"><strong>قاعدة عملية:</strong> لا يكفي حفظ اسم الحكم؛ المهم معرفة موضعه ثم تطبيقه أثناء القراءة.</div>`
+},
+{
+ title:"2. مخارج الحروف",
+ short:"التعرف على مواضع خروج الحروف.",
+ body:`<h4>المخارج العامة</h4>
+<p>تُدرَس مخارج الحروف من مواضعها الأساسية: الجوف، الحلق، اللسان، الشفتان، والخيشوم.</p>
+<h4>الجوف</h4><p>يخرج منه حروف المد: الألف الساكنة المفتوح ما قبلها، والواو الساكنة المضموم ما قبلها، والياء الساكنة المكسور ما قبلها.</p>
+<h4>الحلق</h4><p>يُدرَس فيه مخرج الحروف بحسب مواضعها في أقصى الحلق ووسطه وأدناه.</p>
+<h4>اللسان</h4><p>تخرج منه مجموعة كبيرة من الحروف، ويحتاج الطالب إلى التدريب على موضع طرف اللسان ووسطه وأقصاه.</p>
+<h4>الشفتان</h4><p>تدخلان في نطق حروف مثل الباء والميم والواو والفاء بحسب موضع النطق.</p>
+<h4>الخيشوم</h4><p>هو مخرج الغنة.</p>
+<div class="tajweed-example"><strong>تدريب:</strong> اقرأ الحروف منفردة ببطء، ثم في كلمات قصيرة، وراقب ثبات مخرج الحرف.</div>`
+},
+{
+ title:"3. صفات الحروف",
+ short:"صفات لازمة تساعد على ضبط النطق.",
+ body:`<h4>ما المقصود بالصفات؟</h4>
+<p>الصفة هي الكيفية التي يخرج بها الحرف عند النطق، ومعرفتها تساعد على التمييز بين الحروف المتقاربة.</p>
+<h4>من الصفات المشهورة</h4>
+<ul>
+<li>الهمس والجهر.</li>
+<li>الشدة والرخاوة والتوسط.</li>
+<li>الاستعلاء والاستفال.</li>
+<li>الإطباق والانفتاح.</li>
+<li>الإذلاق والإصمات.</li>
+</ul>
+<div class="tajweed-example"><strong>تطبيق:</strong> لا تجعل الهدف حفظ الأسماء فقط؛ قارن بين حرفين متقاربين في الصوت والمخرج حتى تشعر بالفرق.</div>`
+},
+{
+ title:"4. التفخيم والترقيق",
+ short:"متى يكون صوت الحرف مفخمًا أو مرققًا؟",
+ body:`<h4>التفخيم</h4>
+<p>هو تسمين صوت الحرف وامتلاء الفم بصداه. ومن أشهر حروف الاستعلاء: خ، ص، ض، غ، ط، ق، ظ.</p>
+<h4>الترقيق</h4>
+<p>هو نحول صوت الحرف وعدم امتلاء الفم بصداه.</p>
+<h4>ملاحظات مهمة</h4>
+<p>ليست كل الأحرف على حالة واحدة دائمًا؛ فبعض الأحكام تتغير بحسب الحركة والسياق، ولذلك يتعلم الطالب القاعدة ثم يطبقها على أمثلة متنوعة.</p>
+<div class="tajweed-example"><strong>تدريب:</strong> قارن بين صوت القاف والكاف، والصاد والسين، والطاء والتاء.</div>`
+},
+{
+ title:"5. أحكام الميم الساكنة",
+ short:"الإظهار الشفوي والإدغام والإخفاء الشفوي.",
+ body:`<h4>1) الإخفاء الشفوي</h4>
+<p>يكون عند الميم الساكنة إذا جاء بعدها حرف الباء، مع بقاء الغنة.</p>
+<h4>2) الإدغام الشفوي</h4>
+<p>يكون عند الميم الساكنة إذا جاء بعدها ميم متحركة، فتدغم الأولى في الثانية مع الغنة.</p>
+<h4>3) الإظهار الشفوي</h4>
+<p>يكون مع بقية الحروف، مع إظهار الميم من الشفتين بوضوح.</p>
+<div class="tajweed-example"><strong>طريقة التعلم:</strong> حدّد الميم الساكنة أولًا، ثم انظر إلى الحرف الذي يليها، وبعدها طبّق الحكم.</div>`
+},
+{
+ title:"6. المدود",
+ short:"المد الطبيعي والمدود الفرعية وأهم أسبابها.",
+ body:`<h4>المد الطبيعي</h4>
+<p>هو المد الذي لا تقوم ذات حرف المد إلا به، ومقداره حركتان في الأصل.</p>
+<h4>المد بسبب الهمز</h4>
+<p>توجد صور متعددة للمد عند اجتماع حرف المد مع الهمز، ويُدرَس كل نوع بأمثلته ومقداره.</p>
+<h4>المد بسبب السكون</h4>
+<p>تظهر أحكامه عند الوقف أو في مواضع مخصوصة، ومنها المد اللازم والمد العارض للسكون بحسب الباب المدروس.</p>
+<div class="tajweed-example"><strong>تدريب:</strong> اضبط عدد الحركات بالسماع على قارئ متقن، ولا تزد أو تنقص المد اعتباطًا.</div>`
+},
+{
+ title:"7. القلقلة",
+ short:"قلقلة حروف قطب جد عند السكون.",
+ body:`<h4>الحروف</h4>
+<p>حروف القلقلة مجموعة في قول: <strong>قطب جد</strong>.</p>
+<h4>متى تظهر؟</h4>
+<p>تظهر القلقلة عند سكون حرف من حروفها، ويزداد وضوحها عند الوقف بحسب موضع الحرف وحالة الوقف.</p>
+<h4>تنبيه</h4>
+<p>القلقلة ليست حركة إضافية؛ المطلوب إظهار اضطراب خفيف في صوت الحرف الساكن دون تحويله إلى فتحة أو ضمة أو كسرة.</p>
+<div class="tajweed-example"><strong>تدريب:</strong> انطق الحرف الساكن ثم انتقل للحرف الذي بعده من غير أن تضيف حركة كاملة.</div>`
+},
+{
+ title:"8. أحكام اللام",
+ short:"لام التعريف ولفظ الجلالة.",
+ body:`<h4>لام التعريف</h4>
+<p>تُدرس اللام في (الـ) من خلال اللام القمرية واللام الشمسية، مع ملاحظة ظهور اللام أو إدغامها بحسب الحرف التالي.</p>
+<h4>لام لفظ الجلالة</h4>
+<p>تفخم في مواضع وترقق في مواضع أخرى بحسب الحركة التي قبلها، لذلك يجب ضبط السياق قبل الحكم.</p>
+<div class="tajweed-example"><strong>تطبيق:</strong> اقرأ أمثلة متنوعة للام القمرية والشمسية، ثم قارن نطق اللام في لفظ الجلالة بعد الفتح أو الضم وبعد الكسر.</div>`
+},
+{
+ title:"9. أحكام الراء",
+ short:"تفخيم الراء وترقيقها في أشهر الحالات.",
+ body:`<h4>الراء المفخمة</h4>
+<p>تُفخم الراء في حالات معروفة، منها ما يرتبط بفتحها أو ضمها، مع وجود تفاصيل عند السكون والوقف.</p>
+<h4>الراء المرققة</h4>
+<p>تُرقق في حالات منها كسرها، وتوجد مسائل تفصيلية عند الراء الساكنة والوقف عليها.</p>
+<div class="tajweed-example"><strong>تنبيه:</strong> أحكام الراء من الأبواب التي تحتاج كثرة التطبيق؛ اقرأ الأمثلة بصوت مسموع ثم قارن.</div>`
+},
+{
+ title:"10. همزتا الوصل والقطع",
+ short:"التمييز بين همزة الوصل وهمزة القطع.",
+ body:`<h4>همزة القطع</h4>
+<p>تثبت في الابتداء والوصل، وتظهر في النطق بحسب حركتها.</p>
+<h4>همزة الوصل</h4>
+<p>تُثبت في ابتداء الكلام وتسقط في الوصل، ولذلك يحتاج القارئ إلى معرفة طريقة البدء بالكلمة.</p>
+<h4>أهميتها</h4>
+<p>معرفة هذا الباب تساعد على القراءة الصحيحة عند وصل الكلمات والبدء بها.</p>
+<div class="tajweed-example"><strong>تدريب:</strong> اقرأ الكلمة مرة مبتدئًا بها، ثم اقرأها موصولة بما قبلها ولاحظ الفرق.</div>`
+},
+{
+ title:"11. الوقف والابتداء",
+ short:"كيف تقف؟ وكيف تبدأ بعد الوقف؟",
+ body:`<h4>الوقف</h4>
+<p>هو قطع الصوت على الكلمة زمنًا يتنفس فيه القارئ عادة، ثم يستأنف القراءة.</p>
+<h4>أهمية المعنى</h4>
+<p>لا ينبغي أن يكون الوقف سببًا في إفساد المعنى، ولذلك يتعلم القارئ علامات الوقف المشهورة ومواقعها.</p>
+<h4>الابتداء</h4>
+<p>يُراعى عند البدء أن يكون الموضع مناسبًا من جهة اللفظ والمعنى، وألا يبدأ القارئ بما يوقع في معنى غير صحيح.</p>`
+},
+{
+ title:"12. أحكام النطق العملي",
+ short:"من القاعدة إلى التطبيق في الآية.",
+ body:`<h4>الخطوات الأربع</h4>
+<ol>
+<li>اقرأ الآية قراءة بطيئة.</li>
+<li>حدد الحروف أو المواضع التي تحتاج حكمًا تجويديًا.</li>
+<li>طبّق الحكم دون مبالغة.</li>
+<li>أعد القراءة بسرعة طبيعية مع المحافظة على الحكم.</li>
+</ol>
+<div class="tajweed-example"><strong>قاعدة ذهبية:</strong> التجويد مهارة تُكتسب بالتلقي والتدريب، وليس بحفظ التعريفات وحدها.</div>`
+},
+{
+ title:"13. أخطاء شائعة في التعلم",
+ short:"أخطاء يجب تجنبها أثناء التدريب.",
+ body:`<ul>
+<li>المبالغة في الغنة أو القلقلة.</li>
+<li>إضافة حركة إلى الحرف الساكن.</li>
+<li>مد الحرف أكثر من المطلوب بلا سبب.</li>
+<li>إهمال مخارج الحروف المتشابهة.</li>
+<li>الانشغال بالحكم ونسيان المعنى والخشوع.</li>
+<li>التعلم من القراءة الصامتة فقط دون تدريب صوتي.</li>
+</ul>
+<div class="tajweed-example"><strong>الأفضل:</strong> اقرأ أمام معلم متقن إن أمكن، واستمع إلى قارئ متقن، ثم كرر الآية بنفس النطق.</div>`
+},
+{
+ title:"14. خطة إتقان التجويد",
+ short:"برنامج تدريبي تدريجي.",
+ body:`<h4>الأسبوع 1</h4><p>مخارج الحروف والتمييز بين الحروف المتقاربة.</p>
+<h4>الأسبوع 2</h4><p>صفات الحروف والتفخيم والترقيق.</p>
+<h4>الأسبوع 3</h4><p>الميم الساكنة واللامات والراء.</p>
+<h4>الأسبوع 4</h4><p>المدود والقلقلة وهمزتا الوصل والقطع.</p>
+<h4>الأسبوع 5</h4><p>الوقف والابتداء والتطبيق على سور قصيرة.</p>
+<h4>الأسبوع 6</h4><p>مراجعة شاملة واختبارات وتسجيل التلاوة للمقارنة.</p>
+<div class="tajweed-example"><strong>الهدف:</strong> درس واحد يوميًا + 10 إلى 15 دقيقة تطبيق صوتي أفضل من حفظ أبواب كثيرة دون ممارسة.</div>`
+}
+];
+
+let tajweedIndex=0;
+
+window.renderDetailedTajweed=function(){
+ const box=document.getElementById("tajweedLessons");
+ if(!box)return;
+ box.innerHTML=detailedTajweed.map((x,i)=>`
+   <div class="tajweed-lesson-card" onclick="openDetailedTajweed(${i})">
+     <span class="tajweed-number">${i+1}</span>
+     <h3>${x.title}</h3>
+     <p class="tajweed-mini">${x.short}</p>
+   </div>`).join("");
+ renderDetailedQuiz();
+};
+
+window.openDetailedTajweed=function(i){
+ tajweedIndex=i;
+ document.getElementById("tajweedLessons").style.display="none";
+ document.getElementById("tajweedLessonReader").style.display="block";
+ renderDetailedTajweedLesson();
+};
+
+function renderDetailedTajweedLesson(){
+ const x=detailedTajweed[tajweedIndex];
+ document.getElementById("tajweedLessonTitle").textContent=x.title;
+ document.getElementById("tajweedLessonContent").innerHTML=x.body;
+}
+
+window.closeTajweedLesson=function(){
+ document.getElementById("tajweedLessonReader").style.display="none";
+ document.getElementById("tajweedLessons").style.display="grid";
+};
+
+window.prevTajweedLesson=function(){
+ tajweedIndex=(tajweedIndex-1+detailedTajweed.length)%detailedTajweed.length;
+ renderDetailedTajweedLesson();
+};
+window.nextTajweedLesson=function(){
+ tajweedIndex=(tajweedIndex+1)%detailedTajweed.length;
+ renderDetailedTajweedLesson();
+};
+
+function renderDetailedQuiz(){
+ const q=[
+  ["ما المقصود بالتجويد؟","إعطاء الحروف حقها ومستحقها","حفظ أسماء السور"],
+  ["ما هي المخارج العامة التي يدرسها علم التجويد؟","الجوف والحلق واللسان والشفتان والخيشوم","اليد والرأس والصدر"],
+  ["ما حروف القلقلة؟","قطب جد","يرملون"],
+  ["ما حكم الميم الساكنة قبل الميم المتحركة؟","الإدغام الشفوي","المد الطبيعي"],
+  ["ماذا يراعى عند الوقف؟","سلامة اللفظ والمعنى","زيادة الحركة"],
+  ["ما فائدة معرفة الصفات؟","تمييز الحروف وضبط نطقها","إطالة جميع الحروف"]
+ ];
+ let idx=0, score=0;
+ function draw(){
+   const x=q[idx];
+   document.getElementById("detailedTajweedQuiz").innerHTML=`
+    <p><strong>${idx+1}/${q.length} — ${x[0]}</strong></p>
+    <button class="quiz-choice" onclick="answerTajweedQuiz(true)">${x[1]}</button>
+    <button class="quiz-choice" onclick="answerTajweedQuiz(false)">${x[2]}</button>
+    <p id="tajweedQuizResult"></p>`;
+ }
+ window.answerTajweedQuiz=function(ok){
+   const r=document.getElementById("tajweedQuizResult");
+   if(ok){score++;r.textContent="إجابة صحيحة ✅";}
+   else r.textContent="إجابة غير صحيحة ❌";
+   setTimeout(()=>{
+     idx++;
+     if(idx<q.length) draw();
+     else document.getElementById("detailedTajweedQuiz").innerHTML=
+       `<h4>انتهى الاختبار 🎉</h4><p>نتيجتك: <strong>${score} / ${q.length}</strong></p>
+        <button class="btn" onclick="renderDetailedTajweed()">إعادة الاختبار</button>`;
+   },650);
+ };
+ draw();
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+ if(document.getElementById("tajweedLessons")) renderDetailedTajweed();
+});
+})();
+</script>
+
+
+<div class="modern-overlay" id="modernOverlay" onclick="closeModernTool(event)">
+  <div class="modern-sheet" onclick="event.stopPropagation()">
+    <button class="modern-close" onclick="closeModernTool()">×</button>
+
+    <div class="modern-tool" id="tool-tasbih">
+      <div class="tool-head"><span>📿</span><div><h3>السبحة الإلكترونية</h3><p>عداد سريع مع حفظ تلقائي للنتيجة.</p></div></div>
+      <div class="tasbih-count" id="tasbihCount">0</div>
+      <div class="tasbih-label" id="tasbihLabel">سبحان الله</div>
+      <div class="tasbih-actions">
+        <button class="tasbih-main" onclick="incrementTasbih()">تسبيح</button>
+        <button onclick="changeTasbihPhrase()">تغيير الذكر</button>
+        <button onclick="resetTasbih()">تصفير</button>
+      </div>
+      <div class="tasbih-presets">
+        <button onclick="setTasbihPreset(33)">33</button>
+        <button onclick="setTasbihPreset(100)">100</button>
+        <button onclick="setTasbihPreset(1000)">1000</button>
+      </div>
+    </div>
+
+    <div class="modern-tool" id="tool-challenge">
+      <div class="tool-head"><span>🎯</span><div><h3>تحدي اليوم</h3><p>3 مهام بسيطة، وأنجزها يوميًا.</p></div></div>
+      <div id="challengeList" class="challenge-list"></div>
+      <div class="challenge-footer"><span>الإنجاز</span><strong id="challengeScore">0 / 3</strong></div>
+    </div>
+
+    <div class="modern-tool" id="tool-search">
+      <div class="tool-head"><span>🔎</span><div><h3>البحث الشامل</h3><p>ابحث داخل محتوى الموقع بسرعة.</p></div></div>
+      <div class="modern-search">
+        <input id="modernSearchInput" type="search" placeholder="مثال: الصلاة، يوسف، التجويد..." oninput="runModernSearch()">
+        <button onclick="runModernSearch()">بحث</button>
+      </div>
+      <div id="modernSearchResults" class="modern-results"></div>
+    </div>
+
+    <div class="modern-tool" id="tool-dhikr">
+      <div class="tool-head"><span>🤲</span><div><h3>ورد اليوم</h3><p>متابعة شخصية تحفظ على جهازك.</p></div></div>
+      <div id="dailyWird" class="wird-list"></div>
+    </div>
+
+    <div class="modern-tool" id="tool-tools">
+      <div class="tool-head"><span>✨</span><div><h3>مزايا إضافية</h3><p>أدوات صغيرة لتجربة أكثر عصرية.</p></div></div>
+      <div class="modern-tools-grid">
+        <button onclick="increaseAppFont()">A+<span>تكبير الخط</span></button>
+        <button onclick="decreaseAppFont()">A−<span>تصغير الخط</span></button>
+        <button onclick="resetAppFont()">↺<span>حجم افتراضي</span></button>
+        <button onclick="toggleFocusMode()">◉<span>وضع التركيز</span></button>
+        <button onclick="showTodayDate()">📅<span>التاريخ اليوم</span></button>
+        <button onclick="shareModernApp()">↗️<span>مشاركة التطبيق</span></button>
+      </div>
+      <div class="modern-note">تُحفظ الإعدادات والعدادات محليًا على جهازك.</div>
+    </div>
+  </div>
+</div>
+
+<button class="modern-fab" onclick="openModernTool('tools')" aria-label="فتح المزايا">✨</button>
+<div class="modern-toast" id="modernToast"></div>
+
+
+<script id="modern-upgrade-js">
+(function(){
+  const dayKey = () => new Date().toLocaleDateString("en-CA");
+  const get = (k,d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch(e){ return d; } };
+  const set = (k,v) => localStorage.setItem(k,JSON.stringify(v));
+
+  const challengeDefaults=[
+    ["أكمل وردًا من الأذكار","dhikr"],
+    ["اقرأ صفحة من القرآن","quran"],
+    ["صلِّ الصلوات في وقتها","prayer"]
+  ];
+
+  window.openModernTool=function(name){
+    const overlay=document.getElementById("modernOverlay");
+    if(!overlay)return;
+    overlay.classList.add("open");
+    document.querySelectorAll(".modern-tool").forEach(x=>x.classList.remove("active"));
+    const el=document.getElementById("tool-"+name)||document.getElementById("tool-tools");
+    el.classList.add("active");
+    if(name==="challenge")renderChallenges();
+    if(name==="dhikr")renderWird();
+    if(name==="tasbih")renderTasbih();
+    if(name==="search")setTimeout(()=>document.getElementById("modernSearchInput")?.focus(),80);
+  };
+  window.closeModernTool=function(e){
+    if(e && e.target!==document.getElementById("modernOverlay"))return;
+    document.getElementById("modernOverlay")?.classList.remove("open");
+  };
+
+  let tasbihPhraseIndex=0;
+  const phrases=["سبحان الله","الحمد لله","الله أكبر","لا إله إلا الله","أستغفر الله"];
+  function renderTasbih(){
+    const n=Number(localStorage.getItem("modern_tasbih")||0);
+    const c=document.getElementById("tasbihCount"),l=document.getElementById("tasbihLabel");
+    if(c)c.textContent=n;
+    if(l)l.textContent=phrases[tasbihPhraseIndex];
+    const md=document.getElementById("mdTasbih"); if(md)md.textContent=n;
+  }
+  window.incrementTasbih=function(){
+    const n=Number(localStorage.getItem("modern_tasbih")||0)+1;
+    localStorage.setItem("modern_tasbih",n); renderTasbih(); updateModernDashboard();
+    if(navigator.vibrate)navigator.vibrate(18);
+  };
+  window.resetTasbih=function(){localStorage.setItem("modern_tasbih","0");renderTasbih();updateModernDashboard();toast("تم تصفير السبحة");};
+  window.changeTasbihPhrase=function(){tasbihPhraseIndex=(tasbihPhraseIndex+1)%phrases.length;renderTasbih();};
+  window.setTasbihPreset=function(n){localStorage.setItem("modern_tasbih",String(n));renderTasbih();updateModernDashboard();};
+
+  function challengeState(){return get("modern_challenge_"+dayKey(),{});}
+  function renderChallenges(){
+    const box=document.getElementById("challengeList"); if(!box)return;
+    const s=challengeState();
+    box.innerHTML=challengeDefaults.map(([label,key],i)=>`
+      <div class="challenge-item ${s[key]?"done":""}">
+        <span>${s[key]?"✅":"⭕"} ${label}</span>
+        <button onclick="toggleModernChallenge('${key}')">${s[key]?"تم":"إنجاز"}</button>
+      </div>`).join("");
+    const score=Object.values(s).filter(Boolean).length;
+    document.getElementById("challengeScore").textContent=score+" / 3";
+    document.getElementById("mdChallenge").textContent=score+"/3";
+  }
+  window.toggleModernChallenge=function(key){
+    const s=challengeState();s[key]=!s[key];set("modern_challenge_"+dayKey(),s);renderChallenges();updateModernDashboard();
+    if(Object.values(s).filter(Boolean).length===3)toast("ما شاء الله! أكملت تحدي اليوم 🎉");
+  };
+
+  const wird=[
+    ["أذكار الصباح","فتح قسم أذكار الصباح"],
+    ["أذكار المساء","فتح قسم أذكار المساء"],
+    ["قراءة القرآن","قراءة صفحة من القرآن"],
+    ["الصلاة على النبي ﷺ","الصلاة على النبي ﷺ"]
+  ];
+  function renderWird(){
+    const box=document.getElementById("dailyWird");if(!box)return;
+    const s=get("modern_wird_"+dayKey(),{});
+    box.innerHTML=wird.map(([label],i)=>`
+      <div class="wird-item ${s[i]?"done":""}">
+        <span>${s[i]?"✅":"🤲"} ${label}</span>
+        <button onclick="toggleWird(${i})">${s[i]?"تم":"إنجاز"}</button>
+      </div>`).join("");
+    const done=Object.values(s).filter(Boolean).length;
+    document.getElementById("mdDhikr").textContent=done;
+    updateModernDashboard();
+  }
+  window.toggleWird=function(i){
+    const s=get("modern_wird_"+dayKey(),{});s[i]=!s[i];set("modern_wird_"+dayKey(),s);renderWird();
+  };
+
+  window.runModernSearch=function(){
+    const q=(document.getElementById("modernSearchInput")?.value||"").trim().toLowerCase();
+    const box=document.getElementById("modernSearchResults");if(!box)return;
+    if(q.length<2){box.innerHTML='<div class="modern-result">اكتب كلمتين أو أكثر للبحث.</div>';return;}
+    const nodes=[...document.querySelectorAll("h1,h2,h3,h4,p,button,.card,.section-title,.story-card,.companion-card")];
+    const seen=new Set(),results=[];
+    for(const n of nodes){
+      if(results.length>=10)break;
+      const text=(n.innerText||"").trim();
+      if(text && text.toLowerCase().includes(q)){
+        const key=text.slice(0,160);
+        if(seen.has(key))continue;seen.add(key);
+        results.push({text,key,node:n});
+      }
+    }
+    if(!results.length){box.innerHTML='<div class="modern-result">لم نجد نتيجة مطابقة. جرّب كلمة أخرى.</div>';return;}
+    box.innerHTML=results.map((r,i)=>`<div class="modern-result" data-i="${i}"><b>نتيجة ${i+1}</b><br>${r.text.slice(0,150)}</div>`).join("");
+    [...box.querySelectorAll(".modern-result[data-i]")].forEach(el=>el.onclick=()=>{
+      const r=results[Number(el.dataset.i)];r.node.scrollIntoView({behavior:"smooth",block:"center"});
+      r.node.style.outline="3px solid rgba(11,107,79,.28)";setTimeout(()=>r.node.style.outline="",1600);
+      document.getElementById("modernOverlay").classList.remove("open");
+    });
+  };
+
+  function updateDate(){
+    const d=new Date();
+    const greg=new Intl.DateTimeFormat("ar-DZ",{dateStyle:"full"}).format(d);
+    let hijri="";
+    try{hijri=new Intl.DateTimeFormat("ar-SA-u-ca-islamic",{dateStyle:"full"}).format(d);}catch(e){}
+    const el=document.getElementById("mdDate");if(el)el.textContent=greg+(hijri?" • "+hijri:"");
+  }
+
+  function updateModernDashboard(){
+    const s=challengeState(),cs=Object.values(s).filter(Boolean).length;
+    const w=get("modern_wird_"+dayKey(),{}),wd=Object.values(w).filter(Boolean).length;
+    const tas=Number(localStorage.getItem("modern_tasbih")||0);
+    const total=cs+Math.min(wd,3);
+    const pct=Math.min(100,Math.round(total/6*100));
+    const ring=document.querySelector(".md-progress-ring");if(ring)ring.style.setProperty("--progress",(pct*3.6)+"deg");
+    const p=document.getElementById("mdProgress");if(p)p.textContent=pct+"%";
+    const mdT=document.getElementById("mdTasbih");if(mdT)mdT.textContent=tas;
+    const mdC=document.getElementById("mdChallenge");if(mdC)mdC.textContent=cs+"/3";
+    const mdD=document.getElementById("mdDhikr");if(mdD)mdD.textContent=wd;
+  }
+
+  window.increaseAppFont=function(){changeFont(1)};
+  window.decreaseAppFont=function(){changeFont(-1)};
+  window.resetAppFont=function(){localStorage.removeItem("modern_font");applyFont();toast("تمت إعادة حجم الخط");};
+  function changeFont(delta){
+    let n=Number(localStorage.getItem("modern_font")||0);n=Math.max(-2,Math.min(3,n+delta));localStorage.setItem("modern_font",n);applyFont();
+  }
+  function applyFont(){
+    const n=Number(localStorage.getItem("modern_font")||0);
+    document.documentElement.style.fontSize=(16+n)+"px";
+  }
+  window.toggleFocusMode=function(){document.body.classList.toggle("mu-focus");toast(document.body.classList.contains("mu-focus")?"تم تفعيل وضع التركيز":"تم إيقاف وضع التركيز");};
+  window.showTodayDate=function(){updateDate();toast(document.getElementById("mdDate")?.textContent||"");};
+  window.shareModernApp=async function(){
+    const data={title:"الخادم القرآني الشامل",text:"تطبيق إسلامي شامل للقرآن والأذكار والفقه والقصص والتجويد."};
+    try{
+      if(navigator.share)await navigator.share(data);
+      else {await navigator.clipboard.writeText(data.title);toast("تم نسخ اسم التطبيق");}
+    }catch(e){}
+  };
+  function toast(msg){const t=document.getElementById("modernToast");if(!t)return;t.textContent=msg;t.classList.add("show");clearTimeout(window.__muToast);window.__muToast=setTimeout(()=>t.classList.remove("show"),2200);}
+
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape")document.getElementById("modernOverlay")?.classList.remove("open");
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openModernTool("search");}
+  });
+  document.addEventListener("DOMContentLoaded",()=>{
+    updateDate();applyFont();renderTasbih();renderChallenges();renderWird();updateModernDashboard();
+  });
 })();
 </script>
 
