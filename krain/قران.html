@@ -1096,10 +1096,21 @@
             }
         }
     
-/* ===== إضافات النسخة المطورة مع الحفاظ على المشروع الأصلي ===== */
-.extra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}.extra-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 4px 12px #00000008}.extra-stat{text-align:center;background:var(--primary-soft);border-radius:12px;padding:12px}.extra-stat b{display:block;font-size:25px;color:var(--primary)}.extra-progress{height:13px;background:#e9ecef;border-radius:20px;overflow:hidden}.extra-progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:.3s}.extra-result{padding:11px;border-bottom:1px solid var(--border);cursor:pointer}.extra-badge{display:inline-block;padding:7px 10px;border-radius:20px;background:var(--primary-soft);color:var(--primary);font-weight:700;margin:3px;font-size:12px}.extra-counter{text-align:center}.extra-counter-display{width:115px;height:115px;border-radius:50%;margin:12px auto;display:grid;place-items:center;border:4px solid var(--accent);font-size:30px;font-weight:800;color:var(--primary);background:#fffdf5}.extra-counter-btn{width:115px;height:115px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;font-weight:800;font-size:15px}.extra-qibla{width:220px;height:220px;border-radius:50%;border:8px solid var(--primary-soft);margin:15px auto;position:relative;display:grid;place-items:center;background:radial-gradient(circle,#fff,#eef7f1)}.extra-needle{position:absolute;width:5px;height:88px;background:var(--danger);bottom:50%;left:calc(50% - 2.5px);transform-origin:bottom;border-radius:5px}.extra-qibla-n{position:absolute;top:5px;font-weight:800;color:var(--primary)}.extra-input{width:100%;padding:11px;border:1.5px solid var(--border);border-radius:10px;background:var(--card-bg);color:var(--text-main);font-family:inherit}.extra-btn{width:100%;padding:11px;border:0;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-weight:800;margin-top:7px}.extra-row{display:flex;gap:8px}.extra-row>*{flex:1}.extra-notice{background:#fff8e1;border:1px solid #ffe082;color:#6d5715;padding:11px;border-radius:10px;font-size:12px;line-height:1.8;margin-bottom:12px}.dark .extra-card{background:#1d2924}.dark .extra-input{background:#141d19;color:#edf5ef}.dark .extra-qibla{background:#202b26}.dark .extra-progress{background:#33423b}@media(max-width:600px){.extra-grid{grid-template-columns:repeat(2,1fr)}.extra-row{flex-direction:column}}
+<style>
+.story-card,.achievement-card,.companion-card,.hadith-card,.tajweed-card{
+    background:var(--card,#fff);border:1px solid var(--border,#ddd);border-radius:14px;
+    padding:16px;margin:10px 0;box-shadow:0 3px 12px rgba(0,0,0,.04)
+}
+.story-grid,.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.story-card h3,.companion-card h3,.tajweed-card h3{margin-top:0}
+.event-line{display:flex;gap:12px;padding:12px 4px;border-bottom:1px solid var(--border,#ddd)}
+.rule-example{background:#f7f7f7;padding:10px;border-radius:10px;margin-top:8px}
+.quiz-choice{display:block;width:100%;text-align:right;margin:8px 0;padding:12px;border:1px solid var(--border,#ddd);border-radius:10px;background:var(--card,#fff);cursor:pointer}
+.quiz-choice:hover{transform:translateY(-1px)}
+.search-input{width:100%;box-sizing:border-box;padding:13px;border-radius:10px;border:1px solid var(--border,#ddd);margin:10px 0}
+</style>
 
-    </style>
+</style>
 </head>
 
 <body>
@@ -1219,6 +1230,45 @@
         </button>
 
 
+        <button class="tab-btn" onclick="showTab('lessons', this)"><i class="fa-solid fa-graduation-cap"></i><span>فقه العبادات</span></button><button class="tab-btn" onclick="showTab('qibla', this)"><i class="fa-solid fa-compass"></i><span>القبلة</span></button><button class="tab-btn" onclick="showTab('prayertrack', this)">
+            <i class="fa-solid fa-square-check"></i><span>تتبع الصلوات</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('calendar', this)">
+            <i class="fa-solid fa-calendar-days"></i><span>التقويم</span>
+        </button>
+
+        
+        <button class="tab-btn" onclick="showTab('stories', this)">
+            <i class="fa-solid fa-book-open"></i><span>قصص الأنبياء</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('seerah', this)">
+            <i class="fa-solid fa-mosque"></i><span>السيرة النبوية</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('companions', this)">
+            <i class="fa-solid fa-users"></i><span>قصص الصحابة</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('hadith40', this)">
+            <i class="fa-solid fa-scroll"></i><span>الأربعون النووية</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('tajweed', this)">
+            <i class="fa-solid fa-book-quran"></i><span>تعلم التجويد</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('noon', this)">
+            <i class="fa-solid fa-font"></i><span>أحكام النون الساكنة والتنوين</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('duas', this)">
+            <i class="fa-solid fa-hands-praying"></i><span>الأدعية</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('islamicq', this)">
+            <i class="fa-solid fa-circle-question"></i><span>الموسوعة الإسلامية</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('dailyplan', this)">
+            <i class="fa-solid fa-calendar-check"></i><span>الخطة اليومية</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('challenges', this)">
+            <i class="fa-solid fa-trophy"></i><span>التحديات والإنجازات</span>
+        </button>
+
         <button class="tab-btn"
                 onclick="showTab('quiz', this)">
 
@@ -1227,12 +1277,6 @@
             <span>الاختبار</span>
 
         </button>
-
-
-        <button class="tab-btn" onclick="showTab('homePlus', this)"><i class="fa-solid fa-house"></i><span>الرئيسية</span></button>
-        <button class="tab-btn" onclick="showTab('qiblaPlus', this)"><i class="fa-solid fa-compass"></i><span>القبلة</span></button>
-        <button class="tab-btn" onclick="showTab('progressPlus', this)"><i class="fa-solid fa-chart-line"></i><span>متابعتي</span></button>
-        <button class="tab-btn" onclick="showTab('searchPlus', this)"><i class="fa-solid fa-magnifying-glass"></i><span>بحث</span></button>
 
     </div>
 
@@ -1510,6 +1554,9 @@
                 <option value="ar.husary">
                     محمود خليل الحصري
                 </option>
+                <option value="ar.islamsobhi">إسلام صبحي</option>
+                <option value="ar.hazaalbalushi">هزاع البلوشي</option>
+                <option value="ar.ahmad_alkhader">أحمد الأخضر</option>
 
             </select>
 
@@ -2058,7 +2105,7 @@
             </button>
 
 
-            <button class="mode-btn"
+            <button class="mode-btn" id="btnModeWrite" onclick="setReciteMode('write')"><i class="fa-solid fa-keyboard"></i> تسميع بالكتابة</button><button class="mode-btn"
                     id="btnModeRepeat"
                     onclick="setReciteMode('repeat')">
 
@@ -2088,9 +2135,7 @@
         </div>
 
 
-        <div id="repeatSection"
-             style="display:none;"
-             class="user-card">
+        <div id="writeSection" style="display:none" class="user-card"><p>اكتب الآيات التي حفظتها ثم اضغط تصحيح.</p><textarea id="writtenRecitation" rows="8" placeholder="اكتب ما تحفظه هنا..."></textarea><button class="btn" onclick="checkWrittenRecitation()">تصحيح الكتابة</button><div id="writtenResult" class="record-status">لم يتم التصحيح بعد.</div></div><div id="repeatSection" style="display:none;" class="user-card">
 
             <p style="font-size:13px;">
 
@@ -2142,7 +2187,152 @@
          الاختبار
     ========================== -->
 
-    <section id="quiz" class="section">
+    
+    <section id="lessons" class="section">
+        <h2><i class="fa-solid fa-graduation-cap"></i> فقه العبادات</h2>
+        <div class="mode-selector">
+            <button class="mode-btn active" id="lessonPrayer" onclick="selectLesson('prayer')">🕌 الصلاة</button>
+            <button class="mode-btn" id="lessonFasting" onclick="selectLesson('fasting')">🌙 الصيام</button>
+            <button class="mode-btn" id="lessonTaharah" onclick="selectLesson('taharah')">💧 الطهارة</button>
+        </div>
+        <div id="lessonContent"></div>
+        <div class="fiqh-card">
+            <h3>📝 كويز الدرس</h3>
+            <div>النتيجة: <strong id="lessonScore">0</strong></div>
+            <h3 id="lessonQuestion"></h3>
+            <div id="lessonOptions"></div>
+            <p id="lessonFeedback"></p>
+            <button class="btn" id="lessonNext" style="display:none" onclick="nextLessonQuestion()">السؤال التالي</button>
+        </div>
+    </section>
+
+    <section id="prayertrack" class="section">
+        <h2><i class="fa-solid fa-square-check"></i> تتبع الصلوات</h2>
+        <div class="notice">سجّل الصلوات التي أديتها اليوم. يتم حفظ المتابعة على جهازك.</div>
+        <div id="prayerTracker"></div>
+        <div class="score-box">تمت <strong id="prayerDoneCount">0</strong> من 5 — <strong id="prayerTrackPercent">0%</strong></div>
+        <button class="btn" onclick="resetPrayerTracker()">إعادة تعيين اليوم</button>
+    </section>
+
+    <section id="calendar" class="section">
+        <h2><i class="fa-solid fa-calendar-days"></i> التقويم الهجري والميلادي</h2>
+        <div class="mode-selector">
+            <button class="mode-btn active" id="calGregorianBtn" onclick="setCalendarMode('gregorian')">📅 الميلادي</button>
+            <button class="mode-btn" id="calHijriBtn" onclick="setCalendarMode('hijri')">🌙 الهجري</button>
+        </div>
+        <div class="fiqh-card" id="calendarToday"></div>
+        <div class="fiqh-card">
+            <h3>🌙 المناسبات الإسلامية</h3>
+            <div id="islamicEvents"></div>
+        </div>
+        <div class="fiqh-card">
+            <h3>📅 مناسبات العام</h3>
+            <div id="generalEvents"></div>
+        </div>
+        <div class="notice">قد يختلف التاريخ الهجري يومًا بحسب رؤية الهلال والجهة المعتمدة.</div>
+    </section>
+
+    <section id="qibla" class="section">
+        <h2><i class="fa-solid fa-kaaba"></i> القبلة — اتجاه الكعبة</h2>
+        <div class="notice">اضغط الزر للسماح بالموقع وحساب اتجاه الكعبة من مكانك.</div>
+        <div class="fiqh-card" style="text-align:center">
+            <div style="width:220px;height:220px;border:8px solid var(--primary-soft);border-radius:50%;margin:20px auto;display:grid;place-items:center;position:relative;background:#fff">
+                <b style="position:absolute;top:8px">N</b>
+                <i class="fa-solid fa-kaaba" style="font-size:42px;color:var(--accent)"></i>
+                <div id="qiblaNeedle" style="position:absolute;width:5px;height:85px;background:#dc3545;bottom:50%;left:calc(50% - 2.5px);transform-origin:bottom;border-radius:5px"></div>
+            </div>
+            <h3>الاتجاه: <span id="qiblaDegree">--°</span></h3>
+            <p id="qiblaInfo">لم يتم تحديد موقعك بعد.</p>
+            <button class="btn" onclick="calculateQibla()">تحديد اتجاه القبلة</button>
+        </div>
+    </section>
+
+
+    <section id="stories" class="section">
+        <h2><i class="fa-solid fa-book-open"></i> قصص الأنبياء</h2>
+        <div class="notice">قصص تعليمية مختصرة مستفادة من القرآن والسنة، مع التنبيه إلى أن بعض التفاصيل التاريخية تحتاج إلى التحقق من مصادرها.</div>
+        <div id="prophetStoriesGrid" class="fiqh-card"></div>
+        <div id="prophetStoryView"></div>
+        <div class="fiqh-card">
+            <h3>📝 كويز القصة</h3>
+            <div id="storyQuiz"></div>
+        </div>
+    </section>
+
+    <section id="seerah" class="section">
+        <h2><i class="fa-solid fa-mosque"></i> السيرة النبوية</h2>
+        <div class="notice">خط زمني مبسط لأبرز مراحل السيرة النبوية ﷺ.</div>
+        <div id="seerahTimeline" class="fiqh-card"></div>
+        <div id="seerahQuiz" class="fiqh-card"></div>
+    </section>
+
+    <section id="companions" class="section">
+        <h2><i class="fa-solid fa-users"></i> قصص الصحابة</h2>
+        <div id="companionsGrid"></div>
+        <div id="companionView"></div>
+    </section>
+
+    <section id="hadith40" class="section">
+        <h2><i class="fa-solid fa-scroll"></i> الأربعون النووية</h2>
+        <div class="notice">بطاقات تعليمية للحديث والمعنى والفوائد. تم تجنب إطالة النصوص المنقولة.</div>
+        <div id="hadith40List"></div>
+    </section>
+
+    <section id="tajweed" class="section">
+        <h2><i class="fa-solid fa-book-quran"></i> تعلم التجويد</h2>
+        <div class="mode-selector">
+            <button class="mode-btn active" onclick="openTajweed('intro',this)">مقدمة</button>
+            <button class="mode-btn" onclick="openTajweed('noon',this)">النون الساكنة والتنوين</button>
+            <button class="mode-btn" onclick="openTajweed('mim',this)">الميم الساكنة</button>
+            <button class="mode-btn" onclick="openTajweed('madd',this)">المدود</button>
+            <button class="mode-btn" onclick="openTajweed('qalqalah',this)">القلقلة</button>
+            <button class="mode-btn" onclick="openTajweed('lam',this)">اللامات</button>
+        </div>
+        <div id="tajweedContent"></div>
+        <div class="fiqh-card">
+            <h3>📝 اختبار التجويد</h3>
+            <div id="tajweedQuiz"></div>
+        </div>
+    </section>
+
+    <section id="noon" class="section">
+        <h2><i class="fa-solid fa-font"></i> أحكام النون الساكنة والتنوين</h2>
+        <div class="notice">هذا القسم يشرح الأحكام الأربعة المشهورة: الإظهار، الإدغام، الإقلاب، الإخفاء.</div>
+        <div id="noonRules"></div>
+        <div class="fiqh-card">
+            <h3>🎯 اختبر نفسك</h3>
+            <div id="noonQuiz"></div>
+        </div>
+    </section>
+
+    <section id="duas" class="section">
+        <h2><i class="fa-solid fa-hands-praying"></i> الأدعية</h2>
+        <div id="duasGrid"></div>
+    </section>
+
+    <section id="islamicq" class="section">
+        <h2><i class="fa-solid fa-circle-question"></i> الموسوعة الإسلامية</h2>
+        <input id="islamicSearch" class="search-input" placeholder="ابحث: الصلاة، الصيام، الزكاة، الحج، السيرة..." oninput="searchIslamic()">
+        <div id="islamicResults"></div>
+    </section>
+
+    <section id="dailyplan" class="section">
+        <h2><i class="fa-solid fa-calendar-check"></i> الخطة اليومية</h2>
+        <div class="notice">ضع علامة ✓ على الأعمال التي أنجزتها اليوم، وسيتم حفظها على جهازك.</div>
+        <div id="dailyPlanList"></div>
+        <div class="score-box">إنجاز اليوم: <strong id="dailyPlanPercent">0%</strong></div>
+    </section>
+
+    <section id="challenges" class="section">
+        <h2><i class="fa-solid fa-trophy"></i> التحديات والإنجازات</h2>
+        <div id="achievementsGrid"></div>
+        <div class="fiqh-card">
+            <h3>🎯 تحدي اليوم</h3>
+            <div id="dailyChallenge"></div>
+        </div>
+    </section>
+
+<section id="quiz" class="section">
 
         <h2>
             <i class="fa-solid fa-circle-question"></i>
@@ -2197,42 +2387,6 @@
 
 </div>
 
-
-
-    <!-- =========================
-         إضافات بدون حذف المعلومات الأصلية
-    ========================== -->
-    <section id="homePlus" class="section">
-        <h2><i class="fa-solid fa-house"></i> الرئيسية المطورة</h2>
-        <div class="extra-card"><b>آخر قراءة</b><p id="plusLastRead">لم يتم حفظ موضع قراءة بعد.</p><button class="extra-btn" onclick="plusContinueReading()">متابعة القراءة</button></div>
-        <div class="extra-grid">
-          <div class="extra-stat"><b id="plusDays">0</b>أيام نشاط</div><div class="extra-stat"><b id="plusDhikr">0</b>أذكار</div>
-          <div class="extra-stat"><b id="plusPages">0%</b>الختمة</div><div class="extra-stat"><b id="plusScore">0</b>نقاط</div>
-        </div>
-        <div class="extra-card"><h3>اختصارات</h3><div class="extra-row"><button class="extra-btn" onclick="showTab('adhkar')">الأذكار</button><button class="extra-btn" onclick="showTab('qiblaPlus')">القبلة</button></div><div class="extra-row"><button class="extra-btn" onclick="showTab('prayer')">المواقيت</button><button class="extra-btn" onclick="showTab('progressPlus')">إنجازاتي</button></div></div>
-    </section>
-
-    <section id="qiblaPlus" class="section">
-      <h2><i class="fa-solid fa-compass"></i> اتجاه القبلة</h2>
-      <div class="extra-notice">اسمح للموقع الجغرافي للمتصفح للحصول على الاتجاه الأدق. الحساب يعتمد على الإحداثيات الحالية والكعبة المشرفة.</div>
-      <div class="extra-qibla"><span class="extra-qibla-n">N</span><div class="extra-needle" id="plusNeedle"></div><i class="fa-solid fa-kaaba" style="font-size:35px;color:var(--accent)"></i></div>
-      <div class="extra-card" style="text-align:center"><b>اتجاه القبلة:</b> <span id="plusQiblaDegree">--°</span><br><small id="plusQiblaInfo">في انتظار الموقع...</small></div>
-      <button class="extra-btn" onclick="plusGetQibla()">تحديد القبلة</button>
-    </section>
-
-    <section id="progressPlus" class="section">
-      <h2><i class="fa-solid fa-chart-line"></i> المتابعة والإنجازات</h2>
-      <div class="extra-card"><h3>ختم القرآن</h3><div class="extra-row"><input class="extra-input" id="plusPagesInput" type="number" min="0" max="604" placeholder="عدد الصفحات المقروءة من 604"><button class="extra-btn" onclick="plusSavePages()">حفظ</button></div><div class="extra-progress" style="margin-top:12px"><div id="plusProgressBar"></div></div><p id="plusProgressText">0 من 604 صفحة</p></div>
-      <div class="extra-grid"><div class="extra-stat"><b id="plusStatDays">0</b>أيام نشاط</div><div class="extra-stat"><b id="plusStatDhikr">0</b>أذكار</div><div class="extra-stat"><b id="plusStatFav">0</b>مفضلة</div><div class="extra-stat"><b id="plusStatScore">0</b>نقاط</div></div>
-      <div class="extra-card"><h3>الإنجازات</h3><div id="plusBadges"></div></div>
-      <div class="extra-card"><h3>المفضلة</h3><div id="plusFavorites"></div></div>
-    </section>
-
-    <section id="searchPlus" class="section">
-      <h2><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</h2>
-      <div class="extra-card"><input class="extra-input" id="plusSearchInput" placeholder="ابحث عن سورة أو ذكر أو قسم..." oninput="plusSearch()"><div id="plusSearchResults" style="margin-top:10px"></div></div>
-      <div class="extra-card"><h3>أقسام المشروع الأصلية</h3><p>القرآن • الأذكار • الوضوء • سجود السهو • المساعد • التسميع • الاختبار • مواقيت الصلاة.</p><button class="extra-btn" onclick="showTab('account')">العودة إلى الحساب</button></div>
-    </section>
 
 <script>
 
@@ -2829,141 +2983,9 @@
        المساعد
     ========================================= */
 
-    function askAI() {
-
-        const input =
-            document.getElementById(
-                "aiQuestionInput"
-            );
-
-
-        const container =
-            document.getElementById(
-                "aiChatContainer"
-            );
-
-
-        const qText =
-            input.value.trim();
-
-
-        if (!qText) {
-            return;
-        }
-
-
-        const userDiv =
-            document.createElement("div");
-
-
-        userDiv.className =
-            "user-msg";
-
-
-        userDiv.innerHTML =
-            `<i class="fa-solid fa-user"></i>
-             ${escapeHTML(qText)}`;
-
-
-        container.appendChild(userDiv);
-
-
-        input.value = "";
-
-
-        const aiDiv =
-            document.createElement("div");
-
-
-        aiDiv.className =
-            "ai-msg";
-
-
-        aiDiv.innerHTML =
-            `<i class="fa-solid fa-spinner fa-spin"></i>
-             جاري تحليل السؤال...`;
-
-
-        container.appendChild(aiDiv);
-
-
-        container.scrollTop =
-            container.scrollHeight;
-
-
-        setTimeout(() => {
-
-            const q =
-                qText.toLowerCase();
-
-
-            let answer;
-
-
-            if (
-                q.includes("وضوء") ||
-                q.includes("يتوضأ") ||
-                q.includes("مسح")
-            ) {
-
-                answer =
-                    "أحكام الوضوء تختلف في بعض التفاصيل بين المذاهب الأربعة، ويمكنك فتح قسم «الوضوء» في التطبيق لمقارنة أشهر الفروق.";
-
-            }
-
-            else if (
-                q.includes("سهو") ||
-                q.includes("نسي") ||
-                q.includes("زيادة")
-            ) {
-
-                answer =
-                    "سجود السهو له تفاصيل تختلف باختلاف المذهب وسبب السهو، مثل الزيادة أو النقص أو الشك. راجع قسم «السهو» في التطبيق، وللحالات الشخصية يُستحسن سؤال عالم موثوق.";
-
-            }
-
-            else if (
-                q.includes("ذكر") ||
-                q.includes("استغفار") ||
-                q.includes("تسبيح")
-            ) {
-
-                answer =
-                    "من الأذكار المشهورة: سبحان الله وبحمده، والاستغفار، وسيد الاستغفار. يمكنك فتح قسم «الأذكار» للاطلاع على مجموعة من الأذكار.";
-
-            }
-
-            else if (
-                q.includes("قرآن") ||
-                q.includes("سورة") ||
-                q.includes("آية")
-            ) {
-
-                answer =
-                    "يمكنك الانتقال إلى قسم «القرآن» واختيار السورة للاستماع إليها وقراءة نصها والتفسير المتاح.";
-
-            }
-
-            else {
-
-                answer =
-                    "لم أتمكن من تحديد المسألة بدقة. هذا المساعد في هذه النسخة يعمل بصورة محلية ولا يمثل فتوى شرعية. في المسائل الفقهية الخاصة، يُنصح بالرجوع إلى مصدر علمي موثوق.";
-
-            }
-
-
-            aiDiv.innerHTML =
-                `<i class="fa-solid fa-robot"></i>
-                 ${answer}`;
-
-
-            container.scrollTop =
-                container.scrollHeight;
-
-        }, 700);
-
-    }
-
+    function askAI(){const input=document.getElementById("aiQuestionInput"),box=document.getElementById("aiChatContainer"),q=input.value.trim();if(!q)return;box.innerHTML+=`<div class="user-msg"><i class="fa-solid fa-user"></i> ${escapeHTML(q)}</div>`;input.value="";box.innerHTML+=`<div class="ai-msg"><i class="fa-solid fa-robot"></i> ${getSmartAnswer(q)}</div>`;box.scrollTop=box.scrollHeight;}
+    function normArabic(s){return String(s||"").toLowerCase().replace(/[ًٌٍَُِّْـ]/g,"").replace(/[إأآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/[^\u0600-\u06FF0-9a-zA-Z\s]/g," ").replace(/\s+/g," ").trim()}
+    function getSmartAnswer(q){const n=normArabic(q);if(/صلاه|الصلاه|اركان الصلاه|شروط الصلاه|مبطلات الصلاه/.test(n))return "افتح درس الصلاة في فقه العبادات: الشروط والأركان والواجبات والسنن والمبطلات، ثم كويز الصلاة.";if(/صيام|الصيام|رمضان|مفطر/.test(n))return "افتح درس الصيام: وقت الصوم، المقاصد، المفطرات، الأعذار والقضاء، ثم كويز الصيام.";if(/وضوء|وضو|غسل|تيمم|طهاره|نجاس/.test(n))return "افتح درس الطهارة، وقسم الوضوء الأصلي يعرض فروق المذاهب الأربعة.";if(/سهو|سجود السهو|نسي/.test(n))return "قسم السهو موجود أصلًا ويعرض خلاصة اختلاف المذاهب.";if(/ذكر|اذكار|استغفار|تسبيح/.test(n))return "قسم الأذكار يحتوي سيد الاستغفار وأذكار دبر الصلاة وأذكار النوم والسبحة.";if(/قران|سوره|ايه|تفسير|قارئ/.test(n))return "قسم القرآن يتيح السورة والنص والتفسير والاستماع إلى القراء الجدد.";if(/مواقيت|فجر|ظهر|عصر|مغرب|عشاء/.test(n))return "افتح المواقيت واسمح بالموقع لحساب أوقات الصلاة حسب موقعك.";if(/تسميع|حفظ|كتابه/.test(n))return "التسميع يدعم الصوت والاستماع والترديد والتسميع بالكتابة مع مقارنة نصية.";return "أستطيع مساعدتك في القرآن والصلاة والصيام والطهارة والوضوء والسهو والأذكار والمواقيت والتسميع. اكتب سؤالك بالتفصيل. للمسائل التي تحتاج فتوى شخصية راجع عالمًا موثوقًا."}
 
     function escapeHTML(text) {
 
@@ -2981,53 +3003,7 @@
        التسميع
     ========================================= */
 
-    function setReciteMode(mode) {
-
-        const repeatSection =
-            document.getElementById(
-                "repeatSection"
-            );
-
-
-        const btnRecite =
-            document.getElementById(
-                "btnModeRecite"
-            );
-
-
-        const btnRepeat =
-            document.getElementById(
-                "btnModeRepeat"
-            );
-
-
-        if (mode === "repeat") {
-
-            repeatSection.style.display =
-                "block";
-
-
-            btnRepeat.classList.add("active");
-
-            btnRecite.classList.remove("active");
-
-
-            updateRepeatAudio();
-
-        } else {
-
-            repeatSection.style.display =
-                "none";
-
-
-            btnRecite.classList.add("active");
-
-            btnRepeat.classList.remove("active");
-
-        }
-
-    }
-
+    function setReciteMode(mode){const r=document.getElementById("repeatSection"),w=document.getElementById("writeSection"),a=document.getElementById("btnModeRecite"),b=document.getElementById("btnModeRepeat"),c=document.getElementById("btnModeWrite");[a,b,c].forEach(x=>x&&x.classList.remove("active"));r.style.display="none";w.style.display="none";if(mode==="repeat"){r.style.display="block";b.classList.add("active");updateRepeatAudio()}else if(mode==="write"){w.style.display="block";c.classList.add("active")}else a.classList.add("active")}
 
     function updateRepeatAudio() {
 
@@ -3189,6 +3165,9 @@
 
     }
 
+
+    async function checkWrittenRecitation(){const t=document.getElementById("writtenRecitation").value.trim(),out=document.getElementById("writtenResult"),num=readSurahSelect.value;if(!t){out.textContent="اكتب الآيات أولًا.";return}out.textContent="جاري التصحيح...";try{const r=await fetch(`https://api.alquran.cloud/v1/surah/${num}`),d=await r.json();const a=normArabic(t).split(" ").filter(Boolean),b=new Set(normArabic(d.data.ayahs.map(x=>x.text).join(" ")).split(" "));const m=a.filter(x=>b.has(x)).length;out.innerHTML=`<strong>التطابق النصي التقريبي: ${Math.round(m/Math.max(a.length,1)*100)}%</strong><br>هذه مقارنة نصية وليست تصحيحًا للتجويد.`}catch(e){out.textContent="تعذر تحميل نص السورة."}}
+    const fiqhLessons={prayer:{title:"فقه الصلاة",intro:"الصلاة عبادة عظيمة، ومن أبوابها الشروط والأركان والواجبات والسنن والمبطلات.",points:["الصلوات المفروضة خمس في اليوم والليلة.","من شروط الصلاة دخول الوقت والطهارة وستر العورة واستقبال القبلة والنية.","من أركانها تكبيرة الإحرام والركوع والسجود والطمأنينة، مع اختلاف بعض التفصيلات.","السهو له أحكام بحسب سببه والمذهب."],quiz:[{q:"كم عدد الصلوات المفروضة؟",o:["3","5","7"],c:1},{q:"إلى أين يتوجه المسلم؟",o:["الكعبة","أي جهة","الغرب"],c:0},{q:"ما الذي يسبق الصلاة عند الحدث الأصغر؟",o:["الوضوء","الزكاة","الاعتكاف"],c:0}]},fasting:{title:"فقه الصيام",intro:"الصيام إمساك عن المفطرات من طلوع الفجر إلى غروب الشمس بنية العبادة.",points:["صيام رمضان فرض على المستطيع.","يبدأ من طلوع الفجر وينتهي بغروب الشمس.","من مقاصده التقوى وتهذيب النفس.","الأكل والشرب عمدًا في نهار الصوم من المفطرات، وتوجد رخص وأحكام للقضاء بحسب الحال."],quiz:[{q:"في أي شهر صيام الفرض؟",o:["رمضان","رجب","محرم"],c:0},{q:"متى يبدأ الصيام؟",o:["الشروق","الفجر","الظهر"],c:1},{q:"متى ينتهي؟",o:["غروب الشمس","منتصف الليل","العصر"],c:0}]},taharah:{title:"فقه الطهارة",intro:"الطهارة تشمل الوضوء والغسل والتيمم وإزالة النجاسة.",points:["الوضوء لرفع الحدث الأصغر والغسل لرفع الحدث الأكبر في مواضعه.","التيمم رخصة عند فقد الماء أو تعذر استعماله في الحالات المعتبرة.","مشروعك الأصلي يعرض فروق فرائض الوضوء بين المذاهب الأربعة.","توجد تفاصيل فقهية مختلفة في النواقض والنجاسات."],quiz:[{q:"ما الذي يرفع الحدث الأصغر عادة؟",o:["الوضوء","النوم","الصدقة"],c:0},{q:"ما البديل الشرعي عن الماء في حالات معينة؟",o:["التيمم","ترك الصلاة","الانتظار"],c:0},{q:"هل توجد فروق فقهية في بعض تفاصيل الوضوء؟",o:["نعم","لا","أبدًا"],c:0}]}};let activeLesson="prayer",lessonIndex=0,lessonScore=0,lessonAnswered=false;function selectLesson(k){activeLesson=k;lessonIndex=0;lessonScore=0;document.querySelectorAll("#lessons .mode-btn").forEach(x=>x.classList.remove("active"));document.getElementById(k==="prayer"?"lessonPrayer":k==="fasting"?"lessonFasting":"lessonTaharah").classList.add("active");const l=fiqhLessons[k];document.getElementById("lessonContent").innerHTML=`<div class="fiqh-card"><h3>${l.title}</h3><p>${l.intro}</p><ul>${l.points.map(x=>`<li style="margin:7px 0">${x}</li>`).join("")}</ul></div>`;renderLessonQuestion()}function renderLessonQuestion(){const q=fiqhLessons[activeLesson].quiz[lessonIndex];lessonAnswered=false;document.getElementById("lessonScore").textContent=lessonScore;document.getElementById("lessonQuestion").textContent=`${lessonIndex+1}. ${q.q}`;document.getElementById("lessonFeedback").textContent="";document.getElementById("lessonNext").style.display="none";const box=document.getElementById("lessonOptions");box.innerHTML="";q.o.forEach((x,i)=>{const d=document.createElement("div");d.className="quiz-option";d.textContent=x;d.onclick=()=>answerLesson(i,d);box.appendChild(d)})}function answerLesson(i,el){if(lessonAnswered)return;lessonAnswered=true;const q=fiqhLessons[activeLesson].quiz[lessonIndex],opts=document.querySelectorAll("#lessonOptions .quiz-option");if(i===q.c){el.classList.add("correct");lessonScore+=10;document.getElementById("lessonFeedback").textContent="إجابة صحيحة! 🌟"}else{el.classList.add("wrong");opts[q.c].classList.add("correct");document.getElementById("lessonFeedback").textContent=`إجابة خاطئة ❌ الصحيحة: ${q.o[q.c]}`}document.getElementById("lessonScore").textContent=lessonScore;document.getElementById("lessonNext").style.display="block"}function nextLessonQuestion(){lessonIndex=(lessonIndex+1)%fiqhLessons[activeLesson].quiz.length;renderLessonQuestion()}function calculateQibla(){navigator.geolocation.getCurrentPosition(p=>{const r=Math.PI/180,la=p.coords.latitude*r,lo=p.coords.longitude*r,ka=21.422487*r,ko=39.826206*r,d=ko-lo,y=Math.sin(d)*Math.cos(ka),x=Math.cos(la)*Math.sin(ka)-Math.sin(la)*Math.cos(ka)*Math.cos(d),deg=(Math.atan2(y,x)/r+360)%360;document.getElementById("qiblaDegree").textContent=Math.round(deg)+"°";document.getElementById("qiblaInfo").textContent=`الموقع: ${p.coords.latitude.toFixed(3)}, ${p.coords.longitude.toFixed(3)}`},()=>document.getElementById("qiblaInfo").textContent="فعّل الموقع من إعدادات المتصفح.",{enableHighAccuracy:true,timeout:10000,maximumAge:600000})}
 
     /* =========================================
        السبحة
@@ -3521,6 +3500,7 @@
             loadSurahData();
 
             renderQuestion();
+            selectLesson("prayer");
 
         }
     );
@@ -3548,35 +3528,406 @@
         );
 
 
-    /* ===== وظائف الإضافات: لا تستبدل وظائف المشروع الأصلية ===== */
-    const PLUS_SURAHS = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
-    function plusFavs(){return JSON.parse(localStorage.getItem('plusFavorites')||'[]')}
-    function plusTouch(){localStorage.setItem('plusActivityDate',new Date().toDateString());plusUpdate()}
-    function plusDays(){return localStorage.getItem('plusActivityDate')?1:0}
-    function plusUpdate(){
-      const dh=+(localStorage.getItem('dhikrCounter')||0), sc=+(localStorage.getItem('quizScore')||0), pg=+(localStorage.getItem('plusPages')||0), fav=plusFavs().length, pct=Math.round(pg/604*100);
-      ['plusDhikr','plusStatDhikr'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=dh});
-      ['plusScore','plusStatScore'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=sc});
-      ['plusDays','plusStatDays'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).textContent=plusDays()});
-      if(document.getElementById('plusPages'))document.getElementById('plusPages').textContent=pct+'%';
-      if(document.getElementById('plusStatFav'))document.getElementById('plusStatFav').textContent=fav;
-      if(document.getElementById('plusProgressBar'))document.getElementById('plusProgressBar').style.width=pct+'%';
-      if(document.getElementById('plusProgressText'))document.getElementById('plusProgressText').textContent=pg+' من 604 صفحة';
-      let lr=+(localStorage.getItem('plusLastRead')||0);if(document.getElementById('plusLastRead'))document.getElementById('plusLastRead').textContent=lr?'سورة '+PLUS_SURAHS[lr-1]+' — محفوظة للمتابعة.':'لم يتم حفظ موضع قراءة بعد.';
-      let b=[];if(dh>=100)b.push('📿 100 ذكر');if(fav>=3)b.push('⭐ 3 مفضلات');if(sc>=30)b.push('🏆 30 نقطة');if(pg>=604)b.push('📖 ختمة كاملة');if(plusDays())b.push('🔥 يوم نشاط');document.getElementById('plusBadges').innerHTML=b.length?b.map(x=>`<span class="extra-badge">${x}</span>`).join(''):'<span class="extra-badge">ابدأ أول إنجاز لك 🌟</span>';
-      document.getElementById('plusFavorites').innerHTML=fav?plusFavs().map(n=>`<div class="extra-result" onclick="plusOpenFav(${n})">⭐ سورة ${PLUS_SURAHS[n-1]}</div>`).join(''):'<div style="padding:15px;text-align:center;color:var(--text-muted)">لا توجد مفضلات بعد.</div>';
-    }
-    function plusSavePages(){let n=Math.max(0,Math.min(604,+(document.getElementById('plusPagesInput').value||0)));localStorage.setItem('plusPages',n);plusTouch()}
-    function plusContinueReading(){let n=+(localStorage.getItem('plusLastRead')||1);let sel=document.getElementById('surahSelect');if(sel){sel.value=n;if(typeof loadSurahData==='function')loadSurahData()}showTab('read')}
-    function plusOpenFav(n){let sel=document.getElementById('surahSelect');if(sel){sel.value=n;if(typeof loadSurahData==='function')loadSurahData()}showTab('read')}
-    function plusSearch(){let q=document.getElementById('plusSearchInput').value.trim().toLowerCase(),out=document.getElementById('plusSearchResults');if(!q){out.innerHTML='';return}let r=[];PLUS_SURAHS.forEach((x,i)=>{if(x.includes(q))r.push(`<div class="extra-result" onclick="plusOpenFav(${i+1})">📖 سورة ${x}</div>`)});[['الوضوء','wudu'],['سجود السهو','repair'],['المساعد','ai'],['التسميع','recite'],['الاختبار','quiz'],['الأذكار','adhkar'],['المواقيت','prayer']].forEach(x=>{if(x[0].includes(q))r.push(`<div class="extra-result" onclick="showTab('${x[1]}')">📌 ${x[0]}</div>`)});out.innerHTML=r.length?r.join(''):'لا توجد نتائج.'}
-    function plusGetQibla(){if(!navigator.geolocation){document.getElementById('plusQiblaInfo').textContent='المتصفح لا يدعم الموقع.';return}navigator.geolocation.getCurrentPosition(pos=>{let lat=pos.coords.latitude,lon=pos.coords.longitude,rad=Math.PI/180,kaLat=21.422487,kaLon=39.826206,d=(kaLon-lon)*rad,p1=lat*rad,p2=kaLat*rad,y=Math.sin(d)*Math.cos(p2),x=Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(d),deg=(Math.atan2(y,x)/rad+360)%360;document.getElementById('plusQiblaDegree').textContent=Math.round(deg)+'°';document.getElementById('plusQiblaInfo').textContent='إحداثياتك: '+lat.toFixed(3)+', '+lon.toFixed(3);document.getElementById('plusNeedle').style.transform='rotate('+deg+'deg)'},()=>document.getElementById('plusQiblaInfo').textContent='تعذر الوصول إلى الموقع. اسمح به من إعدادات المتصفح.',{enableHighAccuracy:true,timeout:10000,maximumAge:600000})}
-    setInterval(plusUpdate,1000);window.addEventListener('load',()=>{plusUpdate();});
+    /* =========================================
+       تتبع الصلوات
+    ========================================= */
+    const prayerTrackNames = [
+        ["fajr", "الفجر", "fa-sun"],
+        ["dhuhr", "الظهر", "fa-sun"],
+        ["asr", "العصر", "fa-cloud-sun"],
+        ["maghrib", "المغرب", "fa-sunset"],
+        ["isha", "العشاء", "fa-moon"]
+    ];
 
-    document.addEventListener('click', function(e){
-      if(e.target.closest('#adhkar .btn') || e.target.closest('#quiz .btn') || e.target.closest('#read .btn')) plusTouch();
+    function prayerTrackKey() {
+        const d = new Date();
+        return "prayerTrack_" + d.toISOString().slice(0,10);
+    }
+
+    function getPrayerTrack() {
+        try { return JSON.parse(localStorage.getItem(prayerTrackKey()) || "{}"); }
+        catch(e) { return {}; }
+    }
+
+    function savePrayerTrack(data) {
+        localStorage.setItem(prayerTrackKey(), JSON.stringify(data));
+    }
+
+    function renderPrayerTracker() {
+        const box = document.getElementById("prayerTracker");
+        if (!box) return;
+        const data = getPrayerTrack();
+
+        box.innerHTML = prayerTrackNames.map(([key, name, icon]) => `
+            <div class="fiqh-card" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <div><i class="fa-solid ${icon}"></i> <strong>${name}</strong></div>
+                <button class="btn" style="min-width:120px;" onclick="togglePrayerTrack('${key}')">
+                    ${data[key] ? "✓ تمت" : "لم أصلها"}
+                </button>
+            </div>
+        `).join("");
+
+        const done = prayerTrackNames.filter(x => data[x[0]]).length;
+        document.getElementById("prayerDoneCount").textContent = done;
+        document.getElementById("prayerTrackPercent").textContent = Math.round(done/5*100) + "%";
+    }
+
+    function togglePrayerTrack(key) {
+        const data = getPrayerTrack();
+        data[key] = !data[key];
+        savePrayerTrack(data);
+        renderPrayerTracker();
+    }
+
+    function resetPrayerTracker() {
+        localStorage.removeItem(prayerTrackKey());
+        renderPrayerTracker();
+    }
+
+    /* =========================================
+       التقويم والمناسبات
+       Uses Intl Islamic calendar when supported by the browser.
+    ========================================= */
+    let calendarMode = "gregorian";
+
+    const islamicEvents = [
+        ["1 محرم", "رأس السنة الهجرية"],
+        ["10 محرم", "عاشوراء"],
+        ["12 ربيع الأول", "المولد النبوي — بحسب التقويم/البلد"],
+        ["27 رجب", "الإسراء والمعراج — تاريخ مشهور وليس محل اتفاق في الثبوت"],
+        ["15 شعبان", "ليلة النصف من شعبان — بحسب اختلاف أهل العلم"],
+        ["1 رمضان", "بداية رمضان — بحسب ثبوت الهلال"],
+        ["27 رمضان", "ليلة القدر — تُلتمس في العشر الأواخر، و27 من الليالي المشهورة"],
+        ["1 شوال", "عيد الفطر — بحسب ثبوت الهلال"],
+        ["9 ذو الحجة", "يوم عرفة"],
+        ["10 ذو الحجة", "عيد الأضحى"]
+    ];
+
+    const generalEvents = [
+        ["1 يناير", "رأس السنة الميلادية"],
+        ["8 مارس", "اليوم العالمي للمرأة"],
+        ["1 مايو", "عيد العمال"],
+        ["5 يونيو", "اليوم العالمي للبيئة"],
+        ["1 نوفمبر", "ذكرى اندلاع الثورة الجزائرية"],
+        ["25 ديسمبر", "عيد الميلاد — مناسبة دينية مسيحية"]
+    ];
+
+    function getHijriParts(date) {
+        try {
+            const fmt = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
+                day:"numeric", month:"long", year:"numeric", weekday:"long"
+            });
+            return fmt.formatToParts(date);
+        } catch(e) { return []; }
+    }
+
+    function getHijriString(date) {
+        try {
+            return new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
+                day:"numeric", month:"long", year:"numeric", weekday:"long"
+            }).format(date);
+        } catch(e) {
+            return "التقويم الهجري غير مدعوم في هذا المتصفح.";
+        }
+    }
+
+    function setCalendarMode(mode) {
+        calendarMode = mode;
+        document.getElementById("calGregorianBtn").classList.toggle("active", mode === "gregorian");
+        document.getElementById("calHijriBtn").classList.toggle("active", mode === "hijri");
+        renderCalendar();
+    }
+
+    function renderCalendar() {
+        const today = new Date();
+        const greg = new Intl.DateTimeFormat("ar-DZ", {
+            weekday:"long", day:"numeric", month:"long", year:"numeric"
+        }).format(today);
+        const hijri = getHijriString(today);
+
+        document.getElementById("calendarToday").innerHTML = `
+            <h3><i class="fa-solid fa-calendar-day"></i> تاريخ اليوم</h3>
+            <p><strong>ميلادي:</strong> ${greg}</p>
+            <p><strong>هجري:</strong> ${hijri}</p>
+            <p><strong>العرض:</strong> ${calendarMode === "gregorian" ? "الميلادي" : "الهجري"}</p>
+        `;
+
+        document.getElementById("islamicEvents").innerHTML = islamicEvents.map(e =>
+            `<div style="padding:10px;border-bottom:1px solid var(--border);">
+                <strong>${e[0]}</strong> — ${e[1]}
+            </div>`
+        ).join("");
+
+        document.getElementById("generalEvents").innerHTML = generalEvents.map(e =>
+            `<div style="padding:10px;border-bottom:1px solid var(--border);">
+                <strong>${e[0]}</strong> — ${e[1]}
+            </div>`
+        ).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderPrayerTracker();
+        renderCalendar();
     });
 
+</script>
+
+
+<script>
+/* ===== إصلاح تشغيل جميع الخانات ===== */
+(function(){
+  window.showTab = function(tabId, btn){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const target=document.getElementById(tabId);
+    if(target) target.classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+
+    window.scrollTo({top:0, behavior:'smooth'});
+
+    if(tabId==='prayertrack' && typeof renderPrayerTracker==='function') renderPrayerTracker();
+    if(tabId==='calendar' && typeof renderCalendar==='function') renderCalendar();
+    if(tabId==='lessons' && typeof selectLesson==='function') selectLesson(window.activeLesson || 'prayer');
+    if(tabId==='qibla' && typeof calculateQibla==='function') {
+      const info=document.getElementById('qiblaInfo');
+      if(info && !info.dataset.ready){ info.dataset.ready='1'; }
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    // Ensure all main sections can be displayed.
+    document.querySelectorAll('.section').forEach((s,i)=>{
+      if(i===0 && !document.querySelector('.section.active')) s.classList.add('active');
+    });
+
+    // Make newly added buttons safe if onclick was not bound correctly.
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      const text=(btn.innerText||'').trim();
+      if(text.includes('تتبع الصلوات')) btn.onclick=function(){showTab('prayertrack',this)};
+      if(text.includes('التقويم')) btn.onclick=function(){showTab('calendar',this)};
+      if(text.includes('فقه العبادات')) btn.onclick=function(){showTab('lessons',this)};
+      if(text.includes('القبلة')) btn.onclick=function(){showTab('qibla',this)};
+    });
+
+    if(typeof renderPrayerTracker==='function') renderPrayerTracker();
+    if(typeof renderCalendar==='function') renderCalendar();
+    if(typeof selectLesson==='function') selectLesson('prayer');
+  });
+})();
+</script>
+
+
+<script data-four-tabs-fixed="1">
+document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll(".tab-btn").forEach(function(btn){
+        const id=(btn.getAttribute("onclick")||"").match(/showTab\(['"]([^'"]+)/);
+        if(id && ["prayertrack","calendar","lessons","qibla"].includes(id[1])){
+            btn.addEventListener("click",function(){
+                const target=document.getElementById(id[1]);
+                if(target){
+                    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+                    target.classList.add("active");
+                    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+                    btn.classList.add("active");
+                }
+            });
+        }
+    });
+});
+</script>
+
+<script>
+/* =========================================================
+   موسوعة إضافية: قصص الأنبياء والسيرة والتجويد والحديث
+   ========================================================= */
+(function(){
+const stories=[
+ {id:"adam",title:"آدم عليه السلام",text:"قصة خلق آدم عليه السلام، وتعليمه، وسجود الملائكة له، ثم ابتلائه في الجنة وتوبته إلى الله. تُعرض هنا بصورة تعليمية مختصرة دون إضافة تفاصيل غير ثابتة.",q:"من أول البشر؟",a:["آدم عليه السلام","نوح عليه السلام","إبراهيم عليه السلام"],c:0},
+ {id:"nuh",title:"نوح عليه السلام",text:"دعا نوح عليه السلام قومه إلى توحيد الله زمناً طويلاً، وصبر على أذاهم، ثم جاء الطوفان ونجّى الله نوحاً ومن آمن معه.",q:"ما أبرز ما عُرف به نوح عليه السلام في قصته؟",a:["الصبر على الدعوة","التجارة","الهجرة إلى الحبشة"],c:0},
+ {id:"ibrahim",title:"إبراهيم عليه السلام",text:"كان إبراهيم عليه السلام من أعظم دعاة التوحيد، وحاجّ قومه في عبادة غير الله، وابتلاه الله فصبر، وجعل في ذريته النبوة.",q:"ما محور دعوة إبراهيم عليه السلام؟",a:["التوحيد","جمع المال","الملك"],c:0},
+ {id:"yusuf",title:"يوسف عليه السلام",text:"من أشهر معاني قصة يوسف عليه السلام: الصبر، والعفة، والعفو، وحسن الظن بالله، والفرج بعد الشدة.",q:"من أبرز أخلاق يوسف عليه السلام؟",a:["العفو","الظلم","الخيانة"],c:0},
+ {id:"musa",title:"موسى عليه السلام",text:"أرسل الله موسى عليه السلام إلى فرعون، وأيده بالآيات، ودعا إلى عبادة الله، ثم نجا موسى ومن معه من المؤمنين.",q:"من أرسل إليه موسى عليه السلام؟",a:["فرعون","قيصر","النجاشي"],c:0},
+ {id:"isa",title:"عيسى عليه السلام",text:"عيسى عليه السلام رسول من رسل الله، أيده الله بالبينات والمعجزات بإذنه، ودعا بني إسرائيل إلى عبادة الله.",q:"عيسى عليه السلام هو؟",a:["رسول من الله","ملك","صحابي"],c:0},
+ {id:"muhammad",title:"محمد ﷺ",text:"خاتم الأنبياء والمرسلين، بعثه الله بالهدى ودين الحق، ودعا إلى التوحيد والرحمة والأخلاق، وبلغ الرسالة وأدى الأمانة.",q:"محمد ﷺ هو؟",a:["خاتم الأنبياء والمرسلين","أول نبي","ملك من الملائكة"],c:0}
+];
+
+const companions=[
+ ["أبو بكر الصديق","من السابقين إلى الإسلام، وصاحب النبي ﷺ، وأول الخلفاء الراشدين."],
+ ["عمر بن الخطاب","الخليفة الراشد الثاني، عُرف بالعدل والقوة في الحق."],
+ ["عثمان بن عفان","الخليفة الراشد الثالث، ومن كبار الصحابة، عُرف بالحياء والكرم."],
+ ["علي بن أبي طالب","ابن عم النبي ﷺ وزوج فاطمة رضي الله عنها، ومن الخلفاء الراشدين."],
+ ["بلال بن رباح","من السابقين إلى الإسلام، واشتهر بثباته وأذانه."],
+ ["مصعب بن عمير","من أوائل الدعاة إلى الإسلام، وبعثه النبي ﷺ إلى المدينة قبل الهجرة."],
+ ["خالد بن الوليد","صحابي وقائد عسكري بارز، عُرف بالشجاعة وحسن القيادة."]
+];
+
+const seerah=[
+ ["المولد والنشأة","ولد النبي ﷺ في مكة ونشأ فيها."],
+ ["نزول الوحي","بدأ الوحي في غار حراء، وبدأت الرسالة."],
+ ["الدعوة في مكة","دعا ﷺ إلى توحيد الله، وواجه هو وأصحابه أذى المشركين."],
+ ["الهجرة إلى المدينة","هاجر النبي ﷺ إلى المدينة، وكانت الهجرة بداية مرحلة جديدة في الدعوة."],
+ ["بناء المجتمع","بُني المسجد، ونُظمت العلاقات بين المسلمين، وانتقلت الدعوة إلى مرحلة الدولة."],
+ ["بدر","وقعت غزوة بدر في السنة الثانية للهجرة."],
+ ["أحد","وقعت غزوة أحد في السنة الثالثة للهجرة، وفيها دروس عظيمة في الطاعة والصبر."],
+ ["الخندق","اجتمعت الأحزاب حول المدينة، فحُفر الخندق، ونصر الله المسلمين."],
+ ["فتح مكة","دخل النبي ﷺ مكة فاتحاً، وعفا عن كثير ممن آذوه."],
+ ["حجة الوداع","حج النبي ﷺ حجة الوداع وعلّم الناس مناسكهم."],
+ ["الوفاة","توفي النبي ﷺ في المدينة بعد أن بلغ الرسالة وأدى الأمانة."]
+];
+
+const hadith40=[
+ ["الحديث الأول","الأعمال بالنيات","أصل عظيم في الإخلاص وتصحيح القصد."],
+ ["الحديث الثاني","مراتب الدين","الإسلام والإيمان والإحسان من أصول الدين."],
+ ["الحديث الثالث","أركان الإسلام","بيان أصول الإسلام العملية."],
+ ["الحديث الرابع","خلق الإنسان","فيه بيان مراحل خلق الإنسان وأهمية حسن الخاتمة."],
+ ["الحديث الخامس","رد البدع","يرشد إلى اتباع السنة وعدم إحداث ما ليس منها."],
+ ["الحديث السادس","الحلال والحرام","يبين أهمية اجتناب الشبهات وحفظ الدين."],
+ ["الحديث السابع","النصيحة","الدين قائم على النصيحة لله ولكتابه ولرسوله ولأئمة المسلمين وعامتهم."],
+ ["الحديث الثامن","حرمة المسلم","بيان حرمة دم المسلم وماله وعرضه في الجملة."],
+ ["الحديث التاسع","الاستطاعة","الأصل اتباع أمر الله بحسب الاستطاعة."],
+ ["الحديث العاشر","طيب المطعم","يبين أثر الحلال في قبول العمل والدعاء."]
+];
+
+const tajweed={
+ intro:{title:"مقدمة في التجويد",body:"التجويد هو إعطاء الحروف حقها ومستحقها عند تلاوة القرآن. من أهم أبوابه: مخارج الحروف وصفاتها، أحكام النون الساكنة والتنوين، الميم الساكنة، المدود، القلقلة، واللامات."},
+ noon:{title:"النون الساكنة والتنوين",body:"للنون الساكنة والتنوين أربعة أحكام مشهورة: الإظهار، الإدغام، الإقلاب، والإخفاء."},
+ mim:{title:"الميم الساكنة",body:"للميم الساكنة ثلاثة أحكام مشهورة: الإخفاء الشفوي، الإدغام الشفوي، والإظهار الشفوي."},
+ madd:{title:"المدود",body:"المد إطالة الصوت بحرف من حروف المد. ومن أبوابه المد الطبيعي والمدود الفرعية، ولكل نوع مقدار وشروط."},
+ qalqalah:{title:"القلقلة",body:"القلقلة اضطراب صوت حرف من حروف قطب جد إذا كان ساكناً، ولها مراتب بحسب موضع الحرف ووقف القارئ."},
+ lam:{title:"اللامات",body:"من أبواب اللامات: لام التعريف، واللام في لفظ الجلالة، ولكل منها أحكام بحسب ما قبلها وما بعدها."}
+};
+
+const noonRules=[
+ ["الإظهار","إذا جاء بعد النون الساكنة أو التنوين أحد حروف الحلق: ء، هـ، ع، ح، غ، خ."],
+ ["الإدغام","إذا جاء بعدهما أحد حروف يرملون، مع تفصيل الإدغام بغنة وبغير غنة."],
+ ["الإقلاب","إذا جاء بعد النون الساكنة أو التنوين حرف الباء، تقلب النون أو التنوين ميماً مخفاة مع الغنة."],
+ ["الإخفاء","إذا جاء بعدهما أحد حروف الإخفاء الخمسة عشر، ويكون النطق بين الإظهار والإدغام مع الغنة."]
+];
+
+const duas=[
+ ["دعاء الاستغفار","أستغفر الله وأتوب إليه."],
+ ["دعاء قبل النوم","باسمك اللهم أموت وأحيا."],
+ ["دعاء دخول المسجد","اللهم افتح لي أبواب رحمتك."],
+ ["دعاء الخروج من المسجد","اللهم إني أسألك من فضلك."],
+ ["دعاء السفر","سبحان الذي سخر لنا هذا وما كنا له مقرنين."],
+ ["دعاء الكرب","لا إله إلا الله العظيم الحليم."],
+ ["دعاء طلب العلم","رب زدني علماً."]
+];
+
+const encyclopedia=[
+ ["الصلاة","فقه الصلاة، شروطها وأركانها وسننها والسهو."],
+ ["الصيام","أحكام رمضان، المفطرات والرخص وآداب الصيام."],
+ ["الطهارة","الوضوء والغسل والتيمم والنجاسة."],
+ ["الزكاة","أصل الزكاة وأهميتها وأحكامها العامة."],
+ ["الحج","أركان الحج ومواقيته ومناسكه بصورة تعليمية."],
+ ["السيرة","أبرز مراحل حياة النبي ﷺ."],
+ ["التجويد","أحكام التلاوة ومخارج الحروف والصفات."],
+ ["الأذكار","أذكار الصباح والمساء والنوم وبعد الصلاة."]
+];
+
+const daily=[
+ ["prayer","المحافظة على الصلوات الخمس"],
+ ["quran","قراءة القرآن"],
+ ["morning","أذكار الصباح"],
+ ["evening","أذكار المساء"],
+ ["hadith","قراءة حديث"],
+ ["learning","درس فقهي أو تجويد"]
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+
+window.renderStories=function(){
+ const g=document.getElementById("prophetStoriesGrid"); if(!g)return;
+ g.innerHTML='<div class="story-grid">'+stories.map(s=>`<div class="story-card"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p><button class="btn" onclick="openStory('${s.id}')">اقرأ القصة</button></div>`).join("")+'</div>';
+};
+window.openStory=function(id){
+ const s=stories.find(x=>x.id===id); if(!s)return;
+ document.getElementById("prophetStoryView").innerHTML=`<div class="fiqh-card"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p><button class="btn" onclick="storyAnswer('${id}',0)">ابدأ الكويز</button></div>`;
+};
+window.storyAnswer=function(id,i){
+ const s=stories.find(x=>x.id===id);
+ const ok=i===s.c;
+ document.getElementById("storyQuiz").innerHTML=`<p><strong>${esc(s.q)}</strong></p>`+s.a.map((x,j)=>`<button class="quiz-choice ${j===s.c&&ok?'correct':''}" onclick="storyCheck('${id}',${j})">${esc(x)}</button>`).join("");
+};
+window.storyCheck=function(id,i){
+ const s=stories.find(x=>x.id===id);
+ document.getElementById("storyQuiz").innerHTML=`<p>${esc(s.q)}</p><p><strong>${i===s.c?"إجابة صحيحة ✅":"إجابة غير صحيحة ❌"}</strong></p><p>الصحيح: ${esc(s.a[s.c])}</p>`;
+};
+
+window.renderSeerah=function(){
+ const b=document.getElementById("seerahTimeline"); if(!b)return;
+ b.innerHTML=seerah.map((x,i)=>`<div class="event-line"><strong>${i+1}</strong><div><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div></div>`).join("");
+ document.getElementById("seerahQuiz").innerHTML="<h3>اختبار السيرة</h3><p>أين بدأت دعوة النبي ﷺ؟</p><button class='quiz-choice' onclick=\"this.innerHTML='إجابة صحيحة: في مكة ✅'\">مكة</button><button class='quiz-choice' onclick=\"this.innerHTML='ليست الإجابة الصحيحة'\">المدينة</button>";
+};
+
+window.renderCompanions=function(){
+ const b=document.getElementById("companionsGrid"); if(!b)return;
+ b.innerHTML='<div class="cards-grid">'+companions.map((x,i)=>`<div class="companion-card"><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p><button class="btn" onclick="document.getElementById('companionView').innerHTML='<div class=&quot;fiqh-card&quot;><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div>'">عرض</button></div>`).join("")+'</div>';
+};
+
+window.renderHadith40=function(){
+ const b=document.getElementById("hadith40List"); if(!b)return;
+ b.innerHTML=hadith40.map((x,i)=>`<div class="hadith-card"><h3>${i+1}. ${esc(x[0])}</h3><p><strong>${esc(x[1])}</strong></p><p>${esc(x[2])}</p></div>`).join("");
+};
+
+window.openTajweed=function(key,btn){
+ document.querySelectorAll("#tajweed .mode-btn").forEach(b=>b.classList.remove("active")); if(btn)btn.classList.add("active");
+ const t=tajweed[key];
+ document.getElementById("tajweedContent").innerHTML=`<div class="tajweed-card"><h3>${esc(t.title)}</h3><p>${esc(t.body)}</p></div>`;
+ document.getElementById("tajweedQuiz").innerHTML=`<p>ما المقصود بالتجويد؟</p><button class="quiz-choice" onclick="this.innerHTML='إجابة صحيحة ✅: إعطاء الحروف حقها ومستحقها'">إعطاء الحروف حقها ومستحقها</button><button class="quiz-choice" onclick="this.innerHTML='حاول مرة أخرى'">حفظ السور فقط</button>`;
+};
+
+window.renderNoon=function(){
+ const b=document.getElementById("noonRules"); if(!b)return;
+ b.innerHTML=noonRules.map((x,i)=>`<div class="tajweed-card"><h3>${i+1}. ${esc(x[0])}</h3><p>${esc(x[1])}</p></div>`).join("");
+ document.getElementById("noonQuiz").innerHTML=`<p><strong>كم عدد أحكام النون الساكنة والتنوين المشهورة؟</strong></p><button class="quiz-choice" onclick="this.innerHTML='إجابة صحيحة ✅'">أربعة</button><button class="quiz-choice" onclick="this.innerHTML='إجابة غير صحيحة'">ثلاثة</button>`;
+};
+
+window.renderDuas=function(){
+ const b=document.getElementById("duasGrid"); if(!b)return;
+ b.innerHTML='<div class="cards-grid">'+duas.map(x=>`<div class="story-card"><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p><button class="btn" onclick="navigator.clipboard?.writeText('${esc(x[1])}')">نسخ</button></div>`).join("")+'</div>';
+};
+
+window.searchIslamic=function(){
+ const q=(document.getElementById("islamicSearch").value||"").trim().toLowerCase();
+ const b=document.getElementById("islamicResults"); if(!b)return;
+ const arr=encyclopedia.filter(x=>!q||x[0].toLowerCase().includes(q)||x[1].toLowerCase().includes(q));
+ b.innerHTML=arr.map(x=>`<div class="fiqh-card"><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div>`).join("")||"<div class='notice'>لا توجد نتائج.</div>";
+};
+
+function todayKey(){return "daily_"+new Date().toLocaleDateString("en-CA");}
+window.renderDailyPlan=function(){
+ const b=document.getElementById("dailyPlanList"); if(!b)return;
+ let data={};try{data=JSON.parse(localStorage.getItem(todayKey())||"{}")}catch(e){}
+ b.innerHTML=daily.map(x=>`<div class="fiqh-card" style="display:flex;justify-content:space-between"><strong>${esc(x[1])}</strong><button class="btn" onclick="toggleDaily('${x[0]}')">${data[x[0]]?"✓ مكتمل":"لم يتم"}</button></div>`).join("");
+ const done=daily.filter(x=>data[x[0]]).length;
+ document.getElementById("dailyPlanPercent").textContent=Math.round(done/daily.length*100)+"%";
+};
+window.toggleDaily=function(k){let d={};try{d=JSON.parse(localStorage.getItem(todayKey())||"{}")}catch(e){} d[k]=!d[k];localStorage.setItem(todayKey(),JSON.stringify(d));renderDailyPlan();};
+
+window.renderAchievements=function(){
+ const b=document.getElementById("achievementsGrid"); if(!b)return;
+ const data=[
+ ["🌱 البداية","فتح التطبيق وبدء التعلم"],
+ ["📖 قارئ","قراءة سورة أو جزء من القرآن"],
+ ["🕌 محافظ على الصلاة","إكمال الصلوات الخمس في يوم"],
+ ["📚 طالب علم","إكمال درس فقه"],
+ ["🎧 مستمع","الاستماع إلى تلاوة"],
+ ["✍️ مسمّع","إتمام تمرين التسميع بالكتابة"],
+ ["🧠 مجيب","حل اختبار"],
+ ["🌟 مجتهد","إكمال الخطة اليومية"]
+ ];
+ b.innerHTML='<div class="cards-grid">'+data.map(x=>`<div class="achievement-card"><h3>${x[0]}</h3><p>${esc(x[1])}</p></div>`).join("")+'</div>';
+ document.getElementById("dailyChallenge").innerHTML="اقرأ 10 دقائق من القرآن + تعلّم حكماً واحداً من التجويد + حافظ على صلواتك اليوم.";
+};
+
+document.addEventListener("DOMContentLoaded",function(){
+ renderStories();renderSeerah();renderCompanions();renderHadith40();
+ openTajweed("intro",document.querySelector("#tajweed .mode-btn"));
+ renderNoon();renderDuas();searchIslamic();renderDailyPlan();renderAchievements();
+});
+})();
 </script>
 
 </body>
