@@ -1,0 +1,3507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الخادم القرآني الشامل</title>
+
+    <!-- الخط -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f5132;
+            --primary-light: #198754;
+            --primary-soft: #e8f5e9;
+            --accent: #d4af37;
+            --accent-dark: #b89628;
+
+            --bg-color: #f3f7f5;
+            --card-bg: #ffffff;
+
+            --text-main: #26332c;
+            --text-muted: #6c757d;
+
+            --danger: #dc3545;
+            --success: #198754;
+
+            --border: #e2e8f0;
+
+            --shadow:
+                0 10px 30px rgba(15, 81, 50, 0.08);
+
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background:
+                radial-gradient(circle at top right,
+                rgba(25, 135, 84, 0.08),
+                transparent 35%),
+                linear-gradient(135deg, #e9efec, #f7f9f8);
+
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px 10px;
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* =========================
+           التطبيق
+        ========================== */
+
+        .app-container {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* =========================
+           الرأس
+        ========================== */
+
+        .header {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-light)
+                );
+
+            color: white;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            top: -100px;
+            right: -50px;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 50%;
+            bottom: -80px;
+            left: -40px;
+        }
+
+        .header-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.25);
+
+            border-radius: 20px;
+
+            font-size: 30px;
+            color: var(--accent);
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .header h1 {
+            position: relative;
+            z-index: 2;
+
+            margin: 0;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .header p {
+            position: relative;
+            z-index: 2;
+
+            margin: 7px 0 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* =========================
+           شريط التنقل
+        ========================== */
+
+        .nav-tabs {
+            display: none;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #edf8f0,
+                    #e5f3e8
+                );
+
+            padding: 8px;
+
+            gap: 6px;
+
+            overflow-x: auto;
+
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-light) transparent;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 20px;
+        }
+
+        .tab-btn {
+            flex: 0 0 auto;
+
+            min-width: 76px;
+
+            padding: 10px 8px;
+
+            border: none;
+            background: transparent;
+
+            color: var(--primary);
+
+            cursor: pointer;
+
+            border-radius: 13px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease,
+                color 0.25s ease;
+
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .tab-btn i {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background: rgba(255,255,255,0.55);
+
+            font-size: 17px;
+
+            color: var(--primary);
+
+            transition:
+                transform 0.25s ease,
+                color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .tab-btn span {
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .tab-btn:hover i {
+            color: var(--accent);
+            transform: scale(1.08);
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--primary);
+
+            box-shadow:
+                0 5px 15px rgba(15,81,50,0.12);
+        }
+
+        .tab-btn.active i {
+            background: var(--primary);
+            color: var(--accent);
+
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           الأقسام
+        ========================== */
+
+        .section {
+            padding: 22px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 21px;
+        }
+
+        .section h3 {
+            color: var(--primary);
+        }
+
+        /* =========================
+           النماذج
+        ========================== */
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1.5px solid var(--border);
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            background: #f8fafc;
+
+            color: var(--text-main);
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-light);
+
+            box-shadow:
+                0 0 0 3px rgba(25,135,84,0.10);
+        }
+
+        /* =========================
+           الأزرار
+        ========================== */
+
+        .btn {
+            width: 100%;
+
+            padding: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-light)
+                );
+
+            color: white;
+
+            border: none;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s,
+                opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 7px 18px rgba(15,81,50,0.18);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn i {
+            margin-left: 6px;
+        }
+
+        .btn-danger {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dc3545,
+                    #b02a37
+                );
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        /* =========================
+           بطاقة المستخدم
+        ========================== */
+
+        .user-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0fdf4,
+                    #ffffff
+                );
+
+            border: 1px solid #c8e6c9;
+
+            padding: 16px;
+
+            border-radius: 12px;
+
+            margin-bottom: 16px;
+        }
+
+        /* =========================
+           القرآن
+        ========================== */
+
+        .quran-display {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffdf5,
+                    #fffaf0
+                );
+
+            border: 1px solid #f0e6d2;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+
+            line-height: 2.4;
+
+            text-align: justify;
+
+            max-height: 330px;
+
+            overflow-y: auto;
+
+            margin-top: 12px;
+
+            font-family:
+                'Traditional Arabic',
+                'Amiri',
+                serif;
+        }
+
+        .tafsir-display {
+            background: #f8f9fa;
+
+            border: 1px solid #dee2e6;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-top: 12px;
+
+            max-height: 250px;
+
+            overflow-y: auto;
+
+            white-space: pre-line;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        /* =========================
+           المواقيت
+        ========================== */
+
+        .prayer-card {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 13px 15px;
+
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            margin-bottom: 9px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .prayer-card:hover {
+            border-color: var(--primary-light);
+
+            background: #f0fdf4;
+        }
+
+        .prayer-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prayer-icon {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: var(--primary-soft);
+
+            color: var(--primary);
+        }
+
+        .prayer-time {
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        /* =========================
+           بطاقات الفقه
+        ========================== */
+
+        .fiqh-card {
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            padding: 16px;
+
+            border-radius: 12px;
+
+            margin-bottom: 13px;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.025);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .fiqh-card h3 {
+            margin: 0 0 8px;
+
+            color: var(--primary);
+
+            font-size: 16px;
+        }
+
+        .sub-tag {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            background: var(--primary-soft);
+
+            color: var(--primary);
+
+            padding: 4px 9px;
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        /* =========================
+           السبحة
+        ========================== */
+
+        .counter-wrapper {
+            text-align: center;
+        }
+
+        .counter-display {
+            width: 105px;
+            height: 105px;
+
+            margin: 10px auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #fffdf5,
+                    #f8f1d7
+                );
+
+            border: 3px solid var(--accent);
+
+            color: var(--primary);
+
+            box-shadow:
+                0 6px 18px rgba(212,175,55,0.18);
+        }
+
+        #counterDisplay {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .counter-btn {
+            width: 105px;
+            height: 105px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-dark)
+                );
+
+            color: white;
+
+            border: none;
+
+            border-radius: 50%;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            margin: 15px auto;
+
+            box-shadow:
+                0 7px 18px rgba(0,0,0,0.15);
+
+            transition: transform 0.1s;
+        }
+
+        .counter-btn i {
+            font-size: 26px;
+        }
+
+        .counter-btn:active {
+            transform: scale(0.93);
+        }
+
+        /* =========================
+           المساعد
+        ========================== */
+
+        .ai-chat-box {
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            max-height: 300px;
+
+            overflow-y: auto;
+
+            margin-bottom: 15px;
+        }
+
+        .ai-msg,
+        .user-msg {
+            padding: 11px 13px;
+
+            border-radius: 10px;
+
+            margin-bottom: 10px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .ai-msg {
+            background: var(--primary-soft);
+
+            color: var(--primary);
+
+            border-right: 3px solid var(--primary-light);
+        }
+
+        .user-msg {
+            background: white;
+
+            border: 1px solid #cbd5e1;
+
+            color: var(--text-main);
+        }
+
+        /* =========================
+           وضع التسميع
+        ========================== */
+
+        .mode-selector {
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .mode-btn {
+            flex: 1;
+
+            padding: 11px;
+
+            border: 1.5px solid var(--border);
+
+            background: white;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: var(--text-main);
+
+            transition: 0.2s;
+        }
+
+        .mode-btn i {
+            color: var(--primary);
+            margin-left: 5px;
+        }
+
+        .mode-btn.active {
+            border-color: var(--primary);
+
+            background: var(--primary-soft);
+
+            color: var(--primary);
+        }
+
+        .record-status {
+            text-align: center;
+
+            padding: 12px;
+
+            background: #f8fafc;
+
+            border-radius: 10px;
+
+            margin-top: 12px;
+        }
+
+        .recording {
+            color: var(--danger) !important;
+
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* =========================
+           الاختبار
+        ========================== */
+
+        .score-box {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            background: var(--primary-soft);
+
+            color: var(--primary);
+
+            border-radius: 10px;
+
+            padding: 11px;
+
+            margin-bottom: 13px;
+
+            font-weight: 800;
+        }
+
+        .score-box i {
+            color: var(--accent);
+        }
+
+        .quiz-option {
+            background: white;
+
+            border: 1.5px solid var(--border);
+
+            padding: 12px;
+
+            margin: 8px 0;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: var(--primary-soft);
+
+            border-color: var(--primary);
+
+            transform: translateX(-2px);
+        }
+
+        .quiz-option.correct {
+            background: #d1e7dd;
+
+            border-color: #198754;
+
+            color: #0f5132;
+        }
+
+        .quiz-option.wrong {
+            background: #f8d7da;
+
+            border-color: #dc3545;
+
+            color: #842029;
+        }
+
+        /* =========================
+           حالة التحميل
+        ========================== */
+
+        .loading {
+            text-align: center;
+
+            color: var(--text-muted);
+
+            padding: 20px;
+        }
+
+        .loading i {
+            color: var(--primary);
+
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .notice {
+            background: #fff8e1;
+
+            border: 1px solid #ffe082;
+
+            color: #6d5715;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           الوضع الليلي
+        ========================== */
+
+        body.dark {
+            --bg-color: #101815;
+            --card-bg: #18221e;
+            --text-main: #edf5ef;
+            --text-muted: #aab8b0;
+            --border: #304139;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101815,
+                    #17221d
+                );
+        }
+
+        body.dark .app-container {
+            background: var(--card-bg);
+        }
+
+        body.dark .nav-tabs {
+            background: #14251c;
+        }
+
+        body.dark .tab-btn {
+            color: #cfe7d8;
+        }
+
+        body.dark .tab-btn.active {
+            background: #20352a;
+        }
+
+        body.dark .tab-btn i {
+            background: #294236;
+            color: #cfe7d8;
+        }
+
+        body.dark .form-group input,
+        body.dark .form-group select,
+        body.dark .form-group textarea,
+        body.dark .quiz-option,
+        body.dark .mode-btn,
+        body.dark .prayer-card,
+        body.dark .user-card,
+        body.dark .fiqh-card {
+            background: #1d2924;
+            color: var(--text-main);
+            border-color: var(--border);
+        }
+
+        body.dark .quran-display {
+            background: #282518;
+            border-color: #5a5134;
+        }
+
+        body.dark .tafsir-display,
+        body.dark .ai-chat-box,
+        body.dark .record-status {
+            background: #141d19;
+            border-color: var(--border);
+        }
+
+        body.dark .ai-msg {
+            background: #20352a;
+        }
+
+        /* زر الوضع الليلي */
+
+        .theme-btn {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            background: rgba(255,255,255,0.12);
+
+            color: var(--accent);
+
+            cursor: pointer;
+
+            z-index: 5;
+
+            transition: 0.2s;
+        }
+
+        .theme-btn:hover {
+            background: rgba(255,255,255,0.22);
+
+            transform: rotate(15deg);
+        }
+
+        /* =========================
+           الهاتف
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 0;
+            }
+
+            .app-container {
+                min-height: 100vh;
+
+                border-radius: 0;
+
+                border: none;
+            }
+
+            .header {
+                padding: 24px 15px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .section {
+                padding: 18px 15px;
+            }
+
+            .nav-tabs {
+                padding: 7px;
+            }
+
+            .tab-btn {
+                min-width: 70px;
+            }
+
+            .quran-display {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- =========================
+         الرأس
+    ========================== -->
+
+    <header class="header">
+
+        <button class="theme-btn"
+                onclick="toggleTheme()"
+                aria-label="تغيير الوضع">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <div class="header-icon">
+            <i class="fa-solid fa-kaaba"></i>
+        </div>
+
+        <h1>الخادم القرآني الشامل</h1>
+
+        <p>
+            القرآن • الأذكار • السنة • الفقه • المواقيت
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         التنقل
+    ========================== -->
+
+    <div class="nav-tabs" id="navTabs">
+
+        <button class="tab-btn active"
+                onclick="showTab('account', this)">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>الحساب</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('prayer', this)">
+
+            <i class="fa-solid fa-mosque"></i>
+
+            <span>المواقيت</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('read', this)">
+
+            <i class="fa-solid fa-book-quran"></i>
+
+            <span>القرآن</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('adhkar', this)">
+
+            <i class="fa-solid fa-circle-dot"></i>
+
+            <span>الأذكار</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('wudu', this)">
+
+            <i class="fa-solid fa-droplet"></i>
+
+            <span>الوضوء</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('repair', this)">
+
+            <i class="fa-solid fa-person-praying"></i>
+
+            <span>السهو</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('ai', this)">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>المساعد</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('recite', this)">
+
+            <i class="fa-solid fa-microphone"></i>
+
+            <span>التسميع</span>
+
+        </button>
+
+
+        <button class="tab-btn"
+                onclick="showTab('quiz', this)">
+
+            <i class="fa-solid fa-circle-question"></i>
+
+            <span>الاختبار</span>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         الحساب
+    ========================== -->
+
+    <section id="account" class="section active">
+
+        <h2 id="accountTitle"
+            style="text-align:center;">
+
+            تسجيل حساب جديد
+
+        </h2>
+
+        <div id="accountDisplay"
+             class="user-card"
+             style="display:none;">
+
+            <p>
+                <i class="fa-solid fa-user"></i>
+                <strong>الاسم الكامل:</strong>
+                <span id="dispFullName"></span>
+            </p>
+
+            <button class="btn btn-danger"
+                    onclick="resetAccount()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                تسجيل الخروج
+
+            </button>
+
+        </div>
+
+
+        <form id="accountForm">
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-user"></i>
+                    الاسم الأول
+                </label>
+
+                <input type="text"
+                       id="firstName"
+                       required
+                       placeholder="أدخل اسمك">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-id-card"></i>
+                    اللقب
+                </label>
+
+                <input type="text"
+                       id="lastName"
+                       required
+                       placeholder="أدخل لقبك">
+
+            </div>
+
+
+            <button type="button"
+                    class="btn"
+                    onclick="saveAccount()">
+
+                <i class="fa-solid fa-arrow-left-to-bracket"></i>
+
+                دخول التطبيق
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         الصلاة
+    ========================== -->
+
+    <section id="prayer" class="section">
+
+        <h2>
+            <i class="fa-solid fa-mosque"></i>
+            مواقيت الصلاة
+        </h2>
+
+        <p style="font-size:12px;color:var(--text-muted);">
+
+            يتم حساب الأوقات حسب موقع جهازك.
+
+        </p>
+
+        <div class="notice">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            يجب السماح للموقع الجغرافي للمتصفح حتى يتم حساب
+            مواقيت الصلاة بشكل أدق.
+
+        </div>
+
+
+        <div id="prayerTimesContainer">
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </span>
+
+                    الفجر
+                </div>
+
+                <span id="fajr"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-sun"></i>
+                    </span>
+
+                    الشروق
+                </div>
+
+                <span id="sunrise"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-sun"></i>
+                    </span>
+
+                    الظهر
+                </div>
+
+                <span id="dhuhr"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </span>
+
+                    العصر
+                </div>
+
+                <span id="asr"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </span>
+
+                    المغرب
+                </div>
+
+                <span id="maghrib"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+
+            <div class="prayer-card">
+
+                <div class="prayer-name">
+                    <span class="prayer-icon">
+                        <i class="fa-solid fa-moon"></i>
+                    </span>
+
+                    العشاء
+                </div>
+
+                <span id="isha"
+                      class="prayer-time">
+                    --:--
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         القرآن
+    ========================== -->
+
+    <section id="read" class="section">
+
+        <h2>
+            <i class="fa-solid fa-book-quran"></i>
+            القرآن والتفسير
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                <i class="fa-solid fa-book-open"></i>
+                السورة
+            </label>
+
+            <select id="readSurahSelect"
+                    onchange="loadSurahData()">
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                <i class="fa-solid fa-microphone-lines"></i>
+                القارئ
+            </label>
+
+            <select id="reciterSelect"
+                    onchange="updateAudioSource()">
+
+                <option value="ar.alafasy">
+                    مشاري العفاسي
+                </option>
+
+                <option value="ar.abdulbasitmurattal">
+                    عبد الباسط عبد الصمد
+                </option>
+
+                <option value="ar.minshawi">
+                    محمد صديق المنشاوي
+                </option>
+
+                <option value="ar.husary">
+                    محمود خليل الحصري
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <audio id="quranAudio"
+               class="audio-player"
+               controls>
+        </audio>
+
+
+        <h3>
+            <i class="fa-solid fa-book-open-reader"></i>
+            النص القرآني
+        </h3>
+
+        <div class="quran-display"
+             id="surahTextDisplay">
+
+            اختر سورة لعرض النص...
+
+        </div>
+
+
+        <h3>
+            <i class="fa-solid fa-scroll"></i>
+            التفسير
+        </h3>
+
+        <div class="tafsir-display"
+             id="tafsirDisplay">
+
+            جاري تحميل التفسير...
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الأذكار
+    ========================== -->
+
+    <section id="adhkar" class="section">
+
+        <h2>
+            <i class="fa-solid fa-hands-praying"></i>
+            الأذكار والسنة
+        </h2>
+
+
+        <div class="fiqh-card counter-wrapper">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-circle-dot"></i>
+                السبحة الإلكترونية
+            </span>
+
+            <h3>
+                تسبيح واستغفار
+            </h3>
+
+
+            <div class="counter-display">
+
+                <span id="counterDisplay">
+                    0
+                </span>
+
+            </div>
+
+
+            <button class="counter-btn"
+                    onclick="incrementCounter()">
+
+                <i class="fa-solid fa-hands-praying"></i>
+
+                <span>سبّح</span>
+
+            </button>
+
+
+            <button class="btn btn-secondary"
+                    style="font-size:12px;padding:8px;"
+                    onclick="resetCounter()">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                إعادة ضبط
+
+            </button>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-star"></i>
+                سيد الاستغفار
+            </span>
+
+            <h3>
+                دعاء سيد الاستغفار
+            </h3>
+
+            <p>
+                «اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ،
+                خَلَقْتَنِي وَأَنَا عَبْدُكَ،
+                وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ،
+                أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ،
+                أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ،
+                وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي،
+                فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ».
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-heart"></i>
+                أفضل الذكر
+            </span>
+
+            <h3>
+                كلمات عظيمة
+            </h3>
+
+            <p>
+
+                • «لا إله إلا الله وحده لا شريك له،
+                له الملك وله الحمد وهو على كل شيء قدير».
+
+                <br><br>
+
+                • «سبحان الله وبحمده» 100 مرة.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-person-praying"></i>
+                بعد الصلاة
+            </span>
+
+            <h3>
+                أذكار دبر الصلاة
+            </h3>
+
+            <p>
+
+                1. أستغفر الله ثلاث مرات.
+
+                <br>
+
+                2. «اللهم أنت السلام ومنك السلام،
+                تباركت يا ذا الجلال والإكرام».
+
+                <br>
+
+                3. التسبيح والتحميد والتكبير.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-moon"></i>
+                أذكار النوم
+            </span>
+
+            <h3>
+                ما يقال قبل النوم
+            </h3>
+
+            <p>
+
+                • قراءة آية الكرسي.
+
+                <br>
+
+                • قراءة الإخلاص والفلق والناس.
+
+                <br>
+
+                • «اللهم باسمك أموت وأحيا».
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-sun"></i>
+                السنن النبوية
+            </span>
+
+            <h3>
+                من الهدي النبوي
+            </h3>
+
+            <p>
+
+                • السواك.
+
+                <br>
+
+                • صلاة الضحى.
+
+                <br>
+
+                • النوم على الشق الأيمن.
+
+                <br>
+
+                • إفشاء السلام.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                <i class="fa-solid fa-book"></i>
+                أحاديث
+            </span>
+
+            <h3>
+                جوامع الكلم
+            </h3>
+
+            <p>
+
+                «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ
+                عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ
+                طَرِيقًا إِلَى الْجَنَّةِ».
+
+                <br><br>
+
+                «كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ،
+                ثَقِيلَتَانِ فِي المِيزَانِ،
+                حَبِيبَتَانِ إِلَى الرَّحْمَنِ».
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الوضوء
+    ========================== -->
+
+    <section id="wudu" class="section">
+
+        <h2>
+            <i class="fa-solid fa-droplet"></i>
+            أحكام الوضوء
+        </h2>
+
+        <div class="notice">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            توجد اختلافات بين المذاهب في بعض تفاصيل الوضوء،
+            لذلك يُفضّل اختيار المذهب الذي تتبعه.
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                المالكي
+            </span>
+
+            <h3>
+                فرائض الوضوء
+            </h3>
+
+            <p>
+
+                النية، غسل الوجه، غسل اليدين إلى المرفقين،
+                مسح جميع الرأس، غسل الرجلين إلى الكعبين،
+                الدلك، والموالاة.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الشافعي
+            </span>
+
+            <h3>
+                فرائض الوضوء
+            </h3>
+
+            <p>
+
+                النية، غسل الوجه، غسل اليدين إلى المرفقين،
+                مسح بعض الرأس، غسل الرجلين إلى الكعبين،
+                والترتيب.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الحنفي
+            </span>
+
+            <h3>
+                فرائض الوضوء
+            </h3>
+
+            <p>
+
+                غسل الوجه، غسل اليدين إلى المرفقين،
+                مسح ربع الرأس، وغسل الرجلين إلى الكعبين.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الحنبلي
+            </span>
+
+            <h3>
+                فرائض الوضوء
+            </h3>
+
+            <p>
+
+                غسل الوجه، غسل اليدين إلى المرفقين،
+                مسح الرأس، غسل الرجلين إلى الكعبين،
+                والترتيب والموالاة.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         سجود السهو
+    ========================== -->
+
+    <section id="repair" class="section">
+
+        <h2>
+            <i class="fa-solid fa-person-praying"></i>
+            سجود السهو
+        </h2>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                المالكي
+            </span>
+
+            <h3>
+                القَبلي والبعدي
+            </h3>
+
+            <p>
+
+                يختلف موضع سجود السهو بحسب سبب السهو،
+                من نقص أو زيادة، وتفصيل ذلك من مسائل المذهب.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الشافعي
+            </span>
+
+            <h3>
+                سجود السهو
+            </h3>
+
+            <p>
+
+                الأصل في سجود السهو عند الشافعية أن يكون
+                قبل السلام في مواضعه المقررة.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الحنفي
+            </span>
+
+            <h3>
+                سجود السهو
+            </h3>
+
+            <p>
+
+                يكون سجود السهو بعد السلام في الصورة
+                المشهورة عند الحنفية.
+
+            </p>
+
+        </div>
+
+
+        <div class="fiqh-card">
+
+            <span class="sub-tag">
+                الحنبلي
+            </span>
+
+            <h3>
+                سجود السهو
+            </h3>
+
+            <p>
+
+                يختلف موضعه بحسب سبب السهو من زيادة
+                أو نقص أو شك.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         المساعد
+    ========================== -->
+
+    <section id="ai" class="section">
+
+        <h2>
+            <i class="fa-solid fa-robot"></i>
+            المساعد القرآني والفقهي
+        </h2>
+
+
+        <div class="notice">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            هذا المساعد يقدم معلومات عامة للتثقيف،
+            ولا يُغني عن سؤال عالم موثوق في المسائل الخاصة
+            أو الفتاوى.
+
+        </div>
+
+
+        <div class="ai-chat-box"
+             id="aiChatContainer">
+
+            <div class="ai-msg">
+
+                <i class="fa-solid fa-robot"></i>
+
+                أهلاً بك! اكتب سؤالك حول القرآن أو الوضوء
+                أو الصلاة أو الأذكار.
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <input type="text"
+                   id="aiQuestionInput"
+                   placeholder="اكتب سؤالك هنا...">
+
+        </div>
+
+
+        <button class="btn"
+                onclick="askAI()">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            إرسال السؤال
+
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         التسميع
+    ========================== -->
+
+    <section id="recite" class="section">
+
+        <h2>
+            <i class="fa-solid fa-microphone"></i>
+            التسميع والترديد
+        </h2>
+
+
+        <div class="mode-selector">
+
+            <button class="mode-btn active"
+                    id="btnModeRecite"
+                    onclick="setReciteMode('direct')">
+
+                <i class="fa-solid fa-microphone"></i>
+
+                تسميع مباشر
+
+            </button>
+
+
+            <button class="mode-btn"
+                    id="btnModeRepeat"
+                    onclick="setReciteMode('repeat')">
+
+                <i class="fa-solid fa-headphones"></i>
+
+                استماع وترديد
+
+            </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+
+                <i class="fa-solid fa-book-quran"></i>
+
+                اختر السورة
+
+            </label>
+
+            <select id="surahSelect"
+                    onchange="updateRepeatAudio()">
+            </select>
+
+        </div>
+
+
+        <div id="repeatSection"
+             style="display:none;"
+             class="user-card">
+
+            <p style="font-size:13px;">
+
+                استمع للقارئ ثم كرر خلفه.
+
+            </p>
+
+            <audio id="repeatAudio"
+                   class="audio-player"
+                   controls>
+            </audio>
+
+        </div>
+
+
+        <button class="btn"
+                id="recordBtn"
+                onclick="toggleRecord()">
+
+            <i class="fa-solid fa-microphone"></i>
+
+            ابدأ التسميع
+
+        </button>
+
+
+        <div class="record-status">
+
+            <h4>
+
+                <i class="fa-solid fa-square-poll-vertical"></i>
+
+                نتيجة التسميع
+
+            </h4>
+
+            <p id="reciteResult">
+
+                في انتظار التلاوة...
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الاختبار
+    ========================== -->
+
+    <section id="quiz" class="section">
+
+        <h2>
+            <i class="fa-solid fa-circle-question"></i>
+            الاختبار الديني
+        </h2>
+
+
+        <div class="score-box">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            النقاط:
+
+            <span id="score">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="user-card">
+
+            <h3 id="questionText">
+
+                جاري تحميل السؤال...
+
+            </h3>
+
+
+            <div id="optionsContainer"></div>
+
+
+            <p id="quizFeedback"
+               style="font-weight:bold;">
+            </p>
+
+
+            <button class="btn"
+                    id="nextBtn"
+                    style="display:none;"
+                    onclick="loadNextQuestion()">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                السؤال التالي
+
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       السور
+    ========================================= */
+
+    const surahs = [
+        "1. الفاتحة","2. البقرة","3. آل عمران","4. النساء",
+        "5. المائدة","6. الأنعام","7. الأعراف","8. الأنفال",
+        "9. التوبة","10. يونس","11. هود","12. يوسف",
+        "13. الرعد","14. إبراهيم","15. الحجر","16. النحل",
+        "17. الإسراء","18. الكهف","19. مريم","20. طه",
+        "21. الأنبياء","22. الحج","23. المؤمنون","24. النور",
+        "25. الفرقان","26. الشعراء","27. النمل","28. القصص",
+        "29. العنكبوت","30. الروم","31. لقمان","32. السجدة",
+        "33. الأحزاب","34. سبأ","35. فاطر","36. يس",
+        "37. الصافات","38. ص","39. الزمر","40. غافر",
+        "41. فصلت","42. الشورى","43. الزخرف","44. الدخان",
+        "45. الجاثية","46. الأحقاف","47. محمد","48. الفتح",
+        "49. الحجرات","50. ق","51. الذاريات","52. الطور",
+        "53. النجم","54. القمر","55. الرحمن","56. الواقعة",
+        "57. الحديد","58. المجادلة","59. الحشر","60. الممتحنة",
+        "61. الصف","62. الجمعة","63. المنافقون","64. التغابن",
+        "65. الطلاق","66. التحريم","67. الملك","68. القلم",
+        "69. الحاقة","70. المعارج","71. نوح","72. الجن",
+        "73. المزمل","74. المدثر","75. القيامة","76. الإنسان",
+        "77. المرسلات","78. النبأ","79. النازعات","80. عبس",
+        "81. التكوير","82. الانفطار","83. المطففين","84. الانشقاق",
+        "85. البروج","86. الطارق","87. الأعلى","88. الغاشية",
+        "89. الفجر","90. البلد","91. الشمس","92. الليل",
+        "93. الضحى","94. الشرح","95. التين","96. العلق",
+        "97. القدر","98. البينة","99. الزلزلة","100. العاديات",
+        "101. القارعة","102. التكاثر","103. العصر","104. الهمزة",
+        "105. الفيل","106. قريش","107. الماعون","108. الكوثر",
+        "109. الكافرون","110. النصر","111. المسد","112. الإخلاص",
+        "113. الفلق","114. الناس"
+    ];
+
+
+    /* =========================================
+       الأسئلة
+    ========================================= */
+
+    const questions = [
+
+        {
+            q: "كم عدد فرائض الوضوء عند المالكية؟",
+            options: [
+                "4 فرائض",
+                "6 فرائض",
+                "7 فرائض"
+            ],
+            correct: 2
+        },
+
+        {
+            q: "ما أطول سورة في القرآن؟",
+            options: [
+                "آل عمران",
+                "البقرة",
+                "النساء"
+            ],
+            correct: 1
+        },
+
+        {
+            q: "ما السورة التي تعدل ثلث القرآن؟",
+            options: [
+                "الفاتحة",
+                "الإخلاص",
+                "يس"
+            ],
+            correct: 1
+        },
+
+        {
+            q: "كم عدد الصلوات المفروضة في اليوم والليلة؟",
+            options: [
+                "3",
+                "5",
+                "7"
+            ],
+            correct: 1
+        },
+
+        {
+            q: "ما أعظم آية في القرآن؟",
+            options: [
+                "آية الكرسي",
+                "آية الدين",
+                "آخر آية من البقرة"
+            ],
+            correct: 0
+        },
+
+        {
+            q: "ما السورة التي لا تبدأ بالبسملة؟",
+            options: [
+                "التوبة",
+                "النمل",
+                "يونس"
+            ],
+            correct: 0
+        },
+
+        {
+            q: "ما أول سورة في المصحف؟",
+            options: [
+                "الفاتحة",
+                "البقرة",
+                "العلق"
+            ],
+            correct: 0
+        },
+
+        {
+            q: "كم عدد سور القرآن الكريم؟",
+            options: [
+                "110",
+                "114",
+                "120"
+            ],
+            correct: 1
+        },
+
+        {
+            q: "ما أول شهر في السنة الهجرية؟",
+            options: [
+                "رمضان",
+                "محرم",
+                "رجب"
+            ],
+            correct: 1
+        },
+
+        {
+            q: "ما الركن الثاني من أركان الإسلام؟",
+            options: [
+                "الصلاة",
+                "الزكاة",
+                "الصوم"
+            ],
+            correct: 0
+        }
+
+    ];
+
+
+    /* =========================================
+       عناصر الصفحة
+    ========================================= */
+
+    const surahSelect =
+        document.getElementById("surahSelect");
+
+    const readSurahSelect =
+        document.getElementById("readSurahSelect");
+
+
+    /* =========================================
+       إضافة السور
+    ========================================= */
+
+    surahs.forEach((surah, index) => {
+
+        const option1 =
+            document.createElement("option");
+
+        option1.value = index + 1;
+
+        option1.textContent = surah;
+
+        surahSelect.appendChild(option1);
+
+
+        const option2 =
+            document.createElement("option");
+
+        option2.value = index + 1;
+
+        option2.textContent = surah;
+
+        readSurahSelect.appendChild(option2);
+
+    });
+
+
+    /* =========================================
+       التنقل
+    ========================================= */
+
+    function showTab(tabId, btn) {
+
+        document
+            .querySelectorAll(".section")
+            .forEach(section => {
+
+                section.classList.remove("active");
+
+            });
+
+
+        document
+            .querySelectorAll(".tab-btn")
+            .forEach(button => {
+
+                button.classList.remove("active");
+
+            });
+
+
+        const target =
+            document.getElementById(tabId);
+
+        if (target) {
+            target.classList.add("active");
+        }
+
+
+        if (btn) {
+            btn.classList.add("active");
+        }
+
+    }
+
+
+    /* =========================================
+       الحساب
+    ========================================= */
+
+    function saveAccount() {
+
+        const fname =
+            document.getElementById("firstName")
+            .value.trim();
+
+        const lname =
+            document.getElementById("lastName")
+            .value.trim();
+
+
+        if (!fname || !lname) {
+
+            alert("يرجى كتابة الاسم الأول واللقب.");
+
+            return;
+        }
+
+
+        localStorage.setItem(
+            "quranUser",
+            JSON.stringify({
+                fname: fname,
+                lname: lname
+            })
+        );
+
+
+        loadAccount();
+
+    }
+
+
+    function loadAccount() {
+
+        let user = null;
+
+
+        try {
+
+            user =
+                JSON.parse(
+                    localStorage.getItem("quranUser")
+                );
+
+        } catch (error) {
+
+            user = null;
+
+        }
+
+
+        if (user) {
+
+            document
+                .getElementById("dispFullName")
+                .textContent =
+                `${user.fname} ${user.lname}`;
+
+
+            document
+                .getElementById("accountForm")
+                .style.display = "none";
+
+
+            document
+                .getElementById("accountDisplay")
+                .style.display = "block";
+
+
+            document
+                .getElementById("accountTitle")
+                .textContent =
+                "بيانات الحساب";
+
+
+            document
+                .getElementById("navTabs")
+                .style.display = "flex";
+
+        } else {
+
+            document
+                .getElementById("navTabs")
+                .style.display = "none";
+
+
+            document
+                .getElementById("accountForm")
+                .style.display = "block";
+
+
+            document
+                .getElementById("accountDisplay")
+                .style.display = "none";
+
+
+            document
+                .getElementById("accountTitle")
+                .textContent =
+                "تسجيل حساب جديد";
+
+        }
+
+    }
+
+
+    function resetAccount() {
+
+        localStorage.removeItem("quranUser");
+
+        loadAccount();
+
+    }
+
+
+    /* =========================================
+       القرآن
+    ========================================= */
+
+    async function loadSurahData() {
+
+        const surahNum =
+            readSurahSelect.value;
+
+
+        const textDisplay =
+            document.getElementById(
+                "surahTextDisplay"
+            );
+
+
+        const tafsirDisplay =
+            document.getElementById(
+                "tafsirDisplay"
+            );
+
+
+        textDisplay.innerHTML =
+            `<div class="loading">
+                <i class="fa-solid fa-spinner"></i>
+                <br>
+                جاري تحميل القرآن...
+             </div>`;
+
+
+        tafsirDisplay.innerHTML =
+            `<div class="loading">
+                <i class="fa-solid fa-spinner"></i>
+                <br>
+                جاري تحميل التفسير...
+             </div>`;
+
+
+        try {
+
+            const res =
+                await fetch(
+                    `https://api.alquran.cloud/v1/surah/${surahNum}`
+                );
+
+
+            if (!res.ok) {
+                throw new Error("Quran API error");
+            }
+
+
+            const data =
+                await res.json();
+
+
+            let fullText = "";
+
+
+            data.data.ayahs.forEach(ayah => {
+
+                fullText +=
+                    `${ayah.text} ﴿${ayah.numberInSurah}﴾ `;
+
+            });
+
+
+            textDisplay.textContent =
+                fullText;
+
+
+            /* الجلالين وليس الميسر */
+
+            const tafsirRes =
+                await fetch(
+                    `https://api.alquran.cloud/v1/surah/${surahNum}/ar.jalalayn`
+                );
+
+
+            if (!tafsirRes.ok) {
+                throw new Error("Tafsir API error");
+            }
+
+
+            const tafsirData =
+                await tafsirRes.json();
+
+
+            let fullTafsir = "";
+
+
+            tafsirData.data.ayahs.forEach(ayah => {
+
+                fullTafsir +=
+                    `﴿${ayah.numberInSurah}﴾ ${ayah.text}\n\n`;
+
+            });
+
+
+            tafsirDisplay.textContent =
+                fullTafsir;
+
+
+            updateAudioSource();
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            textDisplay.textContent =
+                "تعذر تحميل النص القرآني. تحقق من اتصال الإنترنت.";
+
+
+            tafsirDisplay.textContent =
+                "تعذر تحميل التفسير.";
+
+        }
+
+    }
+
+
+    function updateAudioSource() {
+
+        const surahNum =
+            readSurahSelect.value;
+
+
+        const reciter =
+            document.getElementById(
+                "reciterSelect"
+            ).value;
+
+
+        document.getElementById(
+            "quranAudio"
+        ).src =
+            `https://cdn.islamic.network/quran/audio-surah/128/${reciter}/${surahNum}.mp3`;
+
+    }
+
+
+    /* =========================================
+       مواقيت الصلاة
+    ========================================= */
+
+    function fetchPrayerTimes() {
+
+        if (!navigator.geolocation) {
+
+            alert(
+                "المتصفح لا يدعم تحديد الموقع."
+            );
+
+            return;
+        }
+
+
+        navigator.geolocation.getCurrentPosition(
+
+            async position => {
+
+                const lat =
+                    position.coords.latitude;
+
+                const lon =
+                    position.coords.longitude;
+
+
+                try {
+
+                    const res =
+                        await fetch(
+                            `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=5`
+                        );
+
+
+                    if (!res.ok) {
+                        throw new Error("Prayer API error");
+                    }
+
+
+                    const data =
+                        await res.json();
+
+
+                    const timings =
+                        data.data.timings;
+
+
+                    document.getElementById("fajr")
+                        .textContent = timings.Fajr;
+
+
+                    document.getElementById("sunrise")
+                        .textContent = timings.Sunrise;
+
+
+                    document.getElementById("dhuhr")
+                        .textContent = timings.Dhuhr;
+
+
+                    document.getElementById("asr")
+                        .textContent = timings.Asr;
+
+
+                    document.getElementById("maghrib")
+                        .textContent = timings.Maghrib;
+
+
+                    document.getElementById("isha")
+                        .textContent = timings.Isha;
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        "تعذر تحميل مواقيت الصلاة."
+                    );
+
+                }
+
+            },
+
+            error => {
+
+                console.error(error);
+
+                alert(
+                    "لم يتم السماح بالوصول إلى الموقع. يمكنك تفعيل الموقع من إعدادات المتصفح."
+                );
+
+            },
+
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 600000
+            }
+
+        );
+
+    }
+
+
+    /* =========================================
+       المساعد
+    ========================================= */
+
+    function askAI() {
+
+        const input =
+            document.getElementById(
+                "aiQuestionInput"
+            );
+
+
+        const container =
+            document.getElementById(
+                "aiChatContainer"
+            );
+
+
+        const qText =
+            input.value.trim();
+
+
+        if (!qText) {
+            return;
+        }
+
+
+        const userDiv =
+            document.createElement("div");
+
+
+        userDiv.className =
+            "user-msg";
+
+
+        userDiv.innerHTML =
+            `<i class="fa-solid fa-user"></i>
+             ${escapeHTML(qText)}`;
+
+
+        container.appendChild(userDiv);
+
+
+        input.value = "";
+
+
+        const aiDiv =
+            document.createElement("div");
+
+
+        aiDiv.className =
+            "ai-msg";
+
+
+        aiDiv.innerHTML =
+            `<i class="fa-solid fa-spinner fa-spin"></i>
+             جاري تحليل السؤال...`;
+
+
+        container.appendChild(aiDiv);
+
+
+        container.scrollTop =
+            container.scrollHeight;
+
+
+        setTimeout(() => {
+
+            const q =
+                qText.toLowerCase();
+
+
+            let answer;
+
+
+            if (
+                q.includes("وضوء") ||
+                q.includes("يتوضأ") ||
+                q.includes("مسح")
+            ) {
+
+                answer =
+                    "أحكام الوضوء تختلف في بعض التفاصيل بين المذاهب الأربعة، ويمكنك فتح قسم «الوضوء» في التطبيق لمقارنة أشهر الفروق.";
+
+            }
+
+            else if (
+                q.includes("سهو") ||
+                q.includes("نسي") ||
+                q.includes("زيادة")
+            ) {
+
+                answer =
+                    "سجود السهو له تفاصيل تختلف باختلاف المذهب وسبب السهو، مثل الزيادة أو النقص أو الشك. راجع قسم «السهو» في التطبيق، وللحالات الشخصية يُستحسن سؤال عالم موثوق.";
+
+            }
+
+            else if (
+                q.includes("ذكر") ||
+                q.includes("استغفار") ||
+                q.includes("تسبيح")
+            ) {
+
+                answer =
+                    "من الأذكار المشهورة: سبحان الله وبحمده، والاستغفار، وسيد الاستغفار. يمكنك فتح قسم «الأذكار» للاطلاع على مجموعة من الأذكار.";
+
+            }
+
+            else if (
+                q.includes("قرآن") ||
+                q.includes("سورة") ||
+                q.includes("آية")
+            ) {
+
+                answer =
+                    "يمكنك الانتقال إلى قسم «القرآن» واختيار السورة للاستماع إليها وقراءة نصها والتفسير المتاح.";
+
+            }
+
+            else {
+
+                answer =
+                    "لم أتمكن من تحديد المسألة بدقة. هذا المساعد في هذه النسخة يعمل بصورة محلية ولا يمثل فتوى شرعية. في المسائل الفقهية الخاصة، يُنصح بالرجوع إلى مصدر علمي موثوق.";
+
+            }
+
+
+            aiDiv.innerHTML =
+                `<i class="fa-solid fa-robot"></i>
+                 ${answer}`;
+
+
+            container.scrollTop =
+                container.scrollHeight;
+
+        }, 700);
+
+    }
+
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =========================================
+       التسميع
+    ========================================= */
+
+    function setReciteMode(mode) {
+
+        const repeatSection =
+            document.getElementById(
+                "repeatSection"
+            );
+
+
+        const btnRecite =
+            document.getElementById(
+                "btnModeRecite"
+            );
+
+
+        const btnRepeat =
+            document.getElementById(
+                "btnModeRepeat"
+            );
+
+
+        if (mode === "repeat") {
+
+            repeatSection.style.display =
+                "block";
+
+
+            btnRepeat.classList.add("active");
+
+            btnRecite.classList.remove("active");
+
+
+            updateRepeatAudio();
+
+        } else {
+
+            repeatSection.style.display =
+                "none";
+
+
+            btnRecite.classList.add("active");
+
+            btnRepeat.classList.remove("active");
+
+        }
+
+    }
+
+
+    function updateRepeatAudio() {
+
+        const surahNum =
+            surahSelect.value;
+
+
+        document.getElementById(
+            "repeatAudio"
+        ).src =
+            `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${surahNum}.mp3`;
+
+    }
+
+
+    let isRecording = false;
+
+    let mediaRecorder = null;
+
+    let audioChunks = [];
+
+
+    async function toggleRecord() {
+
+        const btn =
+            document.getElementById(
+                "recordBtn"
+            );
+
+
+        const result =
+            document.getElementById(
+                "reciteResult"
+            );
+
+
+        const selectedSurah =
+            surahSelect.options[
+                surahSelect.selectedIndex
+            ].text;
+
+
+        if (!isRecording) {
+
+            if (!navigator.mediaDevices ||
+                !navigator.mediaDevices.getUserMedia) {
+
+                result.textContent =
+                    "المتصفح لا يدعم تسجيل الصوت.";
+
+                return;
+
+            }
+
+
+            try {
+
+                const stream =
+                    await navigator
+                        .mediaDevices
+                        .getUserMedia({
+                            audio: true
+                        });
+
+
+                audioChunks = [];
+
+
+                mediaRecorder =
+                    new MediaRecorder(stream);
+
+
+                mediaRecorder.ondataavailable =
+                    event => {
+
+                        if (event.data.size > 0) {
+                            audioChunks.push(
+                                event.data
+                            );
+                        }
+
+                    };
+
+
+                mediaRecorder.onstop =
+                    () => {
+
+                        stream
+                            .getTracks()
+                            .forEach(
+                                track =>
+                                track.stop()
+                            );
+
+
+                        result.innerHTML =
+                            `<i class="fa-solid fa-circle-check"
+                                style="color:#198754"></i>
+                             تم تسجيل تلاوتك لسورة
+                             <strong>${selectedSurah}</strong>.
+                             <br><br>
+                             التسجيل متاح، لكن التصحيح الآلي
+                             الدقيق للتلاوة يحتاج إلى محرك
+                             متخصص بالتعرف على التلاوة القرآنية.`;
+
+                    };
+
+
+                mediaRecorder.start();
+
+
+                isRecording = true;
+
+
+                btn.classList.add("recording");
+
+
+                btn.innerHTML =
+                    `<i class="fa-solid fa-stop"></i>
+                     إيقاف التسميع`;
+
+
+                result.innerHTML =
+                    `<span class="recording">
+                        <i class="fa-solid fa-circle"></i>
+                        جاري التسجيل لسورة ${selectedSurah}...
+                     </span>`;
+
+            } catch (error) {
+
+                console.error(error);
+
+                result.textContent =
+                    "تعذر الوصول إلى الميكروفون. تحقق من صلاحية الميكروفون.";
+
+            }
+
+        } else {
+
+            if (mediaRecorder &&
+                mediaRecorder.state !== "inactive") {
+
+                mediaRecorder.stop();
+
+            }
+
+
+            isRecording = false;
+
+
+            btn.classList.remove("recording");
+
+
+            btn.innerHTML =
+                `<i class="fa-solid fa-microphone"></i>
+                 ابدأ التسميع`;
+
+        }
+
+    }
+
+
+    /* =========================================
+       السبحة
+    ========================================= */
+
+    let count =
+        Number(
+            localStorage.getItem(
+                "dhikrCounter"
+            )
+        ) || 0;
+
+
+    function updateCounterDisplay() {
+
+        document.getElementById(
+            "counterDisplay"
+        ).textContent =
+            count;
+
+    }
+
+
+    function incrementCounter() {
+
+        count++;
+
+
+        localStorage.setItem(
+            "dhikrCounter",
+            count
+        );
+
+
+        updateCounterDisplay();
+
+    }
+
+
+    function resetCounter() {
+
+        count = 0;
+
+
+        localStorage.setItem(
+            "dhikrCounter",
+            count
+        );
+
+
+        updateCounterDisplay();
+
+    }
+
+
+    /* =========================================
+       الاختبار
+    ========================================= */
+
+    let currentQuestionIndex = 0;
+
+    let score = 0;
+
+    let answered = false;
+
+
+    function renderQuestion() {
+
+        const question =
+            questions[
+                currentQuestionIndex
+            ];
+
+
+        answered = false;
+
+
+        document.getElementById(
+            "questionText"
+        ).textContent =
+            `${currentQuestionIndex + 1}. ${question.q}`;
+
+
+        document.getElementById(
+            "quizFeedback"
+        ).textContent = "";
+
+
+        document.getElementById(
+            "nextBtn"
+        ).style.display =
+            "none";
+
+
+        const optionsContainer =
+            document.getElementById(
+                "optionsContainer"
+            );
+
+
+        optionsContainer.innerHTML = "";
+
+
+        question.options.forEach(
+            (option, index) => {
+
+                const div =
+                    document.createElement("div");
+
+
+                div.className =
+                    "quiz-option";
+
+
+                div.textContent =
+                    option;
+
+
+                div.onclick =
+                    () => checkAnswer(
+                        index,
+                        div
+                    );
+
+
+                optionsContainer.appendChild(div);
+
+            }
+        );
+
+    }
+
+
+    function checkAnswer(
+        selectedIndex,
+        selectedElement
+    ) {
+
+        if (answered) {
+            return;
+        }
+
+
+        answered = true;
+
+
+        const question =
+            questions[
+                currentQuestionIndex
+            ];
+
+
+        const feedback =
+            document.getElementById(
+                "quizFeedback"
+            );
+
+
+        const options =
+            document.querySelectorAll(
+                ".quiz-option"
+            );
+
+
+        options.forEach(
+            option => {
+
+                option.onclick = null;
+
+            }
+        );
+
+
+        if (
+            selectedIndex ===
+            question.correct
+        ) {
+
+            selectedElement.classList.add(
+                "correct"
+            );
+
+
+            feedback.textContent =
+                "إجابة صحيحة! أحسنت 🌟";
+
+
+            feedback.style.color =
+                "#198754";
+
+
+            score += 10;
+
+
+            document.getElementById(
+                "score"
+            ).textContent =
+                score;
+
+        } else {
+
+            selectedElement.classList.add(
+                "wrong"
+            );
+
+
+            options[
+                question.correct
+            ].classList.add(
+                "correct"
+            );
+
+
+            feedback.textContent =
+                `إجابة خاطئة ❌ الإجابة الصحيحة: ${question.options[question.correct]}`;
+
+
+            feedback.style.color =
+                "#dc3545";
+
+        }
+
+
+        document.getElementById(
+            "nextBtn"
+        ).style.display =
+            "block";
+
+    }
+
+
+    function loadNextQuestion() {
+
+        currentQuestionIndex =
+            (
+                currentQuestionIndex + 1
+            ) % questions.length;
+
+
+        renderQuestion();
+
+    }
+
+
+    /* =========================================
+       الوضع الليلي
+    ========================================= */
+
+    function toggleTheme() {
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+        const dark =
+            document.body.classList.contains(
+                "dark"
+            );
+
+
+        localStorage.setItem(
+            "darkMode",
+            dark
+        );
+
+
+        const icon =
+            document.querySelector(
+                ".theme-btn i"
+            );
+
+
+        if (dark) {
+
+            icon.className =
+                "fa-solid fa-sun";
+
+        } else {
+
+            icon.className =
+                "fa-solid fa-moon";
+
+        }
+
+    }
+
+
+    function loadTheme() {
+
+        const dark =
+            localStorage.getItem(
+                "darkMode"
+            ) === "true";
+
+
+        if (dark) {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+
+            document.querySelector(
+                ".theme-btn i"
+            ).className =
+                "fa-solid fa-sun";
+
+        }
+
+    }
+
+
+    /* =========================================
+       التشغيل
+    ========================================= */
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            loadTheme();
+
+            loadAccount();
+
+            updateCounterDisplay();
+
+            fetchPrayerTimes();
+
+            loadSurahData();
+
+            renderQuestion();
+
+        }
+    );
+
+
+    /* =========================================
+       زر Enter للمساعد
+    ========================================= */
+
+    document
+        .getElementById(
+            "aiQuestionInput"
+        )
+        .addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+
+                    askAI();
+
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+</html>
